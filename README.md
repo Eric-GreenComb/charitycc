@@ -27,11 +27,6 @@
 
 ## Interface
 
-###
-
-### Deploy ChainCode
-
-
 ### registerBank
 
     {
