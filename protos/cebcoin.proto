@@ -1,0 +1,41 @@
+
+syntax = "proto3";
+
+package protos;
+
+// account model digitalAssets
+message Account {
+    string addr = 1;
+    uint64 balance = 2;
+    string rsaPublicKey = 3;
+    map<string, TX.TXOUT> txouts = 4;
+}
+
+// utxo tx
+message TX {
+    uint64 version = 1;
+    int64 timestamp = 2;
+    // txin not specified who has this txin, because creator can use their txout only, txin must be creator's previous txout
+    message TXIN {
+        uint32 idx = 1;
+        string sourceTxHash = 2;
+        // indicate owner's addr
+        string addr = 3;
+    }
+    repeated TXIN txin = 3;
+
+    message TXOUT {
+        uint32 idx = 1;
+        string txHash = 2;    
+        uint64 value = 3;
+        string addr = 4; // who will receive this txout
+        string attr = 5; // coin attr
+        int64 until = 6; // until xx timestamp, any one cant spend the txout
+        string sign = 7; // owner sign
+    }
+    repeated TXOUT txout = 4;
+
+    string InputData = 5;
+
+    string founder = 6; // who created this tx
+}

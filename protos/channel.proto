@@ -1,0 +1,21 @@
+
+syntax = "proto3";
+
+package protos;
+
+// Channel model 
+message Channel {
+    string addr = 1;
+    string id = 2;
+    string name = 3;
+    uint64 balance = 4;
+    repeated ChannelFee fees = 5;
+}
+
+// ChannelFee model 
+message ChannelFee {
+    string name = 1;
+    uint64 amount = 3;
+    int64 timestamp = 4;
+}
+

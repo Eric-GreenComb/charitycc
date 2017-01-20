@@ -1,0 +1,43 @@
+
+syntax = "proto3";
+
+package protos;
+
+// Treaty model 
+message Treaty {
+    string addr = 1;
+    string id = 2;
+    string name = 3;
+    string detail = 4;
+    uint64 goal = 5;
+    string partyA = 6;
+    string partyB = 7;
+    uint64 type = 8;
+    uint64 fundManangerFee = 9;
+    uint64 channelFee = 10;
+    int64 createTimestamp = 11;
+    int64 utilTimestamp = 12;
+    int64 terminationTimestamp = 13;
+    string remark = 14;
+    string attach = 15;
+    repeated TContract tContract = 16;
+    string foundation = 17;
+    uint64 banlance = 18;
+    repeated TransHistory trans = 19;
+    uint64 status = 20;
+}
+
+message TContract {
+	string name = 1;
+    string partyA = 2;
+    string partyB = 3;
+    int64 signedTimestamp = 4;	
+	string hash = 5;
+}
+
+message TransHistory {
+    string name = 1;
+    string type = 2;
+    string value = 3;
+    int64 signedTimestamp = 4;  
+}

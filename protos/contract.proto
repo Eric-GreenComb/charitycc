@@ -1,0 +1,27 @@
+
+syntax = "proto3";
+
+package protos;
+
+// Contract model 
+message Contract {
+    string addr = 1;
+    string id = 2;
+    string name = 3;
+    string detail = 4;
+    string startTime = 5;
+    string endTime = 6;
+    string partyA = 7;
+    string partyB = 8;
+    string depositBank = 9;
+    string bankAccount = 10;
+    string remark = 11;
+    int64 status = 12;
+    repeated AttachFile attachFiles = 13;
+}
+
+message AttachFile {
+	string name = 1;
+	string hash = 2;
+}
+
