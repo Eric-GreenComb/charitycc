@@ -52,15 +52,15 @@ func QueryBank(store store.Store, args []string) ([]byte, error) {
 // GetBank get bank account
 func Coinbase(store store.Store, args []string) ([]byte, error) {
 
-	base64TxData := args[2]
+	base64TxData := args[1]
 	txData, err := base64.StdEncoding.DecodeString(base64TxData)
 	if err != nil {
 		return nil, errors.Base64Decoding
 	}
 
-	newTX, err := utils.ParseTxByBytes(txData)
+	newTX, err := utils.ParseTxByJsonBytes(txData)
 	if err != nil {
-		return nil, err
+		return nil, errors.InvalidTX
 	}
 
 	if newTX.Founder == "" {

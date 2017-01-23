@@ -3,6 +3,7 @@ package utils
 import (
 	"crypto/sha256"
 	"encoding/hex"
+	"encoding/json"
 	"github.com/CebEcloudTime/charitycc/protos"
 	"github.com/golang/protobuf/proto"
 )
@@ -11,6 +12,18 @@ import (
 func ParseTxByBytes(txData []byte) (*protos.TX, error) {
 	tx := new(protos.TX)
 	err := proto.Unmarshal(txData, tx)
+	if err != nil {
+		return nil, err
+	}
+
+	return tx, nil
+}
+
+// ParseTxByJsonBytes unmarshal txData into TX object
+func ParseTxByJsonBytes(txData []byte) (*protos.TX, error) {
+
+	tx := new(protos.TX)
+	err := json.Unmarshal(txData, tx)
 	if err != nil {
 		return nil, err
 	}

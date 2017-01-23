@@ -35,7 +35,7 @@
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"39478daf42f74d985e636de584f2bcdddd03cb396cffc2fb1e3a2bb01a7d5fa1e3738c9c59f5a8b17c7470981a290359973060790ab0c6af1e5e758b984f91aa"
+    "name":"0e16716224f7bb30361911ebc2eee510df1cfe2c757e42b18f2bd4227c4d9996176161a6da811a09450b277c65fd72324b378b2f2d4279552afde2695d8e43dc"
     },
     "ctorMsg": {
     "function":"registerBank",
@@ -54,7 +54,7 @@
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"39478daf42f74d985e636de584f2bcdddd03cb396cffc2fb1e3a2bb01a7d5fa1e3738c9c59f5a8b17c7470981a290359973060790ab0c6af1e5e758b984f91aa"
+    "name":"0e16716224f7bb30361911ebc2eee510df1cfe2c757e42b18f2bd4227c4d9996176161a6da811a09450b277c65fd72324b378b2f2d4279552afde2695d8e43dc"
     },
     "ctorMsg": {
     "function":"queryBank",
@@ -64,6 +64,25 @@
     },
     "id": 5
     }
+
+### coinbase
+
+    {
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"0e16716224f7bb30361911ebc2eee510df1cfe2c757e42b18f2bd4227c4d9996176161a6da811a09450b277c65fd72324b378b2f2d4279552afde2695d8e43dc"
+    },
+    "ctorMsg": {
+    "function":"coinbase",
+    "args":["cebbank:71266a9913375add341f1f7a4a606a2ee4e24efaf59bb2a3eb4b71aaaf5fb3fe","eyJ2ZXJzaW9uIjoxNzAxMDAxLCJ0aW1lc3RhbXAiOjE0ODUxNTcyOTIsInR4b3V0IjpbeyJ0eEhhc2giOiJ0eElESGFzaCIsInZhbHVlIjoxMDAwMDAwMDAwMDAwLCJhZGRyIjoiY2ViYmFuazo3MTI2NmE5OTEzMzc1YWRkMzQxZjFmN2E0YTYwNmEyZWU0ZTI0ZWZhZjU5YmIyYTNlYjRiNzFhYWFmNWZiM2ZlIiwic2lnbiI6ImIyOXVmUFlJU3MxQzdYWmMxbjhXcFdmaktUMUE0S1lJZ3JhRjdsbDBsM081NitZQThHdnk3WjdFbzZiSkUyOUZLRVZxUVBDaGY1RmVJOWg2QjFGdG9nbktvMFBVaDdMaUhaZnRsOVdlVjJCMVJMcmxwMGRlTlVvMU5TRUw3Qk03bVdLYi85ZjVQVlJ2WnVYY2lQaEdQVFpZaCtYWkdiT3JNMnJ4N0ZHYVorUT0ifV0sImZvdW5kZXIiOiJlcmljIn0=","jT9HO1vO3blGUSZ1tE1usKmzgdJhHl6Ia9moGpfYEvhSx8gMkclzU19AAv1/6k1g2BhLJw4MDqVMj8MBzm8NgHjOcD5oD0/+hOrAy+nIdOw9CZeSAnu5lOBKgb+XRqqq/WBJRFhpgwaJQAkYwNXQjtz56D7E2oedX3rtYxTPWwY="]
+    },
+    "secureContext":  "jim"
+    },
+    "id": 3
+    } 
  
 
 ## Process

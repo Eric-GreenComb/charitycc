@@ -18,7 +18,7 @@ func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 		// args: bankID,publicKey(bank base64),sysadminSign(base64)
 		return handler.RegisterBank(storeCC, args)
 	case "coinbase":
-		// args: addr(%s:%s id, publickey -> sha256 -> sha256 -> hex),txData(coinbase tx Base64),bankSign(base64)
+		// args: addr,txData(coinbase tx Base64),bankSign(base64)
 		return handler.Coinbase(storeCC, args)
 	case "changeCoin":
 		// args: bankID,publicKey(bank base64),amount(change amount), txData(coinbase tx Base64),bankSign(base64)

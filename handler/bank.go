@@ -44,31 +44,30 @@ func RegisterBank(store store.Store, args []string) ([]byte, error) {
 // Coinbase bank coinbase
 func Coinbase(store store.Store, args []string) ([]byte, error) {
 
-	if len(args) != 4 {
+	if len(args) != 3 {
 		return nil, errors.IncorrectNumberArguments
 	}
 
-	if args[0] == "" || args[1] == "" || args[2] == "" || args[3] == "" {
+	if args[0] == "" || args[1] == "" || args[2] == "" {
 		return nil, errors.InvalidArgs
 	}
 
-	bankID := args[0]
-	base64PublicKey := args[1]
-	publicKey, err := base64.StdEncoding.DecodeString(base64PublicKey)
+	bankRsaPublicKey, err := service.QueryAccountRsaPublicKey(store, args[0])
 	if err != nil {
-		return nil, errors.Base64Decoding
+		return nil, err
 	}
-	base64TxData := args[2]
 
-	base64Sign := args[3]
+	base64TxData := args[1]
+
+	base64Sign := args[2]
 	bankSign, err := base64.StdEncoding.DecodeString(base64Sign)
 	if err != nil {
 		return nil, errors.Base64Decoding
 	}
 
-	hash := sha256.Sum256([]byte(bankID + base64PublicKey + base64TxData))
+	hash := sha256.Sum256([]byte(base64TxData))
 
-	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], publicKey, bankSign)
+	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], bankRsaPublicKey, bankSign)
 	if !bVerify {
 		return nil, errors.VerifyRsaSign
 	}

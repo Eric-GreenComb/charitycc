@@ -1,7 +1,9 @@
 package service
 
 import (
+	"encoding/base64"
 	"encoding/json"
+
 	"github.com/CebEcloudTime/charitycc/core/store"
 	"github.com/CebEcloudTime/charitycc/errors"
 	"github.com/CebEcloudTime/charitycc/protos"
@@ -44,4 +46,26 @@ func QueryAccount(store store.Store, args []string) ([]byte, error) {
 	}
 
 	return json.Marshal(account)
+}
+
+// QueryAccountObj
+func QueryAccountObj(store store.Store, addr string) (*protos.Account, error) {
+
+	account, err := store.GetAccount(addr)
+	if err != nil {
+		return nil, err
+	}
+
+	return account, nil
+}
+
+// QueryAccountObj
+func QueryAccountRsaPublicKey(store store.Store, addr string) ([]byte, error) {
+
+	account, err := store.GetAccount(addr)
+	if err != nil {
+		return nil, err
+	}
+
+	return base64.StdEncoding.DecodeString(account.RsaPublicKey)
 }
