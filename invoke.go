@@ -17,23 +17,20 @@ func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 	case "registerBank":
 		// args: bankID,publicKey(bank base64),sysadminSign(base64)
 		return handler.RegisterBank(storeCC, args)
+
 	case "coinbase":
-		// args: addr,txData(coinbase tx Base64),bankSign(base64)
+		// args: addr, txData(coinbase tx Base64),bankSign(base64)
 		return handler.Coinbase(storeCC, args)
+	case "destroycoinbase":
+		// args: targetAddr, bankAddr, bankSign(base64)
+		return handler.DestoryCoinbase(storeCC, args)
 	case "changeCoin":
-		// args: bankID,publicKey(bank base64),amount(change amount), txData(coinbase tx Base64),bankSign(base64)
+		// args: sourceAddr, txData(coinbase tx Base64),sourcSign(base64)
 		return handler.ChangeCoin(storeCC, args)
 
-	case "registerChannelAccount":
-		// args: channelID,publicKey(channel base64),channelSign(base64)
-		return handler.RegisterChannelAccount(storeCC, args)
-
-	case "registerFoundationAccount":
-		// args: foundationID,publicKey(foundation base64),foundationSign(base64)
-		return handler.RegisterFoundationAccount(storeCC, args)
-	case "registerTreatyAccount":
-		// args: treatyID,publicKey(treaty base64),treatySign(base64)
-		return handler.RegisterTreatyAccount(storeCC, args)
+	case "registerAccount":
+		// args: ID,publicKey(ID base64),sysadminSign(base64)
+		return handler.RegisterAccount(storeCC, args)
 
 	case "doDonate":
 		// args: business(Business id),donorID,publicKey(donor base64),channelID,publicKey(channel base64),treatyid,value,sign(base64)

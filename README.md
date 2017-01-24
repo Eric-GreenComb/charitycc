@@ -35,7 +35,7 @@
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"0e16716224f7bb30361911ebc2eee510df1cfe2c757e42b18f2bd4227c4d9996176161a6da811a09450b277c65fd72324b378b2f2d4279552afde2695d8e43dc"
+    "name":"92705ab50e89842eb20f9885b6dbb6c85bf69267cf7db0d6f40872d7081ec5f4bf52c2db7419a53920d9e7293f708e045f6237397130a8fd8b0669deca16cebe"
     },
     "ctorMsg": {
     "function":"registerBank",
@@ -54,7 +54,7 @@
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"0e16716224f7bb30361911ebc2eee510df1cfe2c757e42b18f2bd4227c4d9996176161a6da811a09450b277c65fd72324b378b2f2d4279552afde2695d8e43dc"
+    "name":"92705ab50e89842eb20f9885b6dbb6c85bf69267cf7db0d6f40872d7081ec5f4bf52c2db7419a53920d9e7293f708e045f6237397130a8fd8b0669deca16cebe"
     },
     "ctorMsg": {
     "function":"queryBank",
@@ -64,6 +64,44 @@
     },
     "id": 5
     }
+
+### registerAccount user01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"92705ab50e89842eb20f9885b6dbb6c85bf69267cf7db0d6f40872d7081ec5f4bf52c2db7419a53920d9e7293f708e045f6237397130a8fd8b0669deca16cebe"
+    },
+    "ctorMsg": {
+    "function":"registerAccount",
+    "args":["user01","LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDcGxmMDlJNTl5SDYzRnJwSlhqMSs0WmhjZgpSOXJVVi82akhWWVAxelQ1aHlUZUwzNWQ4NVpwTzhOTDdWV2MyYVpHeDFjZ2dvRG8rRUkvMVJobDA4UHhSbFdKCi9XVGt1VzBLbDIxeGRGUXFnSnk1Q3JUeUc0SURmS2NTRkg3dG9tZzFqeVlHaHRFZ2g5TUI3RVVZNXd0M0hWZHYKWEdWQWlMbzViU3VOaVRVV2J3SURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=","qWdNBVo7E0kF3snN35CGR51oayyohZ8WOEZ4cPU2TINtohoE0epmtlZUFvXcf5xn/ZiNuapwQWf0xXH9wkaic4uM1DttoJKYjbvW2q9lfMJfa+zlmmEJjY2UauS9u9LxXTwzfgQUt9Aq5UkWfMuwrw9OfosfaLdHoPK3nkwDFFM="]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 3
+    }  
+
+### queryAccount user01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "query",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"92705ab50e89842eb20f9885b6dbb6c85bf69267cf7db0d6f40872d7081ec5f4bf52c2db7419a53920d9e7293f708e045f6237397130a8fd8b0669deca16cebe"
+    },
+    "ctorMsg": {
+    "function":"queryAccount",
+    "args":["user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a"]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 5
+    }    
 
 ### coinbase
 
@@ -83,7 +121,25 @@
     },
     "id": 3
     } 
- 
+
+### changeCoin cebbank -> user01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"d6b2de57a65f0f176a7867ff3a7796c3e6b8ed16c95837a291e37aa1465f18373f54a348180e133903608d13dc8275fe47d8e4982442e438e02bd48f8a93a7e2"
+    },
+    "ctorMsg": {
+    "function":"changeCoin",
+    "args":["cebbank:71266a9913375add341f1f7a4a606a2ee4e24efaf59bb2a3eb4b71aaaf5fb3fe","eyJ2ZXJzaW9uIjoxNzAxMDAxLCJ0aW1lc3RhbXAiOjE0ODUyNDgwMTQsInR4aW4iOlt7InNvdXJjZVR4SGFzaCI6ImViMTg3Y2JkZmQyZWQzMmRkOTAyYWJmN2VlOTk0MGY1ODFmZTFlYTg2ZTdlMmNkY2IwZTE2M2E5ZDU4NGE5MWMiLCJhZGRyIjoiY2ViYmFuazo3MTI2NmE5OTEzMzc1YWRkMzQxZjFmN2E0YTYwNmEyZWU0ZTI0ZWZhZjU5YmIyYTNlYjRiNzFhYWFmNWZiM2ZlIn1dLCJ0eG91dCI6W3sidmFsdWUiOjk5OTkwMDAwMDAwMCwiYWRkciI6ImNlYmJhbms6NzEyNjZhOTkxMzM3NWFkZDM0MWYxZjdhNGE2MDZhMmVlNGUyNGVmYWY1OWJiMmEzZWI0YjcxYWFhZjVmYjNmZSIsInNpZ24iOiJicVBLbFhpUlh3MVJobWQrU281Ti9DU002V3JEbzV6a2VkTUMwYTFwcDhzZSthbVRRMDUreTljd3d3NmJMYzdPSG0xRGRSdWZLcUViY0dtSGpBUkpzWi9Vakx6SlhNaUQvd0VYK1U1bHdjQnMrNU9GVXFXc0lEZ2NKZHNiWklLRkJDc1pCYmVDejhyaTFidE5pWDIrbXhMUkI5bkFscVJreWVBZG0zL1cwU3M9In0seyJ2YWx1ZSI6MTAwMDAwMDAwLCJhZGRyIjoidXNlcjAxOmU5NjI5ODIyMjA0YjllMzI5YTc2N2Y1YzRiZjM5OWI3N2ZhMGRmYTYzYzlkZjdiODhiMDQwYzUwMDNjMmFmM2EiLCJzaWduIjoiTUdYbjlDRFBKbnpWODAva1hYVkVRUG5zcDJUQmxySHFzRnZtN0JTWlRPbHU1SnRuUHE0Uno0RS9GbkNHR3JwK2prZ2QwemZBMWVtU3lnWTQvYmplNlRBQjM1UFd4R2N5REJOQW9lK1RKVzMxTUZJdU5wd216VGRmMXM0cXhHUUhDdFU3RHFMN0ZabU14Z3JKMy9ENStoeFpWWElwMlBVY0VyTW1leG8wczBzPSJ9XSwiZm91bmRlciI6ImVyaWMifQ==","Gp5oTUlNVE14nHlKm0Sbto1HmZdyWZVljSMI3urNLXPatkpXjQKk5RxiNl8TSPpiS/LAecB4OBQegFeQ3HeqhBZsfxPUm3AZJm7AbdDlTYLarv2qiKOyKjSouU2ckZ1bKuEc7ETZfhPCnVHtqEq03OWEtDhSzIn4OmnE1nlBd+Y="]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 3
+    }   
 
 ## Process
 

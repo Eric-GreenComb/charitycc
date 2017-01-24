@@ -18,20 +18,9 @@ func (t *CharityCC) Query(stub shim.ChaincodeStubInterface, function string, arg
 		// args: addr(%s:%s id, publickey -> sha256 -> sha256 -> hex)
 		return handler.QueryBank(storeCC, args)
 
-	case "queryChannelAccount":
+	case "queryAccount":
 		// args: addr(%s:%s id, publickey -> sha256 -> sha256 -> hex)
-		return handler.QueryDonorAccount(storeCC, args)
-
-	case "queryFoundationAccount":
-		// args: addr(%s:%s id, publickey -> sha256 -> sha256 -> hex)
-		return handler.QueryFoundationAccount(storeCC, args)
-	case "queryTreatyAccount":
-		// args: addr(%s:%s id, publickey -> sha256 -> sha256 -> hex)
-		return handler.QueryTreatyAccount(storeCC, args)
-
-	case "queryDonorAccount":
-		// args: addr(%s:%s id, publickey -> sha256 -> sha256 -> hex)
-		return handler.QueryDonorAccount(storeCC, args)
+		return handler.QueryAccount(storeCC, args)
 
 	default:
 		return nil, errors.New("Unsupported operation")

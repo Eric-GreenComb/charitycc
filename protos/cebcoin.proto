@@ -24,14 +24,11 @@ message TX {
     }
     repeated TXIN txin = 3;
 
-    message TXOUT {
-        uint32 idx = 1;
-        string txHash = 2;    
-        uint64 value = 3;
-        string addr = 4; // who will receive this txout
-        string attr = 5; // coin attr
-        int64 until = 6; // until xx timestamp, any one cant spend the txout
-        string sign = 7; // owner sign
+    message TXOUT {  
+        uint64 value = 1;
+        string addr = 2; // who will receive this txout
+        string attr = 3; // coin attr
+        string sign = 4; // owner sign
     }
     repeated TXOUT txout = 4;
 

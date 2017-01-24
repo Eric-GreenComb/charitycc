@@ -75,35 +75,69 @@ func Coinbase(store store.Store, args []string) ([]byte, error) {
 	return service.Coinbase(store, args)
 }
 
-// ChangeCoin user change coin with CNY 1yuan = 1000000 coin
-func ChangeCoin(store store.Store, args []string) ([]byte, error) {
+// DestoryCoinbase destory addr coinbase
+func DestoryCoinbase(store store.Store, args []string) ([]byte, error) {
 
-	if len(args) != 5 {
+	if len(args) != 3 {
 		return nil, errors.IncorrectNumberArguments
 	}
 
-	if args[0] == "" || args[1] == "" || args[2] == "" || args[3] == "" || args[4] == "" {
+	if args[0] == "" || args[1] == "" || args[2] == "" {
 		return nil, errors.InvalidArgs
 	}
 
-	bankID := args[0]
-	base64PublicKey := args[1]
-	publicKey, err := base64.StdEncoding.DecodeString(base64PublicKey)
+	_targetAddr := args[0]
+	_bankAddr := args[1]
+	_base64Sign := args[2]
+
+	bankRsaPublicKey, err := service.QueryAccountRsaPublicKey(store, _bankAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	bankSign, err := base64.StdEncoding.DecodeString(_base64Sign)
 	if err != nil {
 		return nil, errors.Base64Decoding
 	}
-	amount := args[2]
-	base64TxData := args[3]
 
-	base64Sign := args[4]
-	bankSign, err := base64.StdEncoding.DecodeString(base64Sign)
+	hash := sha256.Sum256([]byte(_targetAddr))
+
+	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], bankRsaPublicKey, bankSign)
+	if !bVerify {
+		return nil, errors.VerifyRsaSign
+	}
+
+	return service.DestoryCoinbase(store, args)
+}
+
+// ChangeCoin user change coin with CNY 1yuan = 1000000 coin
+func ChangeCoin(store store.Store, args []string) ([]byte, error) {
+
+	if len(args) != 3 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" || args[1] == "" || args[2] == "" {
+		return nil, errors.InvalidArgs
+	}
+
+	_sourceAddr := args[0]
+	_base64TxData := args[1]
+	_base64SourcSign := args[2]
+
+	_sourcePublicKey, err := service.QueryAccountRsaPublicKey(store, _sourceAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	_sourcSign, err := base64.StdEncoding.DecodeString(_base64SourcSign)
 	if err != nil {
 		return nil, errors.Base64Decoding
 	}
 
-	hash := sha256.Sum256([]byte(bankID + base64PublicKey + amount + base64TxData))
+	hash := sha256.Sum256([]byte(_base64TxData))
 
-	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], publicKey, bankSign)
+	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], _sourcePublicKey, _sourcSign)
 	if !bVerify {
 		return nil, errors.VerifyRsaSign
 	}

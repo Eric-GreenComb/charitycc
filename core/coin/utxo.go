@@ -1,8 +1,6 @@
 package coin
 
 import (
-	"encoding/json"
-
 	"github.com/CebEcloudTime/charitycc/core/store"
 	"github.com/CebEcloudTime/charitycc/errors"
 	"github.com/CebEcloudTime/charitycc/protos"
@@ -25,11 +23,10 @@ func MakeUTXO(store store.Store) *UTXO {
 type ExecResult struct {
 	SumCurrentOutputs uint64
 	SumPriorOutputs   uint64
-	ObjResult         []byte
 }
 
-// Execute processes the given transaction and outputs a result
-func (u *UTXO) Execute(IsCoinbase bool, newTX *protos.TX) (*ExecResult, error) {
+// Coinbase processes the given coinbase transaction and outputs a result
+func (u *UTXO) Coinbase(newTX *protos.TX) (*ExecResult, error) {
 
 	txhash := utils.GenTransactionHash(newTX)
 
@@ -52,10 +49,6 @@ func (u *UTXO) Execute(IsCoinbase bool, newTX *protos.TX) (*ExecResult, error) {
 			return nil, errors.CollisionTxOut
 		}
 
-		// store tx out into account
-		output.Idx = uint32(index)
-		output.TxHash = txhash
-
 		outerAccount.Txouts[currKey.String()] = output
 		outerAccount.Balance += output.Value
 		if err := u.store.PutAccount(outerAccount); err != nil {
@@ -63,18 +56,21 @@ func (u *UTXO) Execute(IsCoinbase bool, newTX *protos.TX) (*ExecResult, error) {
 		}
 
 		execResult.SumCurrentOutputs += output.Value
-
-		outerAccountBytes, _ := json.Marshal(outerAccount)
-		execResult.ObjResult = outerAccountBytes
 	}
 
-	// coinbase : put tran and return
-	if IsCoinbase {
-		if err := u.store.PutTran(newTX); err != nil {
-			return nil, err
-		}
-		return execResult, nil
+	if err := u.store.PutTran(newTX); err != nil {
+		return nil, err
 	}
+
+	return execResult, nil
+}
+
+// Execute processes the given transaction and outputs a result
+func (u *UTXO) Execute(newTX *protos.TX) (*ExecResult, error) {
+
+	txhash := utils.GenTransactionHash(newTX)
+
+	execResult := &ExecResult{}
 
 	// Now loop over inputs,
 	for _, ti := range newTX.Txin {
@@ -100,6 +96,32 @@ func (u *UTXO) Execute(IsCoinbase bool, newTX *protos.TX) (*ExecResult, error) {
 		}
 
 		execResult.SumPriorOutputs += txout.Value
+	}
+
+	// Loop through outputs
+	for index, output := range newTX.Txout {
+
+		outerAccount, err := u.store.GetAccount(output.Addr)
+		if err != nil {
+			return nil, errors.InvalidAccount
+		}
+
+		if outerAccount.Txouts == nil || len(outerAccount.Txouts) == 0 {
+			outerAccount.Txouts = make(map[string]*protos.TX_TXOUT)
+		}
+
+		currKey := &Key{TxHashAsHex: txhash, TxIndex: uint32(index)}
+		if _, ok := outerAccount.Txouts[currKey.String()]; ok {
+			return nil, errors.CollisionTxOut
+		}
+
+		outerAccount.Txouts[currKey.String()] = output
+		outerAccount.Balance += output.Value
+		if err := u.store.PutAccount(outerAccount); err != nil {
+			return nil, err
+		}
+
+		execResult.SumCurrentOutputs += output.Value
 	}
 
 	// one of transfer main point is in == out, no coin mined, no coin lose

@@ -13,10 +13,10 @@ import (
 // RegisterAccount register account
 func RegisterAccount(store store.Store, args []string) ([]byte, error) {
 
-	userID := args[0]
+	id := args[0]
 	publicKey := args[1]
 
-	addr := utils.GenAddr(userID, publicKey)
+	addr := utils.GenAddr(id, publicKey)
 
 	if tmpaccount, err := store.GetAccount(addr); err == nil && tmpaccount != nil && tmpaccount.Addr == addr {
 		return nil, errors.AlreadyRegisterd
