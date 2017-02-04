@@ -43,7 +43,7 @@ var (
 	TxOutLock = errors.New("tx out can be spend only after until time")
 
 	// ErrAlreadyRegisterd
-	AlreadyRegisterd = errors.New("the addr has been registerd into coin")
+	AlreadyRegisterd = errors.New("the addr has been registerd into cc")
 
 	// ErrIncorrectNumberArguments incorrect number of arguments
 	IncorrectNumberArguments = errors.New("Incorrect number of arguments")

@@ -31,6 +31,30 @@ func ParseTxByJsonBytes(txData []byte) (*protos.TX, error) {
 	return tx, nil
 }
 
+// ParseTreatyByJsonBytes unmarshal treatyData into Treaty object
+func ParseTreatyByJsonBytes(treatyData []byte) (*protos.Treaty, error) {
+
+	treaty := new(protos.Treaty)
+	err := json.Unmarshal(treatyData, treaty)
+	if err != nil {
+		return nil, err
+	}
+
+	return treaty, nil
+}
+
+// ParseContractByJsonBytes unmarshal contractData into contract object
+func ParseContractByJsonBytes(contractData []byte) (*protos.Contract, error) {
+
+	contract := new(protos.Contract)
+	err := json.Unmarshal(contractData, contract)
+	if err != nil {
+		return nil, err
+	}
+
+	return contract, nil
+}
+
 // GenTransactionHash generates the Hash for the transaction.
 func GenTransactionHash(tx *protos.TX) string {
 	txBytes, err := proto.Marshal(tx)

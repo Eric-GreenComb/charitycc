@@ -17,15 +17,17 @@ It has these top-level messages:
 	Account
 	TX
 	Channel
-	ChannelFee
+	ChannelFeeTrack
 	Contract
 	AttachFile
 	Donor
 	DonorContribution
-	DonorTracking
+	DonorTrack
 	Foundation
+	FoundationFeeTrack
 	Treaty
 	TContract
+	TreatyTrack
 	TransHistory
 */
 package protos

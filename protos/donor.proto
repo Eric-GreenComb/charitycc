@@ -8,23 +8,25 @@ message Donor {
     string addr = 1;
     string id = 2;
     string name = 3;
-    uint64 balance = 4;
-    string rsaPublicKey = 5;
-    repeated DonorContribution contributions = 6;
-    repeated DonorTracking trackings = 7;
+    uint64 total = 4;
+    repeated DonorContribution contributions = 5;
+    repeated DonorTrack trackings = 6;
 }
 
 // Donor Contribution model 
 message DonorContribution {
     string name = 1;
-    string treaty = 2;
-    uint64 amount = 3;
-    int64 timestamp = 4;
+    string treatyname = 2;
+    string treatyaddr = 3;
+    uint64 amount = 4;
+    int64 timestamp = 5;
 }
 
-// Donor Tracking model 
-message DonorTracking {
+// DonorTrack model 
+message DonorTrack {
     string name = 1;
-    uint64 amount = 2;
-    int64 timestamp = 3;
+    string contractname = 2;
+    string contractaddr = 3;    
+    uint64 amount = 4;
+    int64 timestamp = 5;
 }

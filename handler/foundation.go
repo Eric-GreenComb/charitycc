@@ -11,8 +11,8 @@ import (
 	"github.com/CebEcloudTime/charitycc/utils"
 )
 
-// RegisterFoundationAccount register foundation
-func RegisterFoundationAccount(store store.Store, args []string) ([]byte, error) {
+// RegisterTreaty register foundation treaty
+func RegisterTreaty(store store.Store, args []string) ([]byte, error) {
 
 	if len(args) != 3 {
 		return nil, errors.IncorrectNumberArguments
@@ -22,26 +22,67 @@ func RegisterFoundationAccount(store store.Store, args []string) ([]byte, error)
 		return nil, errors.InvalidArgs
 	}
 
-	foundationID := args[0]
-	publicKey := args[1]
+	_sourceAddr := args[0]
+	_base64TreatyData := args[1]
+	_base64SourcSign := args[2]
 
-	base64Sign := args[2]
-	foundationSign, err := base64.StdEncoding.DecodeString(base64Sign)
+	_sourcePublicKey, err := service.QueryAccountRsaPublicKey(store, _sourceAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	_sourcSign, err := base64.StdEncoding.DecodeString(_base64SourcSign)
 	if err != nil {
 		return nil, errors.Base64Decoding
 	}
 
-	hash := sha256.Sum256([]byte(foundationID + publicKey))
+	hash := sha256.Sum256([]byte(_base64TreatyData))
 
-	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], []byte(publicKey), foundationSign)
+	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], _sourcePublicKey, _sourcSign)
 	if !bVerify {
 		return nil, errors.VerifyRsaSign
 	}
 
-	return service.RegisterAccount(store, args)
+	return service.RegisterTreaty(store, args)
 }
 
-func QueryFoundationAccount(store store.Store, args []string) ([]byte, error) {
+// ChangeTreatyStatus change foundation treaty status
+func ChangeTreatyStatus(store store.Store, args []string) ([]byte, error) {
+
+	if len(args) != 4 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" || args[1] == "" || args[2] == "" || args[3] == "" {
+		return nil, errors.InvalidArgs
+	}
+
+	_sourceAddr := args[0]
+	_treatyAddr := args[1]
+	_treatyStatus := args[2]
+	_base64SourcSign := args[3]
+
+	_sourcePublicKey, err := service.QueryAccountRsaPublicKey(store, _sourceAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	_sourcSign, err := base64.StdEncoding.DecodeString(_base64SourcSign)
+	if err != nil {
+		return nil, errors.Base64Decoding
+	}
+
+	hash := sha256.Sum256([]byte(_treatyAddr + _treatyStatus))
+
+	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], _sourcePublicKey, _sourcSign)
+	if !bVerify {
+		return nil, errors.VerifyRsaSign
+	}
+
+	return service.ChangeTreatyStatus(store, args)
+}
+
+func QueryTreaty(store store.Store, args []string) ([]byte, error) {
 	if len(args) != 1 {
 		return nil, errors.IncorrectNumberArguments
 	}
@@ -50,11 +91,23 @@ func QueryFoundationAccount(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.InvalidArgs
 	}
 
-	return service.QueryAccount(store, args)
+	return service.QueryTreaty(store, args)
 }
 
-// RegisterTreatyAccount register foundation
-func RegisterTreatyAccount(store store.Store, args []string) ([]byte, error) {
+func QueryTreaties(store store.Store, args []string) ([]byte, error) {
+	if len(args) != 1 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" {
+		return nil, errors.InvalidArgs
+	}
+
+	return service.QueryTreaties(store, args)
+}
+
+// RegisterContract register foundation contract
+func RegisterContract(store store.Store, args []string) ([]byte, error) {
 
 	if len(args) != 3 {
 		return nil, errors.IncorrectNumberArguments
@@ -64,26 +117,31 @@ func RegisterTreatyAccount(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.InvalidArgs
 	}
 
-	treatyID := args[0]
-	publicKey := args[1]
+	_sourceAddr := args[0]
+	_base64ContractData := args[1]
+	_base64SourcSign := args[2]
 
-	base64Sign := args[2]
-	treatySign, err := base64.StdEncoding.DecodeString(base64Sign)
+	_sourcePublicKey, err := service.QueryAccountRsaPublicKey(store, _sourceAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	_sourcSign, err := base64.StdEncoding.DecodeString(_base64SourcSign)
 	if err != nil {
 		return nil, errors.Base64Decoding
 	}
 
-	hash := sha256.Sum256([]byte(treatyID + publicKey))
+	hash := sha256.Sum256([]byte(_base64ContractData))
 
-	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], []byte(publicKey), treatySign)
+	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], _sourcePublicKey, _sourcSign)
 	if !bVerify {
 		return nil, errors.VerifyRsaSign
 	}
 
-	return service.RegisterAccount(store, args)
+	return service.RegisterContract(store, args)
 }
 
-func QueryTreatyAccount(store store.Store, args []string) ([]byte, error) {
+func QueryContract(store store.Store, args []string) ([]byte, error) {
 	if len(args) != 1 {
 		return nil, errors.IncorrectNumberArguments
 	}
@@ -92,7 +150,19 @@ func QueryTreatyAccount(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.InvalidArgs
 	}
 
-	return service.QueryAccount(store, args)
+	return service.QueryContract(store, args)
+}
+
+func QueryContracts(store store.Store, args []string) ([]byte, error) {
+	if len(args) != 1 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" {
+		return nil, errors.InvalidArgs
+	}
+
+	return service.QueryContracts(store, args)
 }
 
 // DoDrawing do drawing

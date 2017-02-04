@@ -32,6 +32,16 @@ func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 		// args: ID,publicKey(ID base64),sysadminSign(base64)
 		return handler.RegisterAccount(storeCC, args)
 
+	case "registerTreaty":
+		// args: foundationAddr, treatyData(treaty json base64),foundationSign(base64)
+		return handler.RegisterTreaty(storeCC, args)
+	case "changeTreatyStatus":
+		// args: foundationAddr, addr(treaty addr), status,foundationSign(base64)
+		return handler.ChangeTreatyStatus(storeCC, args)
+	case "registerContract":
+		// args: foundationAddr, contractData(contract json base64),foundationSign(base64)
+		return handler.RegisterContract(storeCC, args)
+
 	case "doDonate":
 		// args: business(Business id),donorID,publicKey(donor base64),channelID,publicKey(channel base64),treatyid,value,sign(base64)
 		return handler.DoDonate(storeCC, args)

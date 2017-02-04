@@ -19,6 +19,12 @@ type Store interface {
 
 	GetAccount(string) (*protos.Account, error)
 	PutAccount(*protos.Account) error
+
+	GetTreaty(string) (*protos.Treaty, error)
+	PutTreaty(*protos.Treaty) error
+
+	GetContract(string) (*protos.Contract, error)
+	PutContract(*protos.Contract) error
 }
 
 // Store struct uses a chaincode stub for state access
@@ -89,6 +95,76 @@ func (s *CCStore) PutAccount(account *protos.Account) error {
 	key := utils.GenerateAccountKey(account.Addr)
 
 	aBytes, err := proto.Marshal(account)
+	if err != nil {
+		return err
+	}
+
+	return s.stub.PutState(key, aBytes)
+}
+
+// GetTreaty returns treaty from world states
+func (s *CCStore) GetTreaty(addr string) (*protos.Treaty, error) {
+	if addr == "" {
+		return nil, errors.New("empty addr")
+	}
+	key := utils.GenerateTreatyKey(addr)
+	data, err := s.stub.GetState(key)
+	if err != nil {
+		return nil, err
+	}
+
+	if data == nil || len(data) == 0 {
+		return nil, fmt.Errorf("no treaty found")
+	}
+
+	treaty := new(protos.Treaty)
+	if err := proto.Unmarshal(data, treaty); err != nil {
+		return nil, err
+	}
+
+	return treaty, nil
+}
+
+// PutTreaty update or insert treaty into world states
+func (s *CCStore) PutTreaty(treaty *protos.Treaty) error {
+	key := utils.GenerateTreatyKey(treaty.Addr)
+
+	aBytes, err := proto.Marshal(treaty)
+	if err != nil {
+		return err
+	}
+
+	return s.stub.PutState(key, aBytes)
+}
+
+// GetContract returns contract from world states
+func (s *CCStore) GetContract(addr string) (*protos.Contract, error) {
+	if addr == "" {
+		return nil, errors.New("empty addr")
+	}
+	key := utils.GenerateContractKey(addr)
+	data, err := s.stub.GetState(key)
+	if err != nil {
+		return nil, err
+	}
+
+	if data == nil || len(data) == 0 {
+		return nil, fmt.Errorf("no contract found")
+	}
+
+	contract := new(protos.Contract)
+	if err := proto.Unmarshal(data, contract); err != nil {
+		return nil, err
+	}
+
+	return contract, nil
+}
+
+// PutContract update or insert treaty into world states
+func (s *CCStore) PutContract(contract *protos.Contract) error {
+	key := utils.GenerateContractKey(contract.Addr)
+
+	aBytes, err := proto.Marshal(contract)
 	if err != nil {
 		return err
 	}

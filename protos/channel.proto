@@ -8,14 +8,14 @@ message Channel {
     string addr = 1;
     string id = 2;
     string name = 3;
-    uint64 balance = 4;
-    repeated ChannelFee fees = 5;
+    uint64 total = 4;
+    repeated ChannelFeeTrack fees = 5;
 }
 
-// ChannelFee model 
-message ChannelFee {
+// ChannelFeeTrack model 
+message ChannelFeeTrack {
     string name = 1;
-    uint64 amount = 3;
-    int64 timestamp = 4;
+    uint64 amount = 2;
+    int64 timestamp = 3;
 }
 

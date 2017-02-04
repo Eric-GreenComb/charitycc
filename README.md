@@ -25,9 +25,10 @@
     }
 
 
-## Interface
+## REST Interface
 
-### registerBank
+### account  register/query
+#### registerBank
 
     {
     "jsonrpc": "2.0",
@@ -35,7 +36,7 @@
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"92705ab50e89842eb20f9885b6dbb6c85bf69267cf7db0d6f40872d7081ec5f4bf52c2db7419a53920d9e7293f708e045f6237397130a8fd8b0669deca16cebe"
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
     },
     "ctorMsg": {
     "function":"registerBank",
@@ -46,7 +47,7 @@
     "id": 3
     }
 
-### queryBank
+#### queryBank
 
     {
     "jsonrpc": "2.0",
@@ -54,7 +55,7 @@
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"92705ab50e89842eb20f9885b6dbb6c85bf69267cf7db0d6f40872d7081ec5f4bf52c2db7419a53920d9e7293f708e045f6237397130a8fd8b0669deca16cebe"
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
     },
     "ctorMsg": {
     "function":"queryBank",
@@ -65,7 +66,7 @@
     "id": 5
     }
 
-### registerAccount user01
+#### registerAccount user01
 
     {
     "jsonrpc": "2.0",
@@ -73,7 +74,7 @@
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"92705ab50e89842eb20f9885b6dbb6c85bf69267cf7db0d6f40872d7081ec5f4bf52c2db7419a53920d9e7293f708e045f6237397130a8fd8b0669deca16cebe"
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
     },
     "ctorMsg": {
     "function":"registerAccount",
@@ -84,7 +85,7 @@
     "id": 3
     }  
 
-### queryAccount user01
+#### queryAccount user01
 
     {
     "jsonrpc": "2.0",
@@ -92,7 +93,7 @@
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"92705ab50e89842eb20f9885b6dbb6c85bf69267cf7db0d6f40872d7081ec5f4bf52c2db7419a53920d9e7293f708e045f6237397130a8fd8b0669deca16cebe"
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
     },
     "ctorMsg": {
     "function":"queryAccount",
@@ -101,7 +102,275 @@
     "secureContext":    "jim"
     },
     "id": 5
-    }    
+    }   
+
+#### registerAccount channel01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
+    },
+    "ctorMsg": {
+    "function":"registerAccount",
+    "args":["channel01","LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDbFBibUthUk5FVm05NHUwSmZ1anVwd1ZVSgo5MVc3YmQyODc4NHdDbS9HUi85Wm1jRzZkRlNRUC9yaTQ5RHExR0hLekJEd0lvRzVXOGJmZndLeERiOTIzOWsrCmxwaHV1VjloZ0I3TlliQ25VUUo0WmkvUUlQZDFqR2pSem1DYlcvajJOdDJid1JJL3loNHNMbVhMb2Qzb2FuczcKcjR5ZzhnN2k4blRZUHlLWllRSURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=","MRCrGTmkoGLx+IQgWWNsjPv6u4SH+YbZRfS5JZtBBFFcXXpVEIeO651oynD+JvCkJyRGjFCyx5swBeBw2xXS0EYDMxyQbLASJQKy42o6sd6L9k+ael+EaJ6ypIY8PyBs3QfZg9Nf53b65xyEaSbzCWLxHUWs/QKg0T003sBXtvk="]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 3
+    }  
+
+#### queryAccount channel01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "query",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
+    },
+    "ctorMsg": {
+    "function":"queryAccount",
+    "args":["channel01:cc68d3ccb7be906dbf9d63e4ae3e9605c8ddd63fb710603e3cb45976932db9f4"]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 5
+    }       
+
+#### registerAccount fund01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
+    },
+    "ctorMsg": {
+    "function":"registerAccount",
+    "args":["fund01","LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDZ0dDTEdVN1hmbFQ2UjNQdW1NN3dPRjJmdQowbUhmREl6dlA3SkUxUEJvdXR3NzkvT0F6NWJnWXIrQUtwM2VhSFhlemlIb3JTQTZFUFNDUGNoTm01ZzFsOCt4CjQ0ODJ0dm4zWVA3YWdxTmJISHI2MjNwOEprOXEwWFVhS3U0OXVEMDNjLy9EcnM2bjVjWE9QdVF4VVFkQ3VnYTkKT1FVR0RDTEs4RElUVzdXU1J3SURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=","o7JiiwKn2MNSsa9qsXIHY0EcFX0fZ90ewz8d0FrsKbf33hBdllYl2nzDScg4UmVkwuQqbUkyn+viGzTqOsYAaeZ+zGCtaswjpw+Iac01WSfjkbJ67kiduCBDW9EjYbIyHE6dnkm/c3DQdghSz4T8rE+vulH5P1lQgs6CZ0K8Yhw="]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 3
+    }  
+
+#### queryAccount fund01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "query",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
+    },
+    "ctorMsg": {
+    "function":"queryAccount",
+    "args":["fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13"]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 5
+    }       
+
+#### registerAccount treaty01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
+    },
+    "ctorMsg": {
+    "function":"registerAccount",
+    "args":["treaty01","LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDeHV2RXZ5OTd4OUpiR3ZVMzlBMTZIZ3FTNgo1WDhGaGFMNzh5Wm1QSE9DZnNjY3paZk4ydE5uaHlqR3dvb1Zwbmd5bFJ5d3Bib29BekFoeVNLcVZROGdpNjBHCnRJa01QWEZ0RHZyVFJOUFZhd2MwdTloVVY5SnhSdkx1c0JjSzBmSGtkUGhuamlTa25nNGk3Mk51OUJFUlFveGMKNTQzOVU2aEpLZE45SUdta2lRSURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=","qsE9futAjI7wJng4CAm9b9gkttEYIXE23PrWNnTAup75tciPSPzaSq3/usZ0fUrCWxHPACpvmqCmk6UrZ+pxn8DJITEyy+ediVYIaY83Rrm2plfB+D78FfGDX9VkzwBnWmfeK3dKQyjau/HsbsBCPTsZTPpOOsdkP2kGw1RalRQ="]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 3
+    }  
+
+#### queryAccount treaty01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "query",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
+    },
+    "ctorMsg": {
+    "function":"queryAccount",
+    "args":["treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd"]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 5
+    }  
+
+#### registerAccount contract01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
+    },
+    "ctorMsg": {
+    "function":"registerAccount",
+    "args":["contract01","LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDcDlxUTBINVY4WUkwOWFGMTJvVnhjWTlVUQpuUzNVRFZwT0c2OXo3a0lzK3o3WUJXR0hlVWtKSjk2U2JrVVU1WWtoU0JhbXZoTXBoUW9STS90MlI5YTJpem5FCkNyWmladVpHZmxJdEFtU0lxOXB5Ris5M1UwYVdQWTcxc1VqSCtnQ0orcFBPSFJwSWFoRWtHZ2t1QTN1NU5wZncKUTBJQnJGOHdNWi9NSnhNSFl3SURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=","Qt1K73w/cmz7ueNyNSshFnRJ1lr2kQamgisdu/nB2F+OI70R1GNm833iLMfty4VZtuFI+oi70BdzFO/ZM4JDjHgWNYm9R9V92iRHsK+2F7FwFlR/8VvwFIkBF0METfZQBVF5fcya+Vk0qhfLuNDl8YkWS7SQW4Jkeodq12+XdO8="]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 3
+    }  
+
+#### queryAccount contract01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "query",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
+    },
+    "ctorMsg": {
+    "function":"queryAccount",
+    "args":["contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460"]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 5
+    }         
+
+### treaty register/query
+#### registerTreaty treaty01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
+    },
+    "ctorMsg": {
+    "function":"registerTreaty",
+    "args":["fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13","eyJhZGRyIjoidHJlYXR5MDE6ZTQ4MTFkNjI0ZWJiYWNiYWFkYzU5YmYwMTkyYzQyMjlhOWE0ZTA1ZTFmYTI2OWRkZTM0NWJmMmJmYjNmOWJkZCIsIm5hbWUiOiLlroHlpI/opb/pg6jlnLDljLrmr43kurLmsLTnqpbpobnnm64iLCJkZXRhaWwiOiLlroHlpI/opb/pg6jlnLDljLrmr43kurLmsLTnqpbpobnnm64iLCJnb2FsIjoxMDAwMDAwMDAwMDAwLCJwYXJ0eUEiOiLmn5Dln7rph5HkvJoiLCJwYXJ0eUIiOiLmn5DlnLDljLoiLCJjcmVhdGVUaW1lc3RhbXAiOjE0ODYxOTY4NjgsImZvdW5kYXRpb24iOiJmdW5kMDE6ZGEzMzZhMmEyZDgxY2RmNTcwYjVkM2Q3MDkyNjE0NDk5N2U1ZTI3N2Y0OTg5N2M2ODg1YWNhY2JhOGIxY2MxMyJ9","JNU66rJPa2qPmy0NCsvyZKLYG51bVkUu1hPqsIogbax5owoRAmz+q8lLzLsyHv7MfHufl5YfLjR4U5NxDXML2h8+++Q6k7vKKx1d/e6cgaDbHiuuP8OAKPvnnuskpjKjCKEFnOEcApxGqOTr6/YvxcRkpoBvoIyecEMPBA3euYo="]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 3
+    }  
+
+#### queryTreaty treaty01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "query",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
+    },
+    "ctorMsg": {
+    "function":"queryTreaty",
+    "args":["treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd"]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 5
+    }  
+
+#### queryTreaties treaty01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "query",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
+    },
+    "ctorMsg": {
+    "function":"queryTreaties",
+    "args":["treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd"]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 5
+    }     
+
+### contract register/query
+#### registerContract contract01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
+    },
+    "ctorMsg": {
+    "function":"registerContract",
+    "args":["fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13","eyJhZGRyIjoiY29udHJhY3QwMTo4MDE3ZDFiZDE1MzI2YjQ4YjcwMjBmZjZmZTQzNGFlNDk5OWNmMDUwMDI1ZWM2NDg3MTUxNjY3N2YxMTc3NDYwIiwibmFtZSI6IuWugeWkj+ilv+mDqOWcsOWMuuavjeS6suawtOeqlumhueebrlhY5Y6/WFjmnZHmsLTnqpYiLCJkZXRhaWwiOiLlroHlpI/opb/pg6jlnLDljLrmr43kurLmsLTnqpbpobnnm65YWOWOv1hY5p2R5rC056qWIiwic3RhcnRUaW1lIjoiMjAxNy0wMS0wMSIsImVuZFRpbWUiOiIyMDE4LTAxLTAxIiwicGFydHlBIjoi5p+Q5Z+66YeR5LyaIiwicGFydHlCIjoi5p+Q5Zyw5Yy6WFjljr9YWOadkeaWveW3pemYnyIsImRlcG9zaXRCYW5rIjoi5YWJ5aSn6ZO26KGMIiwiYmFua0FjY291bnQiOiIxMjk4aGZhazA5a2tsamFkc2tmIn0=","H4EEzd7UShFKmLwfq66yIXC4db3JMQh5ysdlafADd+DRHjzp7TyNnuhIHNgl5f3djS5rV6Mlyro3k9HyXv2VJcABtpGeEnphO6v8Fh8slMYtqXJdcVrmSCWUD9d+IzhrpNe+Wgv6bMFhy9iYECqkLTHUJnRxWopl7Pi6LHMyXr0="]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 3
+    }  
+
+#### queryContract contract01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "query",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
+    },
+    "ctorMsg": {
+    "function":"queryContract",
+    "args":["contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460"]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 5
+    }  
+
+#### queryContracts contract01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "query",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
+    },
+    "ctorMsg": {
+    "function":"queryContracts",
+    "args":["contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460"]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 5
+    }                
 
 ### coinbase
 
@@ -111,7 +380,7 @@
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"0e16716224f7bb30361911ebc2eee510df1cfe2c757e42b18f2bd4227c4d9996176161a6da811a09450b277c65fd72324b378b2f2d4279552afde2695d8e43dc"
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
     },
     "ctorMsg": {
     "function":"coinbase",
@@ -130,7 +399,7 @@
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"d6b2de57a65f0f176a7867ff3a7796c3e6b8ed16c95837a291e37aa1465f18373f54a348180e133903608d13dc8275fe47d8e4982442e438e02bd48f8a93a7e2"
+    "name":"a9966a53458e30ebbf1fb1f63005d0ba1ccefdd284638004ea0eaa43930252edc60913c8d228bf8666a016425cc4673a2028206d3fedb2eb43172edbe979113a"
     },
     "ctorMsg": {
     "function":"changeCoin",
@@ -139,7 +408,7 @@
     "secureContext":    "jim"
     },
     "id": 3
-    }   
+    }  
 
 ## Process
 
