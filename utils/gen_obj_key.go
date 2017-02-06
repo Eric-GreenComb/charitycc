@@ -15,3 +15,7 @@ func GenerateTreatyKey(addr string) string {
 func GenerateContractKey(addr string) string {
 	return fmt.Sprintf("contract_addr_%s", addr)
 }
+
+func GenerateDonorKey(addr string) string {
+	return fmt.Sprintf("donor_addr_%s", addr)
+}

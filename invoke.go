@@ -42,16 +42,23 @@ func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 		// args: foundationAddr, contractData(contract json base64),foundationSign(base64)
 		return handler.RegisterContract(storeCC, args)
 
+	case "registerDonor":
+		// args: channelAddr,donorData(donor json base64),channelSign(base64)
+		return handler.RegisterDonor(storeCC, args)
+	case "addContribution":
+		// args: channelAddr,donorAddr,contributionData(contribution json base64),channelSign(base64)
+		return handler.AddContribution(storeCC, args)
+	case "addTrack":
+		// args: channelAddr,donorAddr,trackData(track json base64),channelSign(base64)
+		return handler.AddTrack(storeCC, args)
+
 	case "doDonate":
 		// args: business(Business id),donorID,publicKey(donor base64),channelID,publicKey(channel base64),treatyid,value,sign(base64)
 		return handler.DoDonate(storeCC, args)
+
 	case "doDrawing":
 		// args: business(Business id),treatyID,publicKey(treaty base64),contractid,value,sign(base64)
 		return handler.DoDrawing(storeCC, args)
-
-	case "openDonorAccount":
-		// args: donorID,publicKey(donor base64),userSign(base64)
-		return handler.OpenDonorAccount(storeCC, args)
 
 	default:
 		return nil, errors.New("Unsupported operation")

@@ -35,6 +35,10 @@ func (t *CharityCC) Query(stub shim.ChaincodeStubInterface, function string, arg
 		// args: addrs(client gen addrs, split by ,)
 		return handler.QueryContracts(storeCC, args)
 
+	case "queryDonor":
+		// args: addr(client gen addr)
+		return handler.QueryDonor(storeCC, args)
+
 	default:
 		return nil, errors.New("Unsupported operation")
 	}

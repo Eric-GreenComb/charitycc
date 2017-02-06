@@ -25,6 +25,9 @@ type Store interface {
 
 	GetContract(string) (*protos.Contract, error)
 	PutContract(*protos.Contract) error
+
+	GetDonor(string) (*protos.Donor, error)
+	PutDonor(*protos.Donor) error
 }
 
 // Store struct uses a chaincode stub for state access
@@ -165,6 +168,41 @@ func (s *CCStore) PutContract(contract *protos.Contract) error {
 	key := utils.GenerateContractKey(contract.Addr)
 
 	aBytes, err := proto.Marshal(contract)
+	if err != nil {
+		return err
+	}
+
+	return s.stub.PutState(key, aBytes)
+}
+
+// GetDonor returns donor from world states
+func (s *CCStore) GetDonor(addr string) (*protos.Donor, error) {
+	if addr == "" {
+		return nil, errors.New("empty addr")
+	}
+	key := utils.GenerateDonorKey(addr)
+	data, err := s.stub.GetState(key)
+	if err != nil {
+		return nil, err
+	}
+
+	if data == nil || len(data) == 0 {
+		return nil, fmt.Errorf("no donor found")
+	}
+
+	donor := new(protos.Donor)
+	if err := proto.Unmarshal(data, donor); err != nil {
+		return nil, err
+	}
+
+	return donor, nil
+}
+
+// PutDonor update or insert donor into world states
+func (s *CCStore) PutDonor(donor *protos.Donor) error {
+	key := utils.GenerateDonorKey(donor.Addr)
+
+	aBytes, err := proto.Marshal(donor)
 	if err != nil {
 		return err
 	}
