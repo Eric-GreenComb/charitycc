@@ -1,10 +1,14 @@
 ## Prepare
 
+### go get 
+go get github.com/golang/protobuf
+
 ### edit yml
 
 - add     
     volumes:
       - /home/eric/go/src/github.com/CebEcloudTime:/go/src/github.com/CebEcloudTime
+      - /home/eric/go/src/github.com/golang:/go/src/github.com/golang
 
 ### deploy chaincode
 
@@ -30,7 +34,7 @@ result:
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+        "message": "e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
       },
       "id": 1
     }
@@ -46,7 +50,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"registerBank",
@@ -76,7 +80,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"queryBank",
@@ -106,7 +110,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"registerAccount",
@@ -136,7 +140,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"queryAccount",
@@ -166,7 +170,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"registerAccount",
@@ -196,7 +200,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"queryAccount",
@@ -226,7 +230,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"registerAccount",
@@ -256,7 +260,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"queryAccount",
@@ -286,7 +290,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"registerAccount",
@@ -316,7 +320,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"queryAccount",
@@ -346,7 +350,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"registerAccount",
@@ -376,7 +380,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"queryAccount",
@@ -407,11 +411,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"registerTreaty",
-    "args":["fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13","eyJhZGRyIjoidHJlYXR5MDE6ZTQ4MTFkNjI0ZWJiYWNiYWFkYzU5YmYwMTkyYzQyMjlhOWE0ZTA1ZTFmYTI2OWRkZTM0NWJmMmJmYjNmOWJkZCIsIm5hbWUiOiLlroHlpI/opb/pg6jlnLDljLrmr43kurLmsLTnqpbpobnnm64iLCJkZXRhaWwiOiLlroHlpI/opb/pg6jlnLDljLrmr43kurLmsLTnqpbpobnnm64iLCJnb2FsIjoxMDAwMDAwMDAwMDAwLCJwYXJ0eUEiOiLmn5Dln7rph5HkvJoiLCJwYXJ0eUIiOiLmn5DlnLDljLoiLCJjcmVhdGVUaW1lc3RhbXAiOjE0ODYxOTY4NjgsImZvdW5kYXRpb24iOiJmdW5kMDE6ZGEzMzZhMmEyZDgxY2RmNTcwYjVkM2Q3MDkyNjE0NDk5N2U1ZTI3N2Y0OTg5N2M2ODg1YWNhY2JhOGIxY2MxMyJ9","JNU66rJPa2qPmy0NCsvyZKLYG51bVkUu1hPqsIogbax5owoRAmz+q8lLzLsyHv7MfHufl5YfLjR4U5NxDXML2h8+++Q6k7vKKx1d/e6cgaDbHiuuP8OAKPvnnuskpjKjCKEFnOEcApxGqOTr6/YvxcRkpoBvoIyecEMPBA3euYo="]
+    "args":["fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13","eyJhZGRyIjoidHJlYXR5MDE6ZTQ4MTFkNjI0ZWJiYWNiYWFkYzU5YmYwMTkyYzQyMjlhOWE0ZTA1ZTFmYTI2OWRkZTM0NWJmMmJmYjNmOWJkZCIsIm5hbWUiOiLlroHlpI/opb/pg6jlnLDljLrmr43kurLmsLTnqpbpobnnm64iLCJkZXRhaWwiOiLlroHlpI/opb/pg6jlnLDljLrmr43kurLmsLTnqpbpobnnm64iLCJnb2FsIjoxMDAwMDAwMDAwMDAwLCJwYXJ0eUEiOiLmn5Dln7rph5HkvJoiLCJwYXJ0eUIiOiLmn5DlnLDljLoiLCJmdW5kTWFuYW5nZXJGZWUiOjMsImNoYW5uZWxGZWUiOjIsImNyZWF0ZVRpbWVzdGFtcCI6MTQ4NjQ1MjY3NCwiZm91bmRhdGlvbiI6ImZ1bmQwMTpkYTMzNmEyYTJkODFjZGY1NzBiNWQzZDcwOTI2MTQ0OTk3ZTVlMjc3ZjQ5ODk3YzY4ODVhY2FjYmE4YjFjYzEzIn0=","B2G4M2m4iC79PE1oc6kbEAtZDNBUSfQf5QlxR4VAgHcQreR6oqQkQ4RxIvPXqYyxk1os9VKtxTf0lo6uPXRbsR/O5wFrkDkK4aiXGSo0EX1GN5w59LTawJb42UBmoMReF0bfTlT/G1G3UDNVXI9oMkZxA9KFp4L0eG9eZOFzUoE="]
     },
     "secureContext":    "jim"
     },
@@ -437,7 +441,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"queryTreaty",
@@ -454,8 +458,8 @@ result:
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "{\"addr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"name\":\"宁夏西部地区母亲水窖项目\",\"detail\":\"宁夏西部地区母亲水窖项目\",\"goal\":1000000000000,\"partyA\":\"某基金会\",\"partyB\":\"某地区\",\"createTimestamp\":1486196868,\"foundation\":\"fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13\"}"
-      },
+        "message": "{\"addr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"name\":\"宁夏西部地区母亲水窖项目\",\"detail\":\"宁夏西部地区母亲水窖项目\",\"goal\":1000000000000,\"partyA\":\"某基金会\",\"partyB\":\"某地区\",\"fundManangerFee\":3,\"channelFee\":2,\"createTimestamp\":1486452674,\"foundation\":\"fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13\"}"
+          },
       "id": 5
     }      
 
@@ -467,7 +471,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"queryTreaties",
@@ -484,7 +488,7 @@ result:
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "[{\"addr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"name\":\"宁夏西部地区母亲水窖项目\",\"detail\":\"宁夏西部地区母亲水窖项目\",\"goal\":1000000000000,\"partyA\":\"某基金会\",\"partyB\":\"某地区\",\"createTimestamp\":1486196868,\"foundation\":\"fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13\"}]"
+        "message": "[{\"addr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"name\":\"宁夏西部地区母亲水窖项目\",\"detail\":\"宁夏西部地区母亲水窖项目\",\"goal\":1000000000000,\"partyA\":\"某基金会\",\"partyB\":\"某地区\",\"fundManangerFee\":3,\"channelFee\":2,\"createTimestamp\":1486452674,\"foundation\":\"fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13\"}]"
       },
       "id": 5
     }         
@@ -498,7 +502,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"registerContract",
@@ -528,7 +532,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"queryContract",
@@ -558,7 +562,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"queryContracts",
@@ -589,7 +593,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"registerDonor",
@@ -619,7 +623,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"queryDonor",
@@ -649,7 +653,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"addContribution",
@@ -679,7 +683,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"addTrack",
@@ -709,7 +713,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"coinbase",
@@ -739,11 +743,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"3e0ff3192ad6b96324567aac390244cb585bc794fc38f6eaf921a2e4dc1c26fa03b4d87152208619fa2fe8223423a0a353a65704e4e4379d371b79275dbb5db5"
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
     },
     "ctorMsg": {
     "function":"changeCoin",
-    "args":["cebbank:71266a9913375add341f1f7a4a606a2ee4e24efaf59bb2a3eb4b71aaaf5fb3fe","eyJ2ZXJzaW9uIjoxNzAxMDAxLCJ0aW1lc3RhbXAiOjE0ODUyNDgwMTQsInR4aW4iOlt7InNvdXJjZVR4SGFzaCI6ImViMTg3Y2JkZmQyZWQzMmRkOTAyYWJmN2VlOTk0MGY1ODFmZTFlYTg2ZTdlMmNkY2IwZTE2M2E5ZDU4NGE5MWMiLCJhZGRyIjoiY2ViYmFuazo3MTI2NmE5OTEzMzc1YWRkMzQxZjFmN2E0YTYwNmEyZWU0ZTI0ZWZhZjU5YmIyYTNlYjRiNzFhYWFmNWZiM2ZlIn1dLCJ0eG91dCI6W3sidmFsdWUiOjk5OTkwMDAwMDAwMCwiYWRkciI6ImNlYmJhbms6NzEyNjZhOTkxMzM3NWFkZDM0MWYxZjdhNGE2MDZhMmVlNGUyNGVmYWY1OWJiMmEzZWI0YjcxYWFhZjVmYjNmZSIsInNpZ24iOiJicVBLbFhpUlh3MVJobWQrU281Ti9DU002V3JEbzV6a2VkTUMwYTFwcDhzZSthbVRRMDUreTljd3d3NmJMYzdPSG0xRGRSdWZLcUViY0dtSGpBUkpzWi9Vakx6SlhNaUQvd0VYK1U1bHdjQnMrNU9GVXFXc0lEZ2NKZHNiWklLRkJDc1pCYmVDejhyaTFidE5pWDIrbXhMUkI5bkFscVJreWVBZG0zL1cwU3M9In0seyJ2YWx1ZSI6MTAwMDAwMDAwLCJhZGRyIjoidXNlcjAxOmU5NjI5ODIyMjA0YjllMzI5YTc2N2Y1YzRiZjM5OWI3N2ZhMGRmYTYzYzlkZjdiODhiMDQwYzUwMDNjMmFmM2EiLCJzaWduIjoiTUdYbjlDRFBKbnpWODAva1hYVkVRUG5zcDJUQmxySHFzRnZtN0JTWlRPbHU1SnRuUHE0Uno0RS9GbkNHR3JwK2prZ2QwemZBMWVtU3lnWTQvYmplNlRBQjM1UFd4R2N5REJOQW9lK1RKVzMxTUZJdU5wd216VGRmMXM0cXhHUUhDdFU3RHFMN0ZabU14Z3JKMy9ENStoeFpWWElwMlBVY0VyTW1leG8wczBzPSJ9XSwiZm91bmRlciI6ImVyaWMifQ==","Gp5oTUlNVE14nHlKm0Sbto1HmZdyWZVljSMI3urNLXPatkpXjQKk5RxiNl8TSPpiS/LAecB4OBQegFeQ3HeqhBZsfxPUm3AZJm7AbdDlTYLarv2qiKOyKjSouU2ckZ1bKuEc7ETZfhPCnVHtqEq03OWEtDhSzIn4OmnE1nlBd+Y="]
+    "args":["cebbank:71266a9913375add341f1f7a4a606a2ee4e24efaf59bb2a3eb4b71aaaf5fb3fe","eyJ2ZXJzaW9uIjoxNzAxMDEsInRpbWVzdGFtcCI6MTQ4NjQ1MzE5MSwidHhpbiI6W3sic291cmNlVHhIYXNoIjoiZWIxODdjYmRmZDJlZDMyZGQ5MDJhYmY3ZWU5OTQwZjU4MWZlMWVhODZlN2UyY2RjYjBlMTYzYTlkNTg0YTkxYyIsImFkZHIiOiJjZWJiYW5rOjcxMjY2YTk5MTMzNzVhZGQzNDFmMWY3YTRhNjA2YTJlZTRlMjRlZmFmNTliYjJhM2ViNGI3MWFhYWY1ZmIzZmUifV0sInR4b3V0IjpbeyJ2YWx1ZSI6OTk5OTAwMDAwMDAwLCJhZGRyIjoiY2ViYmFuazo3MTI2NmE5OTEzMzc1YWRkMzQxZjFmN2E0YTYwNmEyZWU0ZTI0ZWZhZjU5YmIyYTNlYjRiNzFhYWFmNWZiM2ZlIiwic2lnbiI6ImJxUEtsWGlSWHcxUmhtZCtTbzVOL0NTTTZXckRvNXprZWRNQzBhMXBwOHNlK2FtVFEwNSt5OWN3d3c2YkxjN09IbTFEZFJ1ZktxRWJjR21IakFSSnNaL1VqTHpKWE1pRC93RVgrVTVsd2NCcys1T0ZVcVdzSURnY0pkc2JaSUtGQkNzWkJiZUN6OHJpMWJ0TmlYMitteExSQjluQWxxUmt5ZUFkbTMvVzBTcz0ifSx7InZhbHVlIjoxMDAwMDAwMDAsImFkZHIiOiJ1c2VyMDE6ZTk2Mjk4MjIyMDRiOWUzMjlhNzY3ZjVjNGJmMzk5Yjc3ZmEwZGZhNjNjOWRmN2I4OGIwNDBjNTAwM2MyYWYzYSIsInNpZ24iOiJNR1huOUNEUEpuelY4MC9rWFhWRVFQbnNwMlRCbHJIcXNGdm03QlNaVE9sdTVKdG5QcTRSejRFL0ZuQ0dHcnAramtnZDB6ZkExZW1TeWdZNC9iamU2VEFCMzVQV3hHY3lEQk5Bb2UrVEpXMzFNRkl1TnB3bXpUZGYxczRxeEdRSEN0VTdEcUw3RlptTXhnckozL0Q1K2h4WlZYSXAyUFVjRXJNbWV4bzBzMHM9In1dLCJJbnB1dERhdGEiOiJkb25vcnV1aWQiLCJmb3VuZGVyIjoiZXJpYyJ9","l5zfLLyr9JeQLFmxlJJfluoG7XczVHDh+/KMgLaCxXgLvsNFLPyOWLK2mzmAUHf/cHvlddWSoLw/EKL8olnQmoKy8lvNS+45ADBIzPdfK++hmQKsc71CptE7ipTvY4p9ptbXWFNxcJ/yGpjWc/AW34DPeEnYa4uryJ26OFKaVQ4="]
     },
     "secureContext":    "jim"
     },
@@ -776,12 +780,146 @@ query user01:
 
     {
       "jsonrpc": "2.0",
+     "result": {
+        "status": "OK",
+        "message": "{\"addr\":\"user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a\",\"balance\":100000000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDcGxmMDlJNTl5SDYzRnJwSlhqMSs0WmhjZgpSOXJVVi82akhWWVAxelQ1aHlUZUwzNWQ4NVpwTzhOTDdWV2MyYVpHeDFjZ2dvRG8rRUkvMVJobDA4UHhSbFdKCi9XVGt1VzBLbDIxeGRGUXFnSnk1Q3JUeUc0SURmS2NTRkg3dG9tZzFqeVlHaHRFZ2g5TUI3RVVZNXd0M0hWZHYKWEdWQWlMbzViU3VOaVRVV2J3SURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=\",\"txouts\":{\"4db0b6b84c5ad3a2a4faace073bfb44c5ed839ac0b5c8f6c6e990d550ce0c16d:1\":{\"value\":100000000,\"addr\":\"user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a\",\"sign\":\"MGXn9CDPJnzV80/kXXVEQPnsp2TBlrHqsFvm7BSZTOlu5JtnPq4Rz4E/FnCGGrp+jkgd0zfA1emSygY4/bje6TAB35PWxGcyDBNAoe+TJW31MFIuNpwmzTdf1s4qxGQHCtU7DqL7FZmMxgrJ3/D5+hxZVXIp2PUcErMmexo0s0s=\"}}}"
+     },
+      "id": 5
+    }  
+
+### donated user01 -> treaty01,fund01,channel01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    },
+    "ctorMsg": {
+    "function":"donated",
+    "args":["channel01:cc68d3ccb7be906dbf9d63e4ae3e9605c8ddd63fb710603e3cb45976932db9f4","user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a","eyJ2ZXJzaW9uIjoxNzAxMDEsInRpbWVzdGFtcCI6MTQ4NjQ1MzgxMywidHhpbiI6W3siaWR4IjoxLCJzb3VyY2VUeEhhc2giOiI0ZGIwYjZiODRjNWFkM2EyYTRmYWFjZTA3M2JmYjQ0YzVlZDgzOWFjMGI1YzhmNmM2ZTk5MGQ1NTBjZTBjMTZkIiwiYWRkciI6InVzZXIwMTplOTYyOTgyMjIwNGI5ZTMyOWE3NjdmNWM0YmYzOTliNzdmYTBkZmE2M2M5ZGY3Yjg4YjA0MGM1MDAzYzJhZjNhIn1dLCJ0eG91dCI6W3sidmFsdWUiOjk5NTAwMDAwLCJhZGRyIjoidHJlYXR5MDE6ZTQ4MTFkNjI0ZWJiYWNiYWFkYzU5YmYwMTkyYzQyMjlhOWE0ZTA1ZTFmYTI2OWRkZTM0NWJmMmJmYjNmOWJkZCIsImF0dHIiOiJ1c2VyMDE6ZTk2Mjk4MjIyMDRiOWUzMjlhNzY3ZjVjNGJmMzk5Yjc3ZmEwZGZhNjNjOWRmN2I4OGIwNDBjNTAwM2MyYWYzYSIsInNpZ24iOiJjZnN5dkUrc1lFVFRrN09ySjJGSzY2OVN5eUp3RHMvdU90alBTWFJGc1dmNC9kYXJKRVdlUW1rQkx6dkpaS1lWRG1zUFhPQXUwYktwbGpiZEhHY2ZqYUxGdTh6ZDJOd1ZvZVhnd1hSZFdmWjQ0WGl4SEo0ams1VkJoTzhiSjJOTCtBR0NiYWZJUTZyMjJFUkhmRjdqSzh4a2FXTE9ZK3JGYmpxekJkeVNvMEU9In0seyJ2YWx1ZSI6MjAwMDAwLCJhZGRyIjoiY2hhbm5lbDAxOmNjNjhkM2NjYjdiZTkwNmRiZjlkNjNlNGFlM2U5NjA1YzhkZGQ2M2ZiNzEwNjAzZTNjYjQ1OTc2OTMyZGI5ZjQiLCJhdHRyIjoidXNlcjAxOmU5NjI5ODIyMjA0YjllMzI5YTc2N2Y1YzRiZjM5OWI3N2ZhMGRmYTYzYzlkZjdiODhiMDQwYzUwMDNjMmFmM2EiLCJzaWduIjoiRjd3NitwR2lNRVFUU1FsZUxOQlZTTkh1OWtHV1h2QkFOWGxML2lMVXQzbGYwQVVmb0xKWWRiM2p3bXM3dXFKNWpXMU94M2tTWTlqNWg3Z0s5VUdDd3NCNEZJeVhxcDJ0b2pSYm5zRGtVeW5MUktwcVZ6QXN2NzArYWJuZ3BWcEVYbTc3ckptbGZFcDYxbnUyNGRuTlVCZ21ET0pSUTJVRGJCSmdlTDZWa0ZZPSJ9LHsidmFsdWUiOjMwMDAwMCwiYWRkciI6ImZ1bmQwMTpkYTMzNmEyYTJkODFjZGY1NzBiNWQzZDcwOTI2MTQ0OTk3ZTVlMjc3ZjQ5ODk3YzY4ODVhY2FjYmE4YjFjYzEzIiwiYXR0ciI6InVzZXIwMTplOTYyOTgyMjIwNGI5ZTMyOWE3NjdmNWM0YmYzOTliNzdmYTBkZmE2M2M5ZGY3Yjg4YjA0MGM1MDAzYzJhZjNhIiwic2lnbiI6Ilp6K0pwN1lVbmJjZFEvQkFob0lNVThtVkk2SWVxVyt4OVF6WVo4TjBnbmdrR1NxdUFDNHJTdERxUzYydmI0L254c2JXRkF0Mm9NT1FQZjBWRFlkQWpsd2VYNXNFUmUvbmFuSC9YUDV1eWJmZkt2K0xMM1M0MTY5RXU2dnl1NmdXVDM4VDFZdy94aEc2emtvVnV0Tkl3QlhNdW5CRHRITVp4ZDVLdmV5Mk5Pcz0ifV0sIklucHV0RGF0YSI6ImRvbm9ydXVpZCIsImZvdW5kZXIiOiJjaGFubmVsMDEifQ==","LIIAV7qO34klfCqGHpT5Akk4WIepYk7zGYt5v//5IrNVpHHY+31sd9aMDyFzX/s3oD3LKOa4sikNvNGVLWuxC3H1kO739bioHqaSgBA5j+J9N6NJJhEDhOIHBIGgGoEBf0wgWd4Za+hBF0Ctb1OedxC3R6m9fDt3L/M1spHw5jI="]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 3
+    } 
+
+result:
+
+    {
+      "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "{\"addr\":\"user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a\",\"balance\":100000000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDcGxmMDlJNTl5SDYzRnJwSlhqMSs0WmhjZgpSOXJVVi82akhWWVAxelQ1aHlUZUwzNWQ4NVpwTzhOTDdWV2MyYVpHeDFjZ2dvRG8rRUkvMVJobDA4UHhSbFdKCi9XVGt1VzBLbDIxeGRGUXFnSnk1Q3JUeUc0SURmS2NTRkg3dG9tZzFqeVlHaHRFZ2g5TUI3RVVZNXd0M0hWZHYKWEdWQWlMbzViU3VOaVRVV2J3SURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=\",\"txouts\":{\"ccffdf9eff747968ea7b87fca70ed18735abb746a4b825524e03c8c57d55cb8c:1\":{\"value\":100000000,\"addr\":\"user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a\",\"sign\":\"MGXn9CDPJnzV80/kXXVEQPnsp2TBlrHqsFvm7BSZTOlu5JtnPq4Rz4E/FnCGGrp+jkgd0zfA1emSygY4/bje6TAB35PWxGcyDBNAoe+TJW31MFIuNpwmzTdf1s4qxGQHCtU7DqL7FZmMxgrJ3/D5+hxZVXIp2PUcErMmexo0s0s=\"}}}"
+        "message": "d2fdcbdf-ea92-4304-a6bd-a753f64384ff"
+      },
+      "id": 3
+    }  
+
+query treaty01
+
+    {
+      "jsonrpc": "2.0",
+      "result": {
+        "status": "OK",
+        "message": "{\"addr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"balance\":99500000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDeHV2RXZ5OTd4OUpiR3ZVMzlBMTZIZ3FTNgo1WDhGaGFMNzh5Wm1QSE9DZnNjY3paZk4ydE5uaHlqR3dvb1Zwbmd5bFJ5d3Bib29BekFoeVNLcVZROGdpNjBHCnRJa01QWEZ0RHZyVFJOUFZhd2MwdTloVVY5SnhSdkx1c0JjSzBmSGtkUGhuamlTa25nNGk3Mk51OUJFUlFveGMKNTQzOVU2aEpLZE45SUdta2lRSURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=\",\"txouts\":{\"308115e63de7faa0f5d91db8be225f78a4f6caa1d607701dfa0692305cff83b4:0\":{\"value\":99500000,\"addr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"attr\":\"user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a\",\"sign\":\"cfsyvE+sYETTk7OrJ2FK669SyyJwDs/uOtjPSXRFsWf4/darJEWeQmkBLzvJZKYVDmsPXOAu0bKpljbdHGcfjaLFu8zd2NwVoeXgwXRdWfZ44XixHJ4jk5VBhO8bJ2NL+AGCbafIQ6r22ERHfF7jK8xkaWLOY+rFbjqzBdySo0E=\"}}}"
       },
       "id": 5
-    }           
+    }              
+
+### drawing treaty01 -> treaty01,contract01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    },
+    "ctorMsg": {
+    "function":"drawed",
+    "args":["fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13","eyJ2ZXJzaW9uIjoxNzAxMDEsInRpbWVzdGFtcCI6MTQ4NjQ1NDI1OSwidHhpbiI6W3sic291cmNlVHhIYXNoIjoiMzA4MTE1ZTYzZGU3ZmFhMGY1ZDkxZGI4YmUyMjVmNzhhNGY2Y2FhMWQ2MDc3MDFkZmEwNjkyMzA1Y2ZmODNiNCIsImFkZHIiOiJ0cmVhdHkwMTplNDgxMWQ2MjRlYmJhY2JhYWRjNTliZjAxOTJjNDIyOWE5YTRlMDVlMWZhMjY5ZGRlMzQ1YmYyYmZiM2Y5YmRkIn1dLCJ0eG91dCI6W3sidmFsdWUiOjk1MDAwMDAsImFkZHIiOiJ0cmVhdHkwMTplNDgxMWQ2MjRlYmJhY2JhYWRjNTliZjAxOTJjNDIyOWE5YTRlMDVlMWZhMjY5ZGRlMzQ1YmYyYmZiM2Y5YmRkIiwiYXR0ciI6InVzZXIwMTplOTYyOTgyMjIwNGI5ZTMyOWE3NjdmNWM0YmYzOTliNzdmYTBkZmE2M2M5ZGY3Yjg4YjA0MGM1MDAzYzJhZjNhIiwic2lnbiI6ImJGdGsrTlRIa2g3S1NnZjZURjhGd2JLZFA4SlVnNGZuTmRZRk01R3A4dmlHem8zMmdYUkMvWGpKNjZHbDBxNXdlc0ZWWXRPUkRFNkdTTW9EMFRVVFg0Vk5GRHEyalFDcG9CemtXUXF3ZHIwOUo4Q3RNblFqQUZCUnpKY3VQUGQyYk43eHFmYkZSMGNLUHVmYVpJUVkxcXRiRWdGNE96ejhVZHh0OExJQ1o2MD0ifSx7InZhbHVlIjo5MDAwMDAwMCwiYWRkciI6ImNvbnRyYWN0MDE6ODAxN2QxYmQxNTMyNmI0OGI3MDIwZmY2ZmU0MzRhZTQ5OTljZjA1MDAyNWVjNjQ4NzE1MTY2NzdmMTE3NzQ2MCIsImF0dHIiOiJ1c2VyMDE6ZTk2Mjk4MjIyMDRiOWUzMjlhNzY3ZjVjNGJmMzk5Yjc3ZmEwZGZhNjNjOWRmN2I4OGIwNDBjNTAwM2MyYWYzYSIsInNpZ24iOiJwMTVaM1ptUUNQQWhSVFJ0cDRvWGJCdGRiQ2d6ejA5SXpudHZRZWJpeFB3NGlCUXVFSVhRTnQ3RFlMd3F1TkJ2anlRdGhrekExb0xSUjIzNHh6UXJSTHJHeWlUSVRsYitNS2xyTWFEMWx1QnRWc29sNE0ySlF6QnFlSlBhZWE3S1lEcmI5bmdCMGZwaDZVeU5iZVZKTTVzTG1qYllmQnRzeHNYdnYwdzFHbnc9In1dLCJJbnB1dERhdGEiOiJkb25vcnV1aWQiLCJmb3VuZGVyIjoiZnVuZDAxIn0=","KJkyRPYCXt93MFdT8Z+cPsLNniRvs868SNT7VgiwP7r/YFbpPE6nLl4G5jQm6OUQ4CHLQmN6XFKY5oFEjUTcF5ocP5db9QSfQkQzpIGXe4E3nE8fMYHXpLKa38SSn+VnuocjwM2PnDOIG9/6r1IAMSOY5Jq6aP0sn2t0fzJH6V8="]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 3
+    } 
+
+result:
+
+    {
+      "jsonrpc": "2.0",
+      "result": {
+        "status": "OK",
+        "message": "f13a2555-ac16-4e6d-b5b0-d38ec439966a"
+      },
+      "id": 3
+    }  
+
+query treaty01
+
+    {
+      "jsonrpc": "2.0",
+      "result": {
+        "status": "OK",
+        "message": "{\"addr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"balance\":9500000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDeHV2RXZ5OTd4OUpiR3ZVMzlBMTZIZ3FTNgo1WDhGaGFMNzh5Wm1QSE9DZnNjY3paZk4ydE5uaHlqR3dvb1Zwbmd5bFJ5d3Bib29BekFoeVNLcVZROGdpNjBHCnRJa01QWEZ0RHZyVFJOUFZhd2MwdTloVVY5SnhSdkx1c0JjSzBmSGtkUGhuamlTa25nNGk3Mk51OUJFUlFveGMKNTQzOVU2aEpLZE45SUdta2lRSURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=\",\"txouts\":{\"ec366e441dac563ef862b6af475041f3713619d35988b8a8e965496adeab04b4:0\":{\"value\":9500000,\"addr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"attr\":\"user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a\",\"sign\":\"bFtk+NTHkh7KSgf6TF8FwbKdP8JUg4fnNdYFM5Gp8viGzo32gXRC/XjJ66Gl0q5wesFVYtORDE6GSMoD0TUTX4VNFDq2jQCpoBzkWQqwdr09J8CtMnQjAFBRzJcuPPd2bN7xqfbFR0cKPufaZIQY1qtbEgF4Ozz8Udxt8LICZ60=\"}}}"
+      },
+      "id": 5
+    } 
+
+query contract01 
+
+    {
+      "jsonrpc": "2.0",
+      "result": {
+        "status": "OK",
+        "message": "{\"addr\":\"contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460\",\"balance\":90000000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDcDlxUTBINVY4WUkwOWFGMTJvVnhjWTlVUQpuUzNVRFZwT0c2OXo3a0lzK3o3WUJXR0hlVWtKSjk2U2JrVVU1WWtoU0JhbXZoTXBoUW9STS90MlI5YTJpem5FCkNyWmladVpHZmxJdEFtU0lxOXB5Ris5M1UwYVdQWTcxc1VqSCtnQ0orcFBPSFJwSWFoRWtHZ2t1QTN1NU5wZncKUTBJQnJGOHdNWi9NSnhNSFl3SURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=\",\"txouts\":{\"ec366e441dac563ef862b6af475041f3713619d35988b8a8e965496adeab04b4:1\":{\"value\":90000000,\"addr\":\"contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460\",\"attr\":\"user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a\",\"sign\":\"p15Z3ZmQCPAhRTRtp4oXbBtdbCgzz09IzntvQebixPw4iBQuEIXQNt7DYLwquNBvjyQthkzA1oLRR234xzQrRLrGyiTITlb+MKlrMaD1luBtVsol4M2JQzBqeJPaea7KYDrb9ngB0fph6UyNbeVJM5sLmjbYfBtsxsXvv0w1Gnw=\"}}}"
+      },
+      "id": 5
+    }    
+
+### destroycoinbase contract01 -> 0
+
+    {
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    },
+    "ctorMsg": {
+    "function":"destroycoinbase",
+    "args":["contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460","cebbank:71266a9913375add341f1f7a4a606a2ee4e24efaf59bb2a3eb4b71aaaf5fb3fe","vbpZ3pn2urZ34L1lppflFTP1rMPSWO0PuNkDLoX0qgHXQTdvrNw9O/tCgEbfePl/ppTv5kvTDSlovf+ppT48vTB2EtHYsEi+ZX6L+dKx7Bas/QsIT0/QGI/+bg8nkoi2/LyOUbSOs4P+hVdsofukH6b+wlVTsFsGAwSrLtJgKxo="]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 3
+    } 
+
+result:
+
+    {
+      "jsonrpc": "2.0",
+      "result": {
+        "status": "OK",
+        "message": "f31b25c4-791b-4723-b4f6-24d4d1777096"
+      },
+      "id": 3
+    }  
+
+query contract01
+
+    {
+      "jsonrpc": "2.0",
+      "result": {
+        "status": "OK",
+        "message": "{\"addr\":\"contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460\",\"rsaPublicKey\":\"LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDcDlxUTBINVY4WUkwOWFGMTJvVnhjWTlVUQpuUzNVRFZwT0c2OXo3a0lzK3o3WUJXR0hlVWtKSjk2U2JrVVU1WWtoU0JhbXZoTXBoUW9STS90MlI5YTJpem5FCkNyWmladVpHZmxJdEFtU0lxOXB5Ris5M1UwYVdQWTcxc1VqSCtnQ0orcFBPSFJwSWFoRWtHZ2t1QTN1NU5wZncKUTBJQnJGOHdNWi9NSnhNSFl3SURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=\"}"
+      },
+      "id": 5
+    }
 
 ## Process
 

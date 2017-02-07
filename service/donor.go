@@ -81,12 +81,17 @@ func AddTrack(store store.Store, args []string) ([]byte, error) {
 		return nil, err
 	}
 
+	return PutTracking2Donor(store, donorAddr, newTracking)
+}
+
+// PutTracking2Donor
+func PutTracking2Donor(store store.Store, donorAddr string, tracking *protos.DonorTrack) ([]byte, error) {
 	tmpDonor, err := store.GetDonor(donorAddr)
 	if err != nil {
 		return nil, err
 	}
 
-	tmpDonor.Trackings = append(tmpDonor.Trackings, newTracking)
+	tmpDonor.Trackings = append(tmpDonor.Trackings, tracking)
 
 	if err := store.PutDonor(tmpDonor); err != nil {
 		return nil, err

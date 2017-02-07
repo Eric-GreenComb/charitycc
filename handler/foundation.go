@@ -165,8 +165,8 @@ func QueryContracts(store store.Store, args []string) ([]byte, error) {
 	return service.QueryContracts(store, args)
 }
 
-// DoDrawing do drawing
-func DoDrawing(store store.Store, args []string) ([]byte, error) {
+// Drawed foundation drawing
+func Drawed(store store.Store, args []string) ([]byte, error) {
 
 	if len(args) != 3 {
 		return nil, errors.IncorrectNumberArguments
@@ -176,29 +176,36 @@ func DoDrawing(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.InvalidArgs
 	}
 
-	treatyID := args[0]
-	publicKey := args[1]
+	_sourceAddr := args[0]
+	_base64TxData := args[1]
+	_base64SourcSign := args[2]
 
-	base64Sign := args[2]
-	treatySign, err := base64.StdEncoding.DecodeString(base64Sign)
+	_sourcePublicKey, err := service.QueryAccountRsaPublicKey(store, _sourceAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	_sourcSign, err := base64.StdEncoding.DecodeString(_base64SourcSign)
 	if err != nil {
 		return nil, errors.Base64Decoding
 	}
 
-	hash := sha256.Sum256([]byte(treatyID + publicKey))
+	hash := sha256.Sum256([]byte(_base64TxData))
 
-	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], []byte(publicKey), treatySign)
+	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], _sourcePublicKey, _sourcSign)
 	if !bVerify {
 		return nil, errors.VerifyRsaSign
 	}
 
-	// get treaty account, check if treaty account < value
+	return service.Drawed(store, args)
+}
 
-	// traverse account's txout, make txs(in: treaty; out: contract)...
+// DoDrawing foundation drawing and addTrack
+func DoDrawing(store store.Store, args []string) ([]byte, error) {
 
-	// util , txout > value, make tx(in: treaty; out: contract,treaty)
+	// drawed
 
-	// save tx1,tx2,tx3... and save tx1,tx2,tx3... info into donor info'addr
+	// addTrack
 
 	return nil, nil
 }

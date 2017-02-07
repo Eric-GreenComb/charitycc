@@ -51,13 +51,18 @@ func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 	case "addTrack":
 		// args: channelAddr,donorAddr,trackData(track json base64),channelSign(base64)
 		return handler.AddTrack(storeCC, args)
+	case "donated":
+		// args: channelAddr,donorAddr,txData(coinbase tx Base64),channelSign(base64)
+		return handler.Donated(storeCC, args)
+	case "doDonating":
+		// args: ...
+		return handler.DoDonating(storeCC, args)
 
-	case "doDonate":
-		// args: business(Business id),donorID,publicKey(donor base64),channelID,publicKey(channel base64),treatyid,value,sign(base64)
-		return handler.DoDonate(storeCC, args)
-
+	case "drawed":
+		// args: foundationAddr,txData(coinbase tx Base64),foundationSign(base64)
+		return handler.Drawed(storeCC, args)
 	case "doDrawing":
-		// args: business(Business id),treatyID,publicKey(treaty base64),contractid,value,sign(base64)
+		// args: foundationAddr,txData(coinbase tx Base64),foundationSign(base64)
 		return handler.DoDrawing(storeCC, args)
 
 	default:

@@ -6,6 +6,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/CebEcloudTime/charitycc/core/coin"
 	"github.com/CebEcloudTime/charitycc/core/store"
 	"github.com/CebEcloudTime/charitycc/errors"
 	"github.com/CebEcloudTime/charitycc/protos"
@@ -171,4 +172,63 @@ func QueryContracts(store store.Store, args []string) ([]byte, error) {
 	}
 
 	return json.Marshal(contracts)
+}
+
+// Drawed foundation drawing
+func Drawed(store store.Store, args []string) ([]byte, error) {
+
+	newTX, err := DrawedTx(store, args)
+	if err != nil {
+		return nil, err
+	}
+	return json.Marshal(newTX)
+}
+
+// Drawed foundation drawing
+func DrawedTx(store store.Store, args []string) (*protos.TX, error) {
+
+	_base64TxData := args[1]
+
+	txData, err := base64.StdEncoding.DecodeString(_base64TxData)
+	if err != nil {
+		return nil, errors.Base64Decoding
+	}
+
+	newTX, err := utils.ParseTxByJsonBytes(txData)
+	if err != nil {
+		return nil, err
+	}
+
+	if newTX.Founder == "" {
+		return nil, errors.TxNoFounder
+	}
+
+	utxo := coin.MakeUTXO(store)
+
+	_, err = utxo.Execute(newTX)
+	if err != nil {
+		return nil, err
+	}
+
+	return newTX, nil
+}
+
+// GenDrawTxData gen draw tx
+func GenDrawTxData(treatyAddr, contractAddr string, amount uint64) (*protos.TX, error) {
+
+	// get treaty account, check if treaty account < amount
+
+	// traverse account's txout, make txs(in: treaty; out: contract)...
+
+	// util , txout > amount, make tx(in: treaty; out: contract,treaty)
+
+	// save tx1,tx2,tx3... and save tx1,tx2,tx3... info into donor info'addr
+
+	return nil, nil
+}
+
+// GenTrackByTxData
+func GenTracksByTxData(tx protos.TX) ([]protos.DonorTrack, error) {
+
+	return nil, nil
 }

@@ -88,6 +88,10 @@ func (u *UTXO) Execute(newTX *protos.TX) (*ExecResult, error) {
 			return nil, errors.AccountNoTxOut
 		}
 
+		if ownerAccount.Balance < txout.Value {
+			return nil, errors.AccountNotEnoughBalance
+		}
+
 		ownerAccount.Balance -= txout.Value
 		delete(ownerAccount.Txouts, keyToPrevOutput.String())
 		// save owner account
@@ -127,6 +131,10 @@ func (u *UTXO) Execute(newTX *protos.TX) (*ExecResult, error) {
 	// one of transfer main point is in == out, no coin mined, no coin lose
 	if execResult.SumCurrentOutputs != execResult.SumPriorOutputs {
 		return nil, errors.TxInOutNotBalance
+	}
+
+	if execResult.SumCurrentOutputs > execResult.SumPriorOutputs {
+		return nil, errors.TxOutMoreThanTxIn
 	}
 
 	if err := u.store.PutTran(newTX); err != nil {
