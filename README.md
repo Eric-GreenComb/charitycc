@@ -34,7 +34,7 @@ result:
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+        "message": "56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
       },
       "id": 1
     }
@@ -50,11 +50,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"registerBank",
-    "args":["cebbank","LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDK0oxWjRiTGFPOFNobTFyOXFOOHB6RjJxbwp1c08rSnhoOWpGcDdQTkcwMERGTUR5RUhWNU9JajhhdFlVdzBwRkFTUG95dldHMGhlRzdCVU00bVRpWHNZOFF3ClpYMjZ6L2I2bk05Q3ZtM2xlell1NjgwT2NQQnNIczdLb0RZTkUrUGM2c0EwRGVDVnUxNm5aeGpQbFRwbUxMdmkKb2Z3bS9ReVlKZlVsNElRazFRSURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=","TV1xznZQSfCliJBdTvKNhn5s1M8Ji9tuET68hrMQHpbd5LO83K7yHyMJQQo7lX4iV0qVvYyK5p8zeJwVVyOeNQd1jRpi83XmfLqWHzhddf3zK81xOpzz+2GVuZolyKS2dzXyheJ7holm3PyxUwZtL5+qWfQhAXBKLqN0LrU5pcE="]
+    "args":["cebbank","LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDenFYaVVyRFZzanhIZzdyM1RMc1NSaGlaTApqeE1nczBIU3JsRlV3c0s1eFVCcGFwSHdSazlHeGJrMWtOd2tkSzdPeHlselJjbmxzbEd5VnhhU21KYzNqbmpvClVRVFphbVRaemViMzNNZC9oYUVkN3BhSXFkSS9pZ1Z6TEtpaStXcFJkUE02VlFaV0pHam01eEMwMHhWUWw3aWcKOExBUXV6ek1OMnNCRkhsSmN3SURBUUFCCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo=","Bc4gxFGOGlGGZwpzz4PP+Q/Ji+DW/8oaWT1uZ4sLhA0WW4MboEsF3gsSGdvJCaswU6X+cChfBBYLw5FKHIg2kjXZXXOzD70pBLBdtdAIuObh0nKw09BzJ+r8XknTRRhIa1zLJ01lhh/UtYobPF3KrNw01WT8UUJeLnEs6I781XM="]
     },
     "secureContext":  "jim"
     },
@@ -80,11 +80,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"queryBank",
-    "args":["cebbank:71266a9913375add341f1f7a4a606a2ee4e24efaf59bb2a3eb4b71aaaf5fb3fe"]
+    "args":["cebbank:29731d0e6c6ca9cb985eabf9fe716d1644c624cae5265c36c9b7a46702003924"]
     },
     "secureContext":  "jim"
     },
@@ -102,7 +102,7 @@ result:
       "id": 5
     }    
 
-#### registerAccount user01
+#### registerAccount donor01
 
     {
     "jsonrpc": "2.0",
@@ -110,11 +110,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"registerAccount",
-    "args":["user01","LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDcGxmMDlJNTl5SDYzRnJwSlhqMSs0WmhjZgpSOXJVVi82akhWWVAxelQ1aHlUZUwzNWQ4NVpwTzhOTDdWV2MyYVpHeDFjZ2dvRG8rRUkvMVJobDA4UHhSbFdKCi9XVGt1VzBLbDIxeGRGUXFnSnk1Q3JUeUc0SURmS2NTRkg3dG9tZzFqeVlHaHRFZ2g5TUI3RVVZNXd0M0hWZHYKWEdWQWlMbzViU3VOaVRVV2J3SURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=","qWdNBVo7E0kF3snN35CGR51oayyohZ8WOEZ4cPU2TINtohoE0epmtlZUFvXcf5xn/ZiNuapwQWf0xXH9wkaic4uM1DttoJKYjbvW2q9lfMJfa+zlmmEJjY2UauS9u9LxXTwzfgQUt9Aq5UkWfMuwrw9OfosfaLdHoPK3nkwDFFM="]
+    "args":["donor01","LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FERS9HZ3VWbUk0QmRnUU5oYThPMmtYK3dHQgpNSkxQbGNPZllLMUdsQkpsZzlLUm9RNmZrWGd5aXRCb2FORzI5dVpnV3loVjZSMmhzUXpmRyt3cHE0VmsyQkEyClBxZEtFcVRyQVhMU0EvWkw0bUpPVEx4bjV0Qm5QL0p5OGRGaitXSjBlSWtzOGZhMUxORS9QVnR6UDlEZDV2bmEKbEZvTXNJa09maDlMcWxmaFRRSURBUUFCCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo=","gG981xuGEiadVSP17Mrr6LDhTqhX2AfKjAVheiiiwlILT2XJB+ifQuf+3/yUhzZGAt/CreiFLj0jP3TN54tpurj93hmWdiPTxU5jHr45QhFWCejxyYxvz7QlZctWCUftpdOpz6NB9GkinVN6Qc1+5V8yiBlT5xnHIkqiPBA1Uxo="]
     },
     "secureContext":    "jim"
     },
@@ -132,7 +132,7 @@ result:
       "id": 3
     }    
 
-#### queryAccount user01
+#### queryAccount donor01
 
     {
     "jsonrpc": "2.0",
@@ -140,11 +140,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"queryAccount",
-    "args":["user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a"]
+    "args":["donor01:275e74b0e340f54135496e46d829b25af699984e6787f9a7b13191ad991a1eb1"]
     },
     "secureContext":    "jim"
     },
@@ -157,7 +157,7 @@ result:
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "{\"addr\":\"user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a\",\"rsaPublicKey\":\"LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDcGxmMDlJNTl5SDYzRnJwSlhqMSs0WmhjZgpSOXJVVi82akhWWVAxelQ1aHlUZUwzNWQ4NVpwTzhOTDdWV2MyYVpHeDFjZ2dvRG8rRUkvMVJobDA4UHhSbFdKCi9XVGt1VzBLbDIxeGRGUXFnSnk1Q3JUeUc0SURmS2NTRkg3dG9tZzFqeVlHaHRFZ2g5TUI3RVVZNXd0M0hWZHYKWEdWQWlMbzViU3VOaVRVV2J3SURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=\"}"
+        "message": "{\"addr\":\"donor01:275e74b0e340f54135496e46d829b25af699984e6787f9a7b13191ad991a1eb1\",\"rsaPublicKey\":\"LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FERS9HZ3VWbUk0QmRnUU5oYThPMmtYK3dHQgpNSkxQbGNPZllLMUdsQkpsZzlLUm9RNmZrWGd5aXRCb2FORzI5dVpnV3loVjZSMmhzUXpmRyt3cHE0VmsyQkEyClBxZEtFcVRyQVhMU0EvWkw0bUpPVEx4bjV0Qm5QL0p5OGRGaitXSjBlSWtzOGZhMUxORS9QVnR6UDlEZDV2bmEKbEZvTXNJa09maDlMcWxmaFRRSURBUUFCCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo=\"}"
       },
       "id": 5
     }
@@ -170,11 +170,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"registerAccount",
-    "args":["channel01","LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDbFBibUthUk5FVm05NHUwSmZ1anVwd1ZVSgo5MVc3YmQyODc4NHdDbS9HUi85Wm1jRzZkRlNRUC9yaTQ5RHExR0hLekJEd0lvRzVXOGJmZndLeERiOTIzOWsrCmxwaHV1VjloZ0I3TlliQ25VUUo0WmkvUUlQZDFqR2pSem1DYlcvajJOdDJid1JJL3loNHNMbVhMb2Qzb2FuczcKcjR5ZzhnN2k4blRZUHlLWllRSURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=","MRCrGTmkoGLx+IQgWWNsjPv6u4SH+YbZRfS5JZtBBFFcXXpVEIeO651oynD+JvCkJyRGjFCyx5swBeBw2xXS0EYDMxyQbLASJQKy42o6sd6L9k+ael+EaJ6ypIY8PyBs3QfZg9Nf53b65xyEaSbzCWLxHUWs/QKg0T003sBXtvk="]
+    "args":["channel01","LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FERGVNNzJVRnkvK1VTaUpTU3BkWlF2Tmt2NgpySDAvQ25raUJMRmRBUEVIUUR6bTY0Wks3bWR0bUE2ayt1alJtbENXbjhIUVRSK0xHcGp4WGxhVFc1a1Z2a2xVCks4cUdkRUUzNW5JTW0zQnc2ZldsQUlvV2I4dUxEQjlVQmpIVGxIb1dlaEE0SzV3WEh6ZmpqaWQ0U2dBNEhwbzUKdlhlazdzc3RESEpBZUhuNXdRSURBUUFCCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo=","AbHdSWk/vmQVgBIihWJpLWLkAPxsd/4gHzyQlWyY3AHM4FZiiVimi+wDDayCSEqp0PzSF4iMa8zKI2AEWc4A17NimHkBquD08BagxDeuyKplMGjDEAXzvxNnskZUFim0rEBEFiNJd5YbY1gTWn2/xwGZTRbuAmQ34svNGyTL0TU="]
     },
     "secureContext":    "jim"
     },
@@ -200,11 +200,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"queryAccount",
-    "args":["channel01:cc68d3ccb7be906dbf9d63e4ae3e9605c8ddd63fb710603e3cb45976932db9f4"]
+    "args":["channel01:9c8b43ce948010efc3b7d102aae502165ccd5e0714a3e765fe1a8f444936785a"]
     },
     "secureContext":    "jim"
     },
@@ -230,11 +230,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"registerAccount",
-    "args":["fund01","LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDZ0dDTEdVN1hmbFQ2UjNQdW1NN3dPRjJmdQowbUhmREl6dlA3SkUxUEJvdXR3NzkvT0F6NWJnWXIrQUtwM2VhSFhlemlIb3JTQTZFUFNDUGNoTm01ZzFsOCt4CjQ0ODJ0dm4zWVA3YWdxTmJISHI2MjNwOEprOXEwWFVhS3U0OXVEMDNjLy9EcnM2bjVjWE9QdVF4VVFkQ3VnYTkKT1FVR0RDTEs4RElUVzdXU1J3SURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=","o7JiiwKn2MNSsa9qsXIHY0EcFX0fZ90ewz8d0FrsKbf33hBdllYl2nzDScg4UmVkwuQqbUkyn+viGzTqOsYAaeZ+zGCtaswjpw+Iac01WSfjkbJ67kiduCBDW9EjYbIyHE6dnkm/c3DQdghSz4T8rE+vulH5P1lQgs6CZ0K8Yhw="]
+    "args":["fund01","LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FEanZlcE94YkI1SGlQbVgwcnJTUThJMG90MQp2c0ljNno0RThtVnhubEtlMCt3MVpOT1J1UEdwSmE1TENNZWNqNDk4dllDcEljbk1IMkJCZjJQMk4wcnVkOW5PCllOVWZiOHlxdk5aODZNNHZBRVM4d2QxT1MzYmY1bm12Ry92Ykl5aWQwSmdIK0tRNU1LVDFZSjNGRE5TcWYrbHQKRHVTOWFUeDhtb3BKODlSME93SURBUUFCCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo=","ljsig5W3p7GHEYg1VWjxd7QMgXefOWi3CbqcbI41RhErkYBdbRRlUCX6HImVrRXi3pQFCcQ8Wo0rm0uAHuhDHFqV3CgmNVcc5kzPTC+WiQgMzsbeOrmH/S3htnkBcHIrpWkUAS9w5wU6ANCSATyYJenH7vSMcT2N9MBzyQZ1J8M="]
     },
     "secureContext":    "jim"
     },
@@ -260,11 +260,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"queryAccount",
-    "args":["fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13"]
+    "args":["fund01:25ab580a2093776ca2e1dd1775e96dfec5f1ffbcc9565129351cb330cf0712d7"]
     },
     "secureContext":    "jim"
     },
@@ -282,7 +282,7 @@ result:
       "id": 5
     }        
 
-#### registerAccount treaty01
+#### registerAccount smartcontract01
 
     {
     "jsonrpc": "2.0",
@@ -290,11 +290,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"registerAccount",
-    "args":["treaty01","LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDeHV2RXZ5OTd4OUpiR3ZVMzlBMTZIZ3FTNgo1WDhGaGFMNzh5Wm1QSE9DZnNjY3paZk4ydE5uaHlqR3dvb1Zwbmd5bFJ5d3Bib29BekFoeVNLcVZROGdpNjBHCnRJa01QWEZ0RHZyVFJOUFZhd2MwdTloVVY5SnhSdkx1c0JjSzBmSGtkUGhuamlTa25nNGk3Mk51OUJFUlFveGMKNTQzOVU2aEpLZE45SUdta2lRSURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=","qsE9futAjI7wJng4CAm9b9gkttEYIXE23PrWNnTAup75tciPSPzaSq3/usZ0fUrCWxHPACpvmqCmk6UrZ+pxn8DJITEyy+ediVYIaY83Rrm2plfB+D78FfGDX9VkzwBnWmfeK3dKQyjau/HsbsBCPTsZTPpOOsdkP2kGw1RalRQ="]
+    "args":["smartcontract01","LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FEMG80Q3dIdE9ISzEvUXZZQzlCL0o4NTZmKwoyQTFtRGE5elpiTE5yZXhHdVlPZ1Yvb1UwTDdTaVBnSUF3Tm9HSGRENmtQakxkK2N3aEVaMHdQRnluZjhicDh5CithK00wRUJjeStkK1VQQ1MrQmNlYjdrWDVOK3VYUm9za3VzWWx3MTVRc3UyeDBrZ3hXVUJIUXZiOGxEV0xuNVUKckptSVVUdG5XWkExMHB0em13SURBUUFCCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo=","jy1NvbURF+UaieDQzbc7xojJJApvQlFL9XnASM6gkDO4KcoAN4pk+mnEGtbmx5GPXVX9mPR+8pSJHcsjGPZPYPAP68lYOcoZCN3oYmDnTuJA0Vh1OU+DN2oQHknuzujz8t28imeRBkHAgbeIRv5Gke1dRRjtGAbE1DbBkl+/on0="]
     },
     "secureContext":    "jim"
     },
@@ -312,7 +312,7 @@ result:
       "id": 3
     }     
 
-#### queryAccount treaty01
+#### queryAccount smartcontract01
 
     {
     "jsonrpc": "2.0",
@@ -320,11 +320,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"queryAccount",
-    "args":["treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd"]
+    "args":["smartcontract01:1d54a8713923af1718e8eeabec3e4d8596dbbdf2da3f69ea23aeb8c7a5ab73d8"]
     },
     "secureContext":    "jim"
     },
@@ -342,7 +342,7 @@ result:
       "id": 5
     }      
 
-#### registerAccount contract01
+#### registerAccount bargain01
 
     {
     "jsonrpc": "2.0",
@@ -350,11 +350,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"registerAccount",
-    "args":["contract01","LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDcDlxUTBINVY4WUkwOWFGMTJvVnhjWTlVUQpuUzNVRFZwT0c2OXo3a0lzK3o3WUJXR0hlVWtKSjk2U2JrVVU1WWtoU0JhbXZoTXBoUW9STS90MlI5YTJpem5FCkNyWmladVpHZmxJdEFtU0lxOXB5Ris5M1UwYVdQWTcxc1VqSCtnQ0orcFBPSFJwSWFoRWtHZ2t1QTN1NU5wZncKUTBJQnJGOHdNWi9NSnhNSFl3SURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=","Qt1K73w/cmz7ueNyNSshFnRJ1lr2kQamgisdu/nB2F+OI70R1GNm833iLMfty4VZtuFI+oi70BdzFO/ZM4JDjHgWNYm9R9V92iRHsK+2F7FwFlR/8VvwFIkBF0METfZQBVF5fcya+Vk0qhfLuNDl8YkWS7SQW4Jkeodq12+XdO8="]
+    "args":["bargain01","LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDM3R4R3hnWUtKcjlZK21iMTROcENKS0NtUgo4QmNRek9MSjNEK3EvUFo1Zk9xUzUzdFhvVko2QUZtNEwyelZLYUFkMWNOS0s4L2t3RktsV1E5YmJLZ1ZOV25zCnc4MjM0N05yRzQxaWZocFZ3dThJVHJSOGlMOC9pR3lMdnh4SGg0OWpmQ3RIWkFHV3hrWkFsVDBwdkRZYTNJMW0KTjZMKytZWCt2WW42WTdOOFB3SURBUUFCCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo=","dIP428HgM+sGIpUmi9CXwgOQ0cmoMDc3E46GXN4tyo3qo/eJLISL3Bl2qTTi0KVXjs0S522TygQs3y3/NAyiwmAiL5ZeT/81ckeQf9ErUE+LreykkA5kD0ZFpEmtuChFfkz1DXYRr6o/IXzrfl4MZhJtiBwSzU6Vc2bhpOwvdko="]
     },
     "secureContext":    "jim"
     },
@@ -372,7 +372,7 @@ result:
       "id": 3
     }     
 
-#### queryAccount contract01
+#### queryAccount bargain01
 
     {
     "jsonrpc": "2.0",
@@ -380,11 +380,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"queryAccount",
-    "args":["contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460"]
+    "args":["bargain01:8fcc58ea7ed212f7c1ba359d15bea144e67c390044d953797548cf67fd62534a"]
     },
     "secureContext":    "jim"
     },
@@ -402,8 +402,8 @@ result:
       "id": 5
     }           
 
-### treaty register/query
-#### registerTreaty treaty01
+### smartcontract register/query
+#### registerSmartContract smartcontract01
 
     {
     "jsonrpc": "2.0",
@@ -411,11 +411,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
-    "function":"registerTreaty",
-    "args":["fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13","eyJhZGRyIjoidHJlYXR5MDE6ZTQ4MTFkNjI0ZWJiYWNiYWFkYzU5YmYwMTkyYzQyMjlhOWE0ZTA1ZTFmYTI2OWRkZTM0NWJmMmJmYjNmOWJkZCIsIm5hbWUiOiLlroHlpI/opb/pg6jlnLDljLrmr43kurLmsLTnqpbpobnnm64iLCJkZXRhaWwiOiLlroHlpI/opb/pg6jlnLDljLrmr43kurLmsLTnqpbpobnnm64iLCJnb2FsIjoxMDAwMDAwMDAwMDAwLCJwYXJ0eUEiOiLmn5Dln7rph5HkvJoiLCJwYXJ0eUIiOiLmn5DlnLDljLoiLCJmdW5kTWFuYW5nZXJGZWUiOjMsImNoYW5uZWxGZWUiOjIsImNyZWF0ZVRpbWVzdGFtcCI6MTQ4NjQ1MjY3NCwiZm91bmRhdGlvbiI6ImZ1bmQwMTpkYTMzNmEyYTJkODFjZGY1NzBiNWQzZDcwOTI2MTQ0OTk3ZTVlMjc3ZjQ5ODk3YzY4ODVhY2FjYmE4YjFjYzEzIn0=","B2G4M2m4iC79PE1oc6kbEAtZDNBUSfQf5QlxR4VAgHcQreR6oqQkQ4RxIvPXqYyxk1os9VKtxTf0lo6uPXRbsR/O5wFrkDkK4aiXGSo0EX1GN5w59LTawJb42UBmoMReF0bfTlT/G1G3UDNVXI9oMkZxA9KFp4L0eG9eZOFzUoE="]
+    "function":"registerSmartContract",
+    "args":["fund01:25ab580a2093776ca2e1dd1775e96dfec5f1ffbcc9565129351cb330cf0712d7","eyJhZGRyIjoic21hcnRjb250cmFjdDAxOjFkNTRhODcxMzkyM2FmMTcxOGU4ZWVhYmVjM2U0ZDg1OTZkYmJkZjJkYTNmNjllYTIzYWViOGM3YTVhYjczZDgiLCJuYW1lIjoi5a6B5aSP6KW/6YOo5Zyw5Yy65q+N5Lqy5rC056qW6aG555uuIiwiZGV0YWlsIjoi5a6B5aSP6KW/6YOo5Zyw5Yy65q+N5Lqy5rC056qW6aG555uuIiwiZ29hbCI6MTAwMDAwMDAwMDAwMCwicGFydHlBIjoi5p+Q5Z+66YeR5LyaIiwicGFydHlCIjoi5p+Q5Zyw5Yy6IiwiZnVuZE1hbmFuZ2VyRmVlIjozLCJjaGFubmVsRmVlIjoyLCJjcmVhdGVUaW1lc3RhbXAiOjE0ODY2Mzc2NDQsImZvdW5kYXRpb24iOiJmdW5kMDE6MjVhYjU4MGEyMDkzNzc2Y2EyZTFkZDE3NzVlOTZkZmVjNWYxZmZiY2M5NTY1MTI5MzUxY2IzMzBjZjA3MTJkNyJ9","eKQd9bW7N/h2miHVLOZZI+d4nkxHi/EtkNPjOwEKU9TP9BZV4ZoviXG3iZjrStMpmc/QOTsq2Rmmbacy9nFPrPXoDUXkae2SypAejF8VfrsOG9i6DgTF6SIj4P8G4TV6LitQIAd67CLOR8N5HdEezhGVmIrWL9gDoK/yDBAglE0="]
     },
     "secureContext":    "jim"
     },
@@ -433,7 +433,7 @@ result:
       "id": 3
     }      
 
-#### queryTreaty treaty01
+#### querySmartContract smartcontract01
 
     {
     "jsonrpc": "2.0",
@@ -441,11 +441,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
-    "function":"queryTreaty",
-    "args":["treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd"]
+    "function":"querySmartContract",
+    "args":["smartcontract01:1d54a8713923af1718e8eeabec3e4d8596dbbdf2da3f69ea23aeb8c7a5ab73d8"]
     },
     "secureContext":    "jim"
     },
@@ -458,12 +458,12 @@ result:
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "{\"addr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"name\":\"宁夏西部地区母亲水窖项目\",\"detail\":\"宁夏西部地区母亲水窖项目\",\"goal\":1000000000000,\"partyA\":\"某基金会\",\"partyB\":\"某地区\",\"fundManangerFee\":3,\"channelFee\":2,\"createTimestamp\":1486452674,\"foundation\":\"fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13\"}"
-          },
+        "message": "{\"addr\":\"smartcontract01:1d54a8713923af1718e8eeabec3e4d8596dbbdf2da3f69ea23aeb8c7a5ab73d8\",\"name\":\"宁夏西部地区母亲水窖项目\",\"detail\":\"宁夏西部地区母亲水窖项目\",\"goal\":1000000000000,\"partyA\":\"某基金会\",\"partyB\":\"某地区\",\"fundManangerFee\":3,\"channelFee\":2,\"createTimestamp\":1486637644,\"foundation\":\"fund01:25ab580a2093776ca2e1dd1775e96dfec5f1ffbcc9565129351cb330cf0712d7\"}"
+      },
       "id": 5
     }      
 
-#### queryTreaties treaty01
+#### querySmartContracts smartcontract01
 
     {
     "jsonrpc": "2.0",
@@ -471,11 +471,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
-    "function":"queryTreaties",
-    "args":["treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd"]
+    "function":"querySmartContracts",
+    "args":["smartcontract01:1d54a8713923af1718e8eeabec3e4d8596dbbdf2da3f69ea23aeb8c7a5ab73d8"]
     },
     "secureContext":    "jim"
     },
@@ -488,13 +488,13 @@ result:
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "[{\"addr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"name\":\"宁夏西部地区母亲水窖项目\",\"detail\":\"宁夏西部地区母亲水窖项目\",\"goal\":1000000000000,\"partyA\":\"某基金会\",\"partyB\":\"某地区\",\"fundManangerFee\":3,\"channelFee\":2,\"createTimestamp\":1486452674,\"foundation\":\"fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13\"}]"
+        "message": "[{\"addr\":\"smartcontract01:1d54a8713923af1718e8eeabec3e4d8596dbbdf2da3f69ea23aeb8c7a5ab73d8\",\"name\":\"宁夏西部地区母亲水窖项目\",\"detail\":\"宁夏西部地区母亲水窖项目\",\"goal\":1000000000000,\"partyA\":\"某基金会\",\"partyB\":\"某地区\",\"fundManangerFee\":3,\"channelFee\":2,\"createTimestamp\":1486637644,\"foundation\":\"fund01:25ab580a2093776ca2e1dd1775e96dfec5f1ffbcc9565129351cb330cf0712d7\"}]"
       },
       "id": 5
-    }         
+    }        
 
-### contract register/query
-#### registerContract contract01
+### bargain register/query
+#### registerBargain bargain01
 
     {
     "jsonrpc": "2.0",
@@ -502,11 +502,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
-    "function":"registerContract",
-    "args":["fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13","eyJhZGRyIjoiY29udHJhY3QwMTo4MDE3ZDFiZDE1MzI2YjQ4YjcwMjBmZjZmZTQzNGFlNDk5OWNmMDUwMDI1ZWM2NDg3MTUxNjY3N2YxMTc3NDYwIiwibmFtZSI6IuWugeWkj+ilv+mDqOWcsOWMuuavjeS6suawtOeqlumhueebrlhY5Y6/WFjmnZHmsLTnqpYiLCJkZXRhaWwiOiLlroHlpI/opb/pg6jlnLDljLrmr43kurLmsLTnqpbpobnnm65YWOWOv1hY5p2R5rC056qWIiwic3RhcnRUaW1lIjoiMjAxNy0wMS0wMSIsImVuZFRpbWUiOiIyMDE4LTAxLTAxIiwicGFydHlBIjoi5p+Q5Z+66YeR5LyaIiwicGFydHlCIjoi5p+Q5Zyw5Yy6WFjljr9YWOadkeaWveW3pemYnyIsImRlcG9zaXRCYW5rIjoi5YWJ5aSn6ZO26KGMIiwiYmFua0FjY291bnQiOiIxMjk4aGZhazA5a2tsamFkc2tmIn0=","H4EEzd7UShFKmLwfq66yIXC4db3JMQh5ysdlafADd+DRHjzp7TyNnuhIHNgl5f3djS5rV6Mlyro3k9HyXv2VJcABtpGeEnphO6v8Fh8slMYtqXJdcVrmSCWUD9d+IzhrpNe+Wgv6bMFhy9iYECqkLTHUJnRxWopl7Pi6LHMyXr0="]
+    "function":"registerBargain",
+    "args":["fund01:25ab580a2093776ca2e1dd1775e96dfec5f1ffbcc9565129351cb330cf0712d7","eyJhZGRyIjoiYmFyZ2FpbjAxOjhmY2M1OGVhN2VkMjEyZjdjMWJhMzU5ZDE1YmVhMTQ0ZTY3YzM5MDA0NGQ5NTM3OTc1NDhjZjY3ZmQ2MjUzNGEiLCJuYW1lIjoi5a6B5aSP6KW/6YOo5Zyw5Yy65q+N5Lqy5rC056qW6aG555uuWFjljr9YWOadkeawtOeqliIsImRldGFpbCI6IuWugeWkj+ilv+mDqOWcsOWMuuavjeS6suawtOeqlumhueebrlhY5Y6/WFjmnZHmsLTnqpYiLCJzdGFydFRpbWUiOiIyMDE3LTAxLTAxIiwiZW5kVGltZSI6IjIwMTgtMDEtMDEiLCJwYXJ0eUEiOiLmn5Dln7rph5HkvJoiLCJwYXJ0eUIiOiLmn5DlnLDljLpYWOWOv1hY5p2R5pa95bel6ZifIiwiZGVwb3NpdEJhbmsiOiLlhYnlpKfpk7booYwiLCJiYW5rQWNjb3VudCI6IjEyOThoZmFrMDlra2xqYWRza2YifQ==","uIUWny1o4YfCUjBEB+cIq0e0lSAHy7Fqk4OxoCSSM88XW24M01wQj5d9wXCPxbGSeLIsxl6FEeS36cLzCuasHq2vsUQ3K/ySudP605sG+a2hrK5PC99IjknmA06hwMnEMFsPURLft6wRuN92UmKgEnSHejVyXj1gExpEL72xQKA="]
     },
     "secureContext":    "jim"
     },
@@ -524,7 +524,7 @@ result:
       "id": 3
     }     
 
-#### queryContract contract01
+#### queryBargain bargain01
 
     {
     "jsonrpc": "2.0",
@@ -532,11 +532,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
-    "function":"queryContract",
-    "args":["contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460"]
+    "function":"queryBargain",
+    "args":["bargain01:8fcc58ea7ed212f7c1ba359d15bea144e67c390044d953797548cf67fd62534a"]
     },
     "secureContext":    "jim"
     },
@@ -549,12 +549,12 @@ result:
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "{\"addr\":\"contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460\",\"name\":\"宁夏西部地区母亲水窖项目XX县XX村水窖\",\"detail\":\"宁夏西部地区母亲水窖项目XX县XX村水窖\",\"startTime\":\"2017-01-01\",\"endTime\":\"2018-01-01\",\"partyA\":\"某基金会\",\"partyB\":\"某地区XX县XX村施工队\",\"depositBank\":\"光大银行\",\"bankAccount\":\"1298hfak09kkljadskf\"}"
+        "message": "{\"addr\":\"bargain01:8fcc58ea7ed212f7c1ba359d15bea144e67c390044d953797548cf67fd62534a\",\"name\":\"宁夏西部地区母亲水窖项目XX县XX村水窖\",\"detail\":\"宁夏西部地区母亲水窖项目XX县XX村水窖\",\"startTime\":\"2017-01-01\",\"endTime\":\"2018-01-01\",\"partyA\":\"某基金会\",\"partyB\":\"某地区XX县XX村施工队\",\"depositBank\":\"光大银行\",\"bankAccount\":\"1298hfak09kkljadskf\"}"
       },
       "id": 5
     }    
 
-#### queryContracts contract01
+#### queryBargains bargain01
 
     {
     "jsonrpc": "2.0",
@@ -562,11 +562,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
-    "function":"queryContracts",
-    "args":["contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460"]
+    "function":"queryBargains",
+    "args":["bargain01:8fcc58ea7ed212f7c1ba359d15bea144e67c390044d953797548cf67fd62534a"]
     },
     "secureContext":    "jim"
     },
@@ -579,13 +579,13 @@ result:
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "[{\"addr\":\"contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460\",\"name\":\"宁夏西部地区母亲水窖项目XX县XX村水窖\",\"detail\":\"宁夏西部地区母亲水窖项目XX县XX村水窖\",\"startTime\":\"2017-01-01\",\"endTime\":\"2018-01-01\",\"partyA\":\"某基金会\",\"partyB\":\"某地区XX县XX村施工队\",\"depositBank\":\"光大银行\",\"bankAccount\":\"1298hfak09kkljadskf\"}]"
+        "message": "[{\"addr\":\"bargain01:8fcc58ea7ed212f7c1ba359d15bea144e67c390044d953797548cf67fd62534a\",\"name\":\"宁夏西部地区母亲水窖项目XX县XX村水窖\",\"detail\":\"宁夏西部地区母亲水窖项目XX县XX村水窖\",\"startTime\":\"2017-01-01\",\"endTime\":\"2018-01-01\",\"partyA\":\"某基金会\",\"partyB\":\"某地区XX县XX村施工队\",\"depositBank\":\"光大银行\",\"bankAccount\":\"1298hfak09kkljadskf\"}]"
       },
       "id": 5
     }       
 
 ### donor register/query addContribution addTrack
-#### registerDonor user01
+#### registerDonor donor01
 
     {
     "jsonrpc": "2.0",
@@ -593,11 +593,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"registerDonor",
-    "args":["channel01:cc68d3ccb7be906dbf9d63e4ae3e9605c8ddd63fb710603e3cb45976932db9f4","eyJhZGRyIjoidXNlcjAxOmU5NjI5ODIyMjA0YjllMzI5YTc2N2Y1YzRiZjM5OWI3N2ZhMGRmYTYzYzlkZjdiODhiMDQwYzUwMDNjMmFmM2EiLCJuYW1lIjoiZG9ub3JVc2VyMDEiLCJ0b3RhbCI6MTAwMDAwMDAwfQ==","V7MTYzD/SOjprKj0uHqeuhk0iIXfgsu1cQW2UQgFbvoa1kJINTkEjXO9ZQWEDxHPPpfld0CBQQs2VLyLRIUr7ZSlQ2K31otyyO6Smj5h8l9b4yX80vIVliC5Hs2XCpnhpkbwb7MxU91utRwaSja3sEsGn0YXjk3La54L8kCPGS4="]
+    "args":["channel01:9c8b43ce948010efc3b7d102aae502165ccd5e0714a3e765fe1a8f444936785a","eyJhZGRyIjoiZG9ub3IwMToyNzVlNzRiMGUzNDBmNTQxMzU0OTZlNDZkODI5YjI1YWY2OTk5ODRlNjc4N2Y5YTdiMTMxOTFhZDk5MWExZWIxIiwibmFtZSI6ImRvbm9yVXNlcjAxIiwidG90YWwiOjEwMDAwMDAwMH0=","aIJUrEL50jVOisSW/vEUjUa+mrqGV7DwqaqJ54X3+UCUVNsrF8UhG+kx8aocpKcgYNIizLcxPIWmwUiioaUEtZPorxJADpxUVhr+jeZOJcbPKZQhzSlOBiZoC9c0iSm4i/6iP/xe7hUvEg7RUKlK8B1ZcckbKa7woevRYUU7Ixk="]
     },
     "secureContext":    "jim"
     },
@@ -615,7 +615,7 @@ result:
       "id": 3
     }     
 
-#### queryDonor user01
+#### queryDonor donor01
 
     {
     "jsonrpc": "2.0",
@@ -623,11 +623,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"queryDonor",
-    "args":["user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a"]
+    "args":["donor01:275e74b0e340f54135496e46d829b25af699984e6787f9a7b13191ad991a1eb1"]
     },
     "secureContext":    "jim"
     },
@@ -640,12 +640,12 @@ result:
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "{\"addr\":\"user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a\",\"name\":\"donorUser01\",\"total\":100000000,\"contributions\":[{\"name\":\"donorUser01\",\"treatyname\":\"宁夏西部地区母亲水窖项目\",\"treatyaddr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"amount\":100000000,\"timestamp\":1486364970}],\"trackings\":[{\"name\":\"donorUser01\",\"contractname\":\"宁夏西部地区母亲水窖项目XX县XX村水窖\",\"contractaddr\":\"contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460\",\"amount\":100000000,\"timestamp\":1486364970}]}"
+        "message": "{\"addr\":\"donor01:275e74b0e340f54135496e46d829b25af699984e6787f9a7b13191ad991a1eb1\",\"name\":\"donorUser01\",\"total\":100000000,\"trackings\":[{\"name\":\"donorUser01\",\"accountName\":\"宁夏西部地区母亲水窖项目XX县XX村水窖\",\"accountAddr\":\"bargain01:8fcc58ea7ed212f7c1ba359d15bea144e67c390044d953797548cf67fd62534a\",\"amount\":100000000,\"timestamp\":1486630616}]}"
       },
       "id": 5
     }
 
-#### addContribution user01
+#### addContribution donor01
 
     {
     "jsonrpc": "2.0",
@@ -653,11 +653,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"addContribution",
-    "args":["channel01:cc68d3ccb7be906dbf9d63e4ae3e9605c8ddd63fb710603e3cb45976932db9f4","user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a","eyJuYW1lIjoiZG9ub3JVc2VyMDEiLCJ0cmVhdHluYW1lIjoi5a6B5aSP6KW/6YOo5Zyw5Yy65q+N5Lqy5rC056qW6aG555uuIiwidHJlYXR5YWRkciI6InRyZWF0eTAxOmU0ODExZDYyNGViYmFjYmFhZGM1OWJmMDE5MmM0MjI5YTlhNGUwNWUxZmEyNjlkZGUzNDViZjJiZmIzZjliZGQiLCJhbW91bnQiOjEwMDAwMDAwMCwidGltZXN0YW1wIjoxNDg2MzY0OTcwfQ==","hWrKIlKgygzHXegQ1lMgSpOMAjJ4985Qt8cJPc0TPfZZDhLXLExpPyCNjCV79yI3UjwWFVdLvSz1lWjcBKJUQU4aDKKf/0z04gWoYB6oecpsvp9X89E1eFRs9eUpS/tEH5S9YJ5kAtnJX0fDOKovCNPFFg6AXanUn8vXjZ6WZ7Y="]
+    "args":["channel01:9c8b43ce948010efc3b7d102aae502165ccd5e0714a3e765fe1a8f444936785a","donor01:275e74b0e340f54135496e46d829b25af699984e6787f9a7b13191ad991a1eb1","eyJuYW1lIjoiZG9ub3JVc2VyMDEiLCJzbWFydENvbnRyYWN0TmFtZSI6IuWugeWkj+ilv+mDqOWcsOWMuuavjeS6suawtOeqlumhueebriIsInNtYXJ0Q29udHJhY3RBZGRyIjoic21hcnRjb250cmFjdDAxOjFkNTRhODcxMzkyM2FmMTcxOGU4ZWVhYmVjM2U0ZDg1OTZkYmJkZjJkYTNmNjllYTIzYWViOGM3YTVhYjczZDgiLCJhbW91bnQiOjEwMDAwMDAwMCwidGltZXN0YW1wIjoxNDg2NjMwNjE2fQ==","aIJUrEL50jVOisSW/vEUjUa+mrqGV7DwqaqJ54X3+UCUVNsrF8UhG+kx8aocpKcgYNIizLcxPIWmwUiioaUEtZPorxJADpxUVhr+jeZOJcbPKZQhzSlOBiZoC9c0iSm4i/6iP/xe7hUvEg7RUKlK8B1ZcckbKa7woevRYUU7Ixk="]
     },
     "secureContext":    "jim"
     },
@@ -675,7 +675,7 @@ result:
       "id": 3
     }         
 
-#### addTrack user01
+#### addTrack donor01
 
     {
     "jsonrpc": "2.0",
@@ -683,11 +683,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"addTrack",
-    "args":["channel01:cc68d3ccb7be906dbf9d63e4ae3e9605c8ddd63fb710603e3cb45976932db9f4","user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a","eyJuYW1lIjoiZG9ub3JVc2VyMDEiLCJjb250cmFjdG5hbWUiOiLlroHlpI/opb/pg6jlnLDljLrmr43kurLmsLTnqpbpobnnm65YWOWOv1hY5p2R5rC056qWIiwiY29udHJhY3RhZGRyIjoiY29udHJhY3QwMTo4MDE3ZDFiZDE1MzI2YjQ4YjcwMjBmZjZmZTQzNGFlNDk5OWNmMDUwMDI1ZWM2NDg3MTUxNjY3N2YxMTc3NDYwIiwiYW1vdW50IjoxMDAwMDAwMDAsInRpbWVzdGFtcCI6MTQ4NjM2NDk3MH0=","L+3QF8+7qjMSgtWnQIwXh9cvqZNt/UBbBg5RUQ1eXFNgHy0VEWvHnK0112ojfJ5HrptF7jvw2JeFvWQgRotyHVz4gnlETbj6eESNpMamJIkpiyYnxM1VmnzkJz19GA3mka3Iq7qluiuNziXJUBqh1/Stl8Aw58X3MqmvzVEwq50="]
+    "args":["channel01:9c8b43ce948010efc3b7d102aae502165ccd5e0714a3e765fe1a8f444936785a","donor01:275e74b0e340f54135496e46d829b25af699984e6787f9a7b13191ad991a1eb1","eyJuYW1lIjoiZG9ub3JVc2VyMDEiLCJhY2NvdW50TmFtZSI6IuWugeWkj+ilv+mDqOWcsOWMuuavjeS6suawtOeqlumhueebrlhY5Y6/WFjmnZHmsLTnqpYiLCJhY2NvdW50QWRkciI6ImJhcmdhaW4wMTo4ZmNjNThlYTdlZDIxMmY3YzFiYTM1OWQxNWJlYTE0NGU2N2MzOTAwNDRkOTUzNzk3NTQ4Y2Y2N2ZkNjI1MzRhIiwiYW1vdW50IjoxMDAwMDAwMDAsInRpbWVzdGFtcCI6MTQ4NjYzMDYxNn0=","v1GVprhF5KLSPIquJ1IEo593DHzs4x2uTL3fgt2kI+3izfbe/Q43wHZ5Y6YSWfDQu1VmVPA7Sl85dHimdEeJURVvL/3EkIxGJNbdUVvGeKM9ASU2jUXTJ+SFgygglnOf+X+GWZVAYFy47ZKMki7xxUOTTLOUNMXWvtZE6frw4N8="]
     },
     "secureContext":    "jim"
     },
@@ -713,11 +713,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"coinbase",
-    "args":["cebbank:71266a9913375add341f1f7a4a606a2ee4e24efaf59bb2a3eb4b71aaaf5fb3fe","eyJ2ZXJzaW9uIjoxNzAxMDAxLCJ0aW1lc3RhbXAiOjE0ODUxNTcyOTIsInR4b3V0IjpbeyJ0eEhhc2giOiJ0eElESGFzaCIsInZhbHVlIjoxMDAwMDAwMDAwMDAwLCJhZGRyIjoiY2ViYmFuazo3MTI2NmE5OTEzMzc1YWRkMzQxZjFmN2E0YTYwNmEyZWU0ZTI0ZWZhZjU5YmIyYTNlYjRiNzFhYWFmNWZiM2ZlIiwic2lnbiI6ImIyOXVmUFlJU3MxQzdYWmMxbjhXcFdmaktUMUE0S1lJZ3JhRjdsbDBsM081NitZQThHdnk3WjdFbzZiSkUyOUZLRVZxUVBDaGY1RmVJOWg2QjFGdG9nbktvMFBVaDdMaUhaZnRsOVdlVjJCMVJMcmxwMGRlTlVvMU5TRUw3Qk03bVdLYi85ZjVQVlJ2WnVYY2lQaEdQVFpZaCtYWkdiT3JNMnJ4N0ZHYVorUT0ifV0sImZvdW5kZXIiOiJlcmljIn0=","jT9HO1vO3blGUSZ1tE1usKmzgdJhHl6Ia9moGpfYEvhSx8gMkclzU19AAv1/6k1g2BhLJw4MDqVMj8MBzm8NgHjOcD5oD0/+hOrAy+nIdOw9CZeSAnu5lOBKgb+XRqqq/WBJRFhpgwaJQAkYwNXQjtz56D7E2oedX3rtYxTPWwY="]
+    "args":["cebbank:29731d0e6c6ca9cb985eabf9fe716d1644c624cae5265c36c9b7a46702003924","eyJ2ZXJzaW9uIjoxNzAxMDEsInRpbWVzdGFtcCI6MTQ4NjYzMzY2NiwidHhpbiI6W3sic291cmNlVHhIYXNoIjoibnVsbCIsImFkZHIiOiJudWxsIn1dLCJ0eG91dCI6W3sidmFsdWUiOjEwMDAwMDAwMDAwMDAsImFkZHIiOiJjZWJiYW5rOjI5NzMxZDBlNmM2Y2E5Y2I5ODVlYWJmOWZlNzE2ZDE2NDRjNjI0Y2FlNTI2NWMzNmM5YjdhNDY3MDIwMDM5MjQiLCJzaWduIjoiT0pIZjJZSENMTFpaTVVtTkFkemJ4aHQ4RVJjSHRVVWtaOVJ6SmRtWFhjWXN3NHM1WCt6SEtramhhRSs0Njh2K0N4aG1ZY3hrWm5LWXR3N0V5eDVYcythMjJBWTZYRm1GQmZaYUFoRWh0TmJUcC94SWtiVThiYzBrSlNSMml2ZlZmeUdad0hoM1FPUU5ib3BFdXVTQkZLUytiaUUzYkswaGx0d251T0JUcGlrPSJ9XSwiSW5wdXREYXRhIjoiZG9ub3J1dWlkIiwiZm91bmRlciI6ImNlYmJhbmsifQ==","h4Tlf+YCl//ga/2HNPs2DbH/rvdg7DhXv2GSSi903WNwqqKY+qiMwDvT095WvCKkoHl8Kdne67o92HlX8u0oC8tL7OpANxX6a3kMmw9x3RbSbaLKL+DQS1wenS7jpYC8Xfpmo3hRbS2PoowOoBQysZa+UxVdsg+cBNmF4WpA2C8="]
     },
     "secureContext":  "jim"
     },
@@ -735,7 +735,7 @@ result:
       "id": 3
     }     
 
-### changeCoin cebbank -> user01
+### changeCoin cebbank -> donor01
 
     {
     "jsonrpc": "2.0",
@@ -743,11 +743,11 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"changeCoin",
-    "args":["cebbank:71266a9913375add341f1f7a4a606a2ee4e24efaf59bb2a3eb4b71aaaf5fb3fe","eyJ2ZXJzaW9uIjoxNzAxMDEsInRpbWVzdGFtcCI6MTQ4NjQ1MzE5MSwidHhpbiI6W3sic291cmNlVHhIYXNoIjoiZWIxODdjYmRmZDJlZDMyZGQ5MDJhYmY3ZWU5OTQwZjU4MWZlMWVhODZlN2UyY2RjYjBlMTYzYTlkNTg0YTkxYyIsImFkZHIiOiJjZWJiYW5rOjcxMjY2YTk5MTMzNzVhZGQzNDFmMWY3YTRhNjA2YTJlZTRlMjRlZmFmNTliYjJhM2ViNGI3MWFhYWY1ZmIzZmUifV0sInR4b3V0IjpbeyJ2YWx1ZSI6OTk5OTAwMDAwMDAwLCJhZGRyIjoiY2ViYmFuazo3MTI2NmE5OTEzMzc1YWRkMzQxZjFmN2E0YTYwNmEyZWU0ZTI0ZWZhZjU5YmIyYTNlYjRiNzFhYWFmNWZiM2ZlIiwic2lnbiI6ImJxUEtsWGlSWHcxUmhtZCtTbzVOL0NTTTZXckRvNXprZWRNQzBhMXBwOHNlK2FtVFEwNSt5OWN3d3c2YkxjN09IbTFEZFJ1ZktxRWJjR21IakFSSnNaL1VqTHpKWE1pRC93RVgrVTVsd2NCcys1T0ZVcVdzSURnY0pkc2JaSUtGQkNzWkJiZUN6OHJpMWJ0TmlYMitteExSQjluQWxxUmt5ZUFkbTMvVzBTcz0ifSx7InZhbHVlIjoxMDAwMDAwMDAsImFkZHIiOiJ1c2VyMDE6ZTk2Mjk4MjIyMDRiOWUzMjlhNzY3ZjVjNGJmMzk5Yjc3ZmEwZGZhNjNjOWRmN2I4OGIwNDBjNTAwM2MyYWYzYSIsInNpZ24iOiJNR1huOUNEUEpuelY4MC9rWFhWRVFQbnNwMlRCbHJIcXNGdm03QlNaVE9sdTVKdG5QcTRSejRFL0ZuQ0dHcnAramtnZDB6ZkExZW1TeWdZNC9iamU2VEFCMzVQV3hHY3lEQk5Bb2UrVEpXMzFNRkl1TnB3bXpUZGYxczRxeEdRSEN0VTdEcUw3RlptTXhnckozL0Q1K2h4WlZYSXAyUFVjRXJNbWV4bzBzMHM9In1dLCJJbnB1dERhdGEiOiJkb25vcnV1aWQiLCJmb3VuZGVyIjoiZXJpYyJ9","l5zfLLyr9JeQLFmxlJJfluoG7XczVHDh+/KMgLaCxXgLvsNFLPyOWLK2mzmAUHf/cHvlddWSoLw/EKL8olnQmoKy8lvNS+45ADBIzPdfK++hmQKsc71CptE7ipTvY4p9ptbXWFNxcJ/yGpjWc/AW34DPeEnYa4uryJ26OFKaVQ4="]
+    "args":["cebbank:29731d0e6c6ca9cb985eabf9fe716d1644c624cae5265c36c9b7a46702003924","eyJ2ZXJzaW9uIjoxNzAxMDEsInRpbWVzdGFtcCI6MTQ4NjYzODI0NiwidHhpbiI6W3sic291cmNlVHhIYXNoIjoiYWRiZTE5NjI0OWRiYWRhYWNhOWNhMzVjYTFmYzMzNTUwOTY5NjkxZDA4ODlmNzI5MTY1OGQ0YzBiZjkzN2Y0YyIsImFkZHIiOiJjZWJiYW5rOjI5NzMxZDBlNmM2Y2E5Y2I5ODVlYWJmOWZlNzE2ZDE2NDRjNjI0Y2FlNTI2NWMzNmM5YjdhNDY3MDIwMDM5MjQifV0sInR4b3V0IjpbeyJ2YWx1ZSI6OTk5OTAwMDAwMDAwLCJhZGRyIjoiY2ViYmFuazoyOTczMWQwZTZjNmNhOWNiOTg1ZWFiZjlmZTcxNmQxNjQ0YzYyNGNhZTUyNjVjMzZjOWI3YTQ2NzAyMDAzOTI0Iiwic2lnbiI6IkttUWxjQVJCOHcwMUlsT1M5ZGNCcEs4dStPZ1dMQVFuTDVuMXlpNDhYaGpvU1ZaMDJFNU03NlJvUFRRQURIQm91RVdLVnpYWTlMUFhUNzdjY0tTUWpGeURXQm9YNUxFVUpnNXV2ZXJWalZYanl2RFlVUk9EV1FCS21IZURyNFlVd3AyT0FuWGpFUnRXQWZHNCsrS2pMN05wbG1WV2VrZTMzZk92K2NJNjMwVT0ifSx7InZhbHVlIjoxMDAwMDAwMDAsImFkZHIiOiJkb25vcjAxOjI3NWU3NGIwZTM0MGY1NDEzNTQ5NmU0NmQ4MjliMjVhZjY5OTk4NGU2Nzg3ZjlhN2IxMzE5MWFkOTkxYTFlYjEiLCJzaWduIjoiUURFdFdKTng2N0J1V3JGdFNkWU52d01RL25UMWtaUWQ5ZGdtR0YyQ3dhT1FnbTZuUEF5eGlHRnBGNUpScXVoSjNydk5rellNTUJLL2FHbzk5cUlqVjZ1WktkRzFuL0dzd0ozUzlkWlB5cUpYQzAwa014dmtOTzFLZTk0UnF3Zm9ZUTkzTzlHRWRtdGhBTkE3cXZHNUozazZ2ZnVJcDBJTUxEenFydkRjdExRPSJ9XSwiSW5wdXREYXRhIjoiZG9ub3J1dWlkIiwiZm91bmRlciI6ImVyaWMifQ==","pE5Eq1umWQoOdb4/kxucjZpyKz4n4oq7uvbRZWL8gfBEc2O2+PapwqflGl3EBfoAH26z8nLmxmUqwfilhK67T2krYoqGYyY+wnjfd3eypZ/FOqpm7IplnZVYzrdX3ybjvF1DlYSN83z1Dvv348yY19cclZdHzI/TBwdCwxsV6e0="]
     },
     "secureContext":    "jim"
     },
@@ -771,23 +771,23 @@ query bank:
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "{\"addr\":\"cebbank:71266a9913375add341f1f7a4a606a2ee4e24efaf59bb2a3eb4b71aaaf5fb3fe\",\"balance\":999900000000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDK0oxWjRiTGFPOFNobTFyOXFOOHB6RjJxbwp1c08rSnhoOWpGcDdQTkcwMERGTUR5RUhWNU9JajhhdFlVdzBwRkFTUG95dldHMGhlRzdCVU00bVRpWHNZOFF3ClpYMjZ6L2I2bk05Q3ZtM2xlell1NjgwT2NQQnNIczdLb0RZTkUrUGM2c0EwRGVDVnUxNm5aeGpQbFRwbUxMdmkKb2Z3bS9ReVlKZlVsNElRazFRSURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=\",\"txouts\":{\"ccffdf9eff747968ea7b87fca70ed18735abb746a4b825524e03c8c57d55cb8c:0\":{\"value\":999900000000,\"addr\":\"cebbank:71266a9913375add341f1f7a4a606a2ee4e24efaf59bb2a3eb4b71aaaf5fb3fe\",\"sign\":\"bqPKlXiRXw1Rhmd+So5N/CSM6WrDo5zkedMC0a1pp8se+amTQ05+y9cwww6bLc7OHm1DdRufKqEbcGmHjARJsZ/UjLzJXMiD/wEX+U5lwcBs+5OFUqWsIDgcJdsbZIKFBCsZBbeCz8ri1btNiX2+mxLRB9nAlqRkyeAdm3/W0Ss=\"}}}"
+        "message": "{\"addr\":\"cebbank:29731d0e6c6ca9cb985eabf9fe716d1644c624cae5265c36c9b7a46702003924\",\"balance\":999900000000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDenFYaVVyRFZzanhIZzdyM1RMc1NSaGlaTApqeE1nczBIU3JsRlV3c0s1eFVCcGFwSHdSazlHeGJrMWtOd2tkSzdPeHlselJjbmxzbEd5VnhhU21KYzNqbmpvClVRVFphbVRaemViMzNNZC9oYUVkN3BhSXFkSS9pZ1Z6TEtpaStXcFJkUE02VlFaV0pHam01eEMwMHhWUWw3aWcKOExBUXV6ek1OMnNCRkhsSmN3SURBUUFCCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo=\",\"txouts\":{\"17e0e8d20d130dc751cc5203db00e49b52568ce1edc3d8f6116a6b4cef78e08a:0\":{\"value\":999900000000,\"addr\":\"cebbank:29731d0e6c6ca9cb985eabf9fe716d1644c624cae5265c36c9b7a46702003924\",\"sign\":\"KmQlcARB8w01IlOS9dcBpK8u+OgWLAQnL5n1yi48XhjoSVZ02E5M76RoPTQADHBouEWKVzXY9LPXT77ccKSQjFyDWBoX5LEUJg5uverVjVXjyvDYURODWQBKmHeDr4YUwp2OAnXjERtWAfG4++KjL7NplmVWeke33fOv+cI630U=\"}}}"
+      },
+      "id": 5
+    } 
+
+query donor01:
+
+    {
+      "jsonrpc": "2.0",
+      "result": {
+        "status": "OK",
+        "message": "{\"addr\":\"donor01:275e74b0e340f54135496e46d829b25af699984e6787f9a7b13191ad991a1eb1\",\"balance\":100000000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FERS9HZ3VWbUk0QmRnUU5oYThPMmtYK3dHQgpNSkxQbGNPZllLMUdsQkpsZzlLUm9RNmZrWGd5aXRCb2FORzI5dVpnV3loVjZSMmhzUXpmRyt3cHE0VmsyQkEyClBxZEtFcVRyQVhMU0EvWkw0bUpPVEx4bjV0Qm5QL0p5OGRGaitXSjBlSWtzOGZhMUxORS9QVnR6UDlEZDV2bmEKbEZvTXNJa09maDlMcWxmaFRRSURBUUFCCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo=\",\"txouts\":{\"17e0e8d20d130dc751cc5203db00e49b52568ce1edc3d8f6116a6b4cef78e08a:1\":{\"value\":100000000,\"addr\":\"donor01:275e74b0e340f54135496e46d829b25af699984e6787f9a7b13191ad991a1eb1\",\"sign\":\"QDEtWJNx67BuWrFtSdYNvwMQ/nT1kZQd9dgmGF2CwaOQgm6nPAyxiGFpF5JRquhJ3rvNkzYMMBK/aGo99qIjV6uZKdG1n/GswJ3S9dZPyqJXC00kMxvkNO1Ke94RqwfoYQ93O9GEdmthANA7qvG5J3k6vfuIp0IMLDzqrvDctLQ=\"}}}"
       },
       "id": 5
     }  
 
-query user01:
-
-    {
-      "jsonrpc": "2.0",
-     "result": {
-        "status": "OK",
-        "message": "{\"addr\":\"user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a\",\"balance\":100000000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDcGxmMDlJNTl5SDYzRnJwSlhqMSs0WmhjZgpSOXJVVi82akhWWVAxelQ1aHlUZUwzNWQ4NVpwTzhOTDdWV2MyYVpHeDFjZ2dvRG8rRUkvMVJobDA4UHhSbFdKCi9XVGt1VzBLbDIxeGRGUXFnSnk1Q3JUeUc0SURmS2NTRkg3dG9tZzFqeVlHaHRFZ2g5TUI3RVVZNXd0M0hWZHYKWEdWQWlMbzViU3VOaVRVV2J3SURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=\",\"txouts\":{\"4db0b6b84c5ad3a2a4faace073bfb44c5ed839ac0b5c8f6c6e990d550ce0c16d:1\":{\"value\":100000000,\"addr\":\"user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a\",\"sign\":\"MGXn9CDPJnzV80/kXXVEQPnsp2TBlrHqsFvm7BSZTOlu5JtnPq4Rz4E/FnCGGrp+jkgd0zfA1emSygY4/bje6TAB35PWxGcyDBNAoe+TJW31MFIuNpwmzTdf1s4qxGQHCtU7DqL7FZmMxgrJ3/D5+hxZVXIp2PUcErMmexo0s0s=\"}}}"
-     },
-      "id": 5
-    }  
-
-### donated user01 -> treaty01,fund01,channel01
+### donated donor01 -> smartcontract01,fund01,channel01
 
     {
     "jsonrpc": "2.0",
@@ -795,11 +795,11 @@ query user01:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"donated",
-    "args":["channel01:cc68d3ccb7be906dbf9d63e4ae3e9605c8ddd63fb710603e3cb45976932db9f4","user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a","eyJ2ZXJzaW9uIjoxNzAxMDEsInRpbWVzdGFtcCI6MTQ4NjQ1MzgxMywidHhpbiI6W3siaWR4IjoxLCJzb3VyY2VUeEhhc2giOiI0ZGIwYjZiODRjNWFkM2EyYTRmYWFjZTA3M2JmYjQ0YzVlZDgzOWFjMGI1YzhmNmM2ZTk5MGQ1NTBjZTBjMTZkIiwiYWRkciI6InVzZXIwMTplOTYyOTgyMjIwNGI5ZTMyOWE3NjdmNWM0YmYzOTliNzdmYTBkZmE2M2M5ZGY3Yjg4YjA0MGM1MDAzYzJhZjNhIn1dLCJ0eG91dCI6W3sidmFsdWUiOjk5NTAwMDAwLCJhZGRyIjoidHJlYXR5MDE6ZTQ4MTFkNjI0ZWJiYWNiYWFkYzU5YmYwMTkyYzQyMjlhOWE0ZTA1ZTFmYTI2OWRkZTM0NWJmMmJmYjNmOWJkZCIsImF0dHIiOiJ1c2VyMDE6ZTk2Mjk4MjIyMDRiOWUzMjlhNzY3ZjVjNGJmMzk5Yjc3ZmEwZGZhNjNjOWRmN2I4OGIwNDBjNTAwM2MyYWYzYSIsInNpZ24iOiJjZnN5dkUrc1lFVFRrN09ySjJGSzY2OVN5eUp3RHMvdU90alBTWFJGc1dmNC9kYXJKRVdlUW1rQkx6dkpaS1lWRG1zUFhPQXUwYktwbGpiZEhHY2ZqYUxGdTh6ZDJOd1ZvZVhnd1hSZFdmWjQ0WGl4SEo0ams1VkJoTzhiSjJOTCtBR0NiYWZJUTZyMjJFUkhmRjdqSzh4a2FXTE9ZK3JGYmpxekJkeVNvMEU9In0seyJ2YWx1ZSI6MjAwMDAwLCJhZGRyIjoiY2hhbm5lbDAxOmNjNjhkM2NjYjdiZTkwNmRiZjlkNjNlNGFlM2U5NjA1YzhkZGQ2M2ZiNzEwNjAzZTNjYjQ1OTc2OTMyZGI5ZjQiLCJhdHRyIjoidXNlcjAxOmU5NjI5ODIyMjA0YjllMzI5YTc2N2Y1YzRiZjM5OWI3N2ZhMGRmYTYzYzlkZjdiODhiMDQwYzUwMDNjMmFmM2EiLCJzaWduIjoiRjd3NitwR2lNRVFUU1FsZUxOQlZTTkh1OWtHV1h2QkFOWGxML2lMVXQzbGYwQVVmb0xKWWRiM2p3bXM3dXFKNWpXMU94M2tTWTlqNWg3Z0s5VUdDd3NCNEZJeVhxcDJ0b2pSYm5zRGtVeW5MUktwcVZ6QXN2NzArYWJuZ3BWcEVYbTc3ckptbGZFcDYxbnUyNGRuTlVCZ21ET0pSUTJVRGJCSmdlTDZWa0ZZPSJ9LHsidmFsdWUiOjMwMDAwMCwiYWRkciI6ImZ1bmQwMTpkYTMzNmEyYTJkODFjZGY1NzBiNWQzZDcwOTI2MTQ0OTk3ZTVlMjc3ZjQ5ODk3YzY4ODVhY2FjYmE4YjFjYzEzIiwiYXR0ciI6InVzZXIwMTplOTYyOTgyMjIwNGI5ZTMyOWE3NjdmNWM0YmYzOTliNzdmYTBkZmE2M2M5ZGY3Yjg4YjA0MGM1MDAzYzJhZjNhIiwic2lnbiI6Ilp6K0pwN1lVbmJjZFEvQkFob0lNVThtVkk2SWVxVyt4OVF6WVo4TjBnbmdrR1NxdUFDNHJTdERxUzYydmI0L254c2JXRkF0Mm9NT1FQZjBWRFlkQWpsd2VYNXNFUmUvbmFuSC9YUDV1eWJmZkt2K0xMM1M0MTY5RXU2dnl1NmdXVDM4VDFZdy94aEc2emtvVnV0Tkl3QlhNdW5CRHRITVp4ZDVLdmV5Mk5Pcz0ifV0sIklucHV0RGF0YSI6ImRvbm9ydXVpZCIsImZvdW5kZXIiOiJjaGFubmVsMDEifQ==","LIIAV7qO34klfCqGHpT5Akk4WIepYk7zGYt5v//5IrNVpHHY+31sd9aMDyFzX/s3oD3LKOa4sikNvNGVLWuxC3H1kO739bioHqaSgBA5j+J9N6NJJhEDhOIHBIGgGoEBf0wgWd4Za+hBF0Ctb1OedxC3R6m9fDt3L/M1spHw5jI="]
+    "args":["channel01:9c8b43ce948010efc3b7d102aae502165ccd5e0714a3e765fe1a8f444936785a","donor01:275e74b0e340f54135496e46d829b25af699984e6787f9a7b13191ad991a1eb1","eyJ2ZXJzaW9uIjoxNzAxMDEsInRpbWVzdGFtcCI6MTQ4NjYzODQ3OSwidHhpbiI6W3siaWR4IjoxLCJzb3VyY2VUeEhhc2giOiIxN2UwZThkMjBkMTMwZGM3NTFjYzUyMDNkYjAwZTQ5YjUyNTY4Y2UxZWRjM2Q4ZjYxMTZhNmI0Y2VmNzhlMDhhIiwiYWRkciI6ImRvbm9yMDE6Mjc1ZTc0YjBlMzQwZjU0MTM1NDk2ZTQ2ZDgyOWIyNWFmNjk5OTg0ZTY3ODdmOWE3YjEzMTkxYWQ5OTFhMWViMSJ9XSwidHhvdXQiOlt7InZhbHVlIjo5OTUwMDAwMCwiYWRkciI6InNtYXJ0Y29udHJhY3QwMToxZDU0YTg3MTM5MjNhZjE3MThlOGVlYWJlYzNlNGQ4NTk2ZGJiZGYyZGEzZjY5ZWEyM2FlYjhjN2E1YWI3M2Q4IiwiYXR0ciI6ImRvbm9yMDE6Mjc1ZTc0YjBlMzQwZjU0MTM1NDk2ZTQ2ZDgyOWIyNWFmNjk5OTg0ZTY3ODdmOWE3YjEzMTkxYWQ5OTFhMWViMSIsInNpZ24iOiJVcTVNaUE0Smdad2FINGJmeDFHd1dFR1ZCRCtMTmMxSW9hYVZ2TFFlRjR6TlRRbGo3TStReHZZc3QyWDltN3pBYVArV3VNL3VmbTA4Tk1qTmM0VkY4ZmdsQVFKSUZ4eEYxTzYvUXhMUk8rMDRwSFVsYVVBSUtzVnZ0ZFE1dmdMU25vNWEwcENObW5aTWtoOUt1RlZQaVBCL0wwQ3FqN0lobDhsVitqY2lCYjA9In0seyJ2YWx1ZSI6MjAwMDAwLCJhZGRyIjoiY2hhbm5lbDAxOjljOGI0M2NlOTQ4MDEwZWZjM2I3ZDEwMmFhZTUwMjE2NWNjZDVlMDcxNGEzZTc2NWZlMWE4ZjQ0NDkzNjc4NWEiLCJhdHRyIjoiZG9ub3IwMToyNzVlNzRiMGUzNDBmNTQxMzU0OTZlNDZkODI5YjI1YWY2OTk5ODRlNjc4N2Y5YTdiMTMxOTFhZDk5MWExZWIxIiwic2lnbiI6Ind3V005M1dyQ3RNYXBYbytiTWlYQ3dmS2ppYjZ4cUFaa3kyTWUyUzVmRWtXaGdMczVMLzFueGFRWXJvd0ZQei9HNUVTajdLQWVsMUw2aXZtRDlQeEN5TmpKWFR4RTZQZTQ3dUo1TnUwcWVvTy85YmI0NmluYW4yaWN1WTY0a1lCQmRkaHBKcXZnd0FMSGtWR3A2MGtpYnFDWUY4dDlsMWtWcEtQYk11YUJTND0ifSx7InZhbHVlIjozMDAwMDAsImFkZHIiOiJmdW5kMDE6MjVhYjU4MGEyMDkzNzc2Y2EyZTFkZDE3NzVlOTZkZmVjNWYxZmZiY2M5NTY1MTI5MzUxY2IzMzBjZjA3MTJkNyIsImF0dHIiOiJkb25vcjAxOjI3NWU3NGIwZTM0MGY1NDEzNTQ5NmU0NmQ4MjliMjVhZjY5OTk4NGU2Nzg3ZjlhN2IxMzE5MWFkOTkxYTFlYjEiLCJzaWduIjoieWdQcEZ4VCtpNXdqV3hYNGFjQVMvck9OWUpPUDlIUEZBM0Z2c2FFVWtsSE1HbXpXb1NDRFBQVUlLaTh6U3VhT1pPQTJPZHRFK2NTOFdXTGwwMjVEQUJUNjJmdHlEaVo1eHJ6dEdwbXR3TWlaV0ozKzNvRm44M1U2SlJOcWJuMngvZkdUblZseGZvSlRDNEFZNHcvcVRCaXFhVnZBSFRFUW9sby83SFcrL3U0PSJ9XSwiSW5wdXREYXRhIjoiZG9ub3J1dWlkIiwiZm91bmRlciI6ImNoYW5uZWwwMSJ9","kdJ7wPilpeEqywra+3k2qtJShe/CMIQz5If/WaX95oqT9MMSEKdFJ+7CxPd9XWrfmCIrfaUBh8m5Ma1bWFhYzWPXzvvXXGwlH030n96JETyM4YZm93fbCIqt5AujrjzxCOvxdE6vg65WIsol4fWKqDlTW+HU9VUIY7U9725aGnY="]
     },
     "secureContext":    "jim"
     },
@@ -817,18 +817,18 @@ result:
       "id": 3
     }  
 
-query treaty01
+query smartcontract01
 
     {
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "{\"addr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"balance\":99500000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDeHV2RXZ5OTd4OUpiR3ZVMzlBMTZIZ3FTNgo1WDhGaGFMNzh5Wm1QSE9DZnNjY3paZk4ydE5uaHlqR3dvb1Zwbmd5bFJ5d3Bib29BekFoeVNLcVZROGdpNjBHCnRJa01QWEZ0RHZyVFJOUFZhd2MwdTloVVY5SnhSdkx1c0JjSzBmSGtkUGhuamlTa25nNGk3Mk51OUJFUlFveGMKNTQzOVU2aEpLZE45SUdta2lRSURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=\",\"txouts\":{\"308115e63de7faa0f5d91db8be225f78a4f6caa1d607701dfa0692305cff83b4:0\":{\"value\":99500000,\"addr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"attr\":\"user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a\",\"sign\":\"cfsyvE+sYETTk7OrJ2FK669SyyJwDs/uOtjPSXRFsWf4/darJEWeQmkBLzvJZKYVDmsPXOAu0bKpljbdHGcfjaLFu8zd2NwVoeXgwXRdWfZ44XixHJ4jk5VBhO8bJ2NL+AGCbafIQ6r22ERHfF7jK8xkaWLOY+rFbjqzBdySo0E=\"}}}"
+        "message": "{\"addr\":\"smartcontract01:1d54a8713923af1718e8eeabec3e4d8596dbbdf2da3f69ea23aeb8c7a5ab73d8\",\"balance\":99500000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FEMG80Q3dIdE9ISzEvUXZZQzlCL0o4NTZmKwoyQTFtRGE5elpiTE5yZXhHdVlPZ1Yvb1UwTDdTaVBnSUF3Tm9HSGRENmtQakxkK2N3aEVaMHdQRnluZjhicDh5CithK00wRUJjeStkK1VQQ1MrQmNlYjdrWDVOK3VYUm9za3VzWWx3MTVRc3UyeDBrZ3hXVUJIUXZiOGxEV0xuNVUKckptSVVUdG5XWkExMHB0em13SURBUUFCCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo=\",\"txouts\":{\"ed21c857da821e827380c8faafa99d94d4102a08ff1a7e64b05183c42f6db228:0\":{\"value\":99500000,\"addr\":\"smartcontract01:1d54a8713923af1718e8eeabec3e4d8596dbbdf2da3f69ea23aeb8c7a5ab73d8\",\"attr\":\"donor01:275e74b0e340f54135496e46d829b25af699984e6787f9a7b13191ad991a1eb1\",\"sign\":\"Uq5MiA4JgZwaH4bfx1GwWEGVBD+LNc1IoaaVvLQeF4zNTQlj7M+QxvYst2X9m7zAaP+WuM/ufm08NMjNc4VF8fglAQJIFxxF1O6/QxLRO+04pHUlaUAIKsVvtdQ5vgLSno5a0pCNmnZMkh9KuFVPiPB/L0Cqj7Ihl8lV+jciBb0=\"}}}"
       },
       "id": 5
     }              
 
-### drawing treaty01 -> treaty01,contract01
+### drawing smartcontract01 -> smartcontract01,bargain01
 
     {
     "jsonrpc": "2.0",
@@ -836,11 +836,11 @@ query treaty01
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"drawed",
-    "args":["fund01:da336a2a2d81cdf570b5d3d70926144997e5e277f49897c6885acacba8b1cc13","eyJ2ZXJzaW9uIjoxNzAxMDEsInRpbWVzdGFtcCI6MTQ4NjQ1NDI1OSwidHhpbiI6W3sic291cmNlVHhIYXNoIjoiMzA4MTE1ZTYzZGU3ZmFhMGY1ZDkxZGI4YmUyMjVmNzhhNGY2Y2FhMWQ2MDc3MDFkZmEwNjkyMzA1Y2ZmODNiNCIsImFkZHIiOiJ0cmVhdHkwMTplNDgxMWQ2MjRlYmJhY2JhYWRjNTliZjAxOTJjNDIyOWE5YTRlMDVlMWZhMjY5ZGRlMzQ1YmYyYmZiM2Y5YmRkIn1dLCJ0eG91dCI6W3sidmFsdWUiOjk1MDAwMDAsImFkZHIiOiJ0cmVhdHkwMTplNDgxMWQ2MjRlYmJhY2JhYWRjNTliZjAxOTJjNDIyOWE5YTRlMDVlMWZhMjY5ZGRlMzQ1YmYyYmZiM2Y5YmRkIiwiYXR0ciI6InVzZXIwMTplOTYyOTgyMjIwNGI5ZTMyOWE3NjdmNWM0YmYzOTliNzdmYTBkZmE2M2M5ZGY3Yjg4YjA0MGM1MDAzYzJhZjNhIiwic2lnbiI6ImJGdGsrTlRIa2g3S1NnZjZURjhGd2JLZFA4SlVnNGZuTmRZRk01R3A4dmlHem8zMmdYUkMvWGpKNjZHbDBxNXdlc0ZWWXRPUkRFNkdTTW9EMFRVVFg0Vk5GRHEyalFDcG9CemtXUXF3ZHIwOUo4Q3RNblFqQUZCUnpKY3VQUGQyYk43eHFmYkZSMGNLUHVmYVpJUVkxcXRiRWdGNE96ejhVZHh0OExJQ1o2MD0ifSx7InZhbHVlIjo5MDAwMDAwMCwiYWRkciI6ImNvbnRyYWN0MDE6ODAxN2QxYmQxNTMyNmI0OGI3MDIwZmY2ZmU0MzRhZTQ5OTljZjA1MDAyNWVjNjQ4NzE1MTY2NzdmMTE3NzQ2MCIsImF0dHIiOiJ1c2VyMDE6ZTk2Mjk4MjIyMDRiOWUzMjlhNzY3ZjVjNGJmMzk5Yjc3ZmEwZGZhNjNjOWRmN2I4OGIwNDBjNTAwM2MyYWYzYSIsInNpZ24iOiJwMTVaM1ptUUNQQWhSVFJ0cDRvWGJCdGRiQ2d6ejA5SXpudHZRZWJpeFB3NGlCUXVFSVhRTnQ3RFlMd3F1TkJ2anlRdGhrekExb0xSUjIzNHh6UXJSTHJHeWlUSVRsYitNS2xyTWFEMWx1QnRWc29sNE0ySlF6QnFlSlBhZWE3S1lEcmI5bmdCMGZwaDZVeU5iZVZKTTVzTG1qYllmQnRzeHNYdnYwdzFHbnc9In1dLCJJbnB1dERhdGEiOiJkb25vcnV1aWQiLCJmb3VuZGVyIjoiZnVuZDAxIn0=","KJkyRPYCXt93MFdT8Z+cPsLNniRvs868SNT7VgiwP7r/YFbpPE6nLl4G5jQm6OUQ4CHLQmN6XFKY5oFEjUTcF5ocP5db9QSfQkQzpIGXe4E3nE8fMYHXpLKa38SSn+VnuocjwM2PnDOIG9/6r1IAMSOY5Jq6aP0sn2t0fzJH6V8="]
+    "args":["fund01:25ab580a2093776ca2e1dd1775e96dfec5f1ffbcc9565129351cb330cf0712d7","eyJ2ZXJzaW9uIjoxNzAxMDEsInRpbWVzdGFtcCI6MTQ4NjYzODc3NCwidHhpbiI6W3sic291cmNlVHhIYXNoIjoiZWQyMWM4NTdkYTgyMWU4MjczODBjOGZhYWZhOTlkOTRkNDEwMmEwOGZmMWE3ZTY0YjA1MTgzYzQyZjZkYjIyOCIsImFkZHIiOiJzbWFydGNvbnRyYWN0MDE6MWQ1NGE4NzEzOTIzYWYxNzE4ZThlZWFiZWMzZTRkODU5NmRiYmRmMmRhM2Y2OWVhMjNhZWI4YzdhNWFiNzNkOCJ9XSwidHhvdXQiOlt7InZhbHVlIjo5NTAwMDAwLCJhZGRyIjoic21hcnRjb250cmFjdDAxOjFkNTRhODcxMzkyM2FmMTcxOGU4ZWVhYmVjM2U0ZDg1OTZkYmJkZjJkYTNmNjllYTIzYWViOGM3YTVhYjczZDgiLCJhdHRyIjoiZG9ub3IwMToyNzVlNzRiMGUzNDBmNTQxMzU0OTZlNDZkODI5YjI1YWY2OTk5ODRlNjc4N2Y5YTdiMTMxOTFhZDk5MWExZWIxIiwic2lnbiI6InpFUWVnTWk3QS9CNW9DbElEUVRldS9XY0twbFF0NWlOeFRnQVI1ZDFjTWFMOFhPeElLZFRQdDFnNHFhT3hjYmtscGdRNFVNUldRWjArbU12aW1OakNqdXBCMUpqamlnYWRwVHBCTTk5bGpnVml4dy8wcTl6RXRiYSsvUnh6eUVJd1BpOGwzQnRVMEw3QXNUcDh0Z1lhV0xVQ1BpMmpRWExLRWdMdWlsV1lYZz0ifSx7InZhbHVlIjo5MDAwMDAwMCwiYWRkciI6ImJhcmdhaW4wMTo4ZmNjNThlYTdlZDIxMmY3YzFiYTM1OWQxNWJlYTE0NGU2N2MzOTAwNDRkOTUzNzk3NTQ4Y2Y2N2ZkNjI1MzRhIiwiYXR0ciI6ImRvbm9yMDE6Mjc1ZTc0YjBlMzQwZjU0MTM1NDk2ZTQ2ZDgyOWIyNWFmNjk5OTg0ZTY3ODdmOWE3YjEzMTkxYWQ5OTFhMWViMSIsInNpZ24iOiJCeVB4T1A2Zi9EQnpRc2RWTmE1UURRY2tzVW5mUmdFTTF5aklYMWhqRGR1NnJ3Z2lQamRqbk10ZTJSMUl6YmcrQkR6amRJbmVpWWxybXR3eVUrUzFIczJkcUdGalRWc3lBVSsxeUs5eGZpdmYwcFEzN3IyeFUxMk00TnVkQkZKSmVvVUs3LzdjMEl0RTB1Mmh0UUprUWlxNUFISkt2S2pDVHBmNjRWV0Fnbkk9In1dLCJJbnB1dERhdGEiOiJkb25vcnV1aWQiLCJmb3VuZGVyIjoiZnVuZDAxIn0=","RLryJqxiyUhgB6u26D7xvGKUYF3YX1RP7OpSAZDuwKsTsEybsieQTgxGmOHrjgvhHmDhP/ud3J7hXy7qhqAHVX7AQUTTbq+gp2JSWXyNPVwHQKWcSF1npTqao4BuAwAoDihMotcCsMrcSDUxfdgPSMcH3nANVBZLJPSyhq0GrAY="]
     },
     "secureContext":    "jim"
     },
@@ -858,29 +858,29 @@ result:
       "id": 3
     }  
 
-query treaty01
+query smartcontract01
 
     {
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "{\"addr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"balance\":9500000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDeHV2RXZ5OTd4OUpiR3ZVMzlBMTZIZ3FTNgo1WDhGaGFMNzh5Wm1QSE9DZnNjY3paZk4ydE5uaHlqR3dvb1Zwbmd5bFJ5d3Bib29BekFoeVNLcVZROGdpNjBHCnRJa01QWEZ0RHZyVFJOUFZhd2MwdTloVVY5SnhSdkx1c0JjSzBmSGtkUGhuamlTa25nNGk3Mk51OUJFUlFveGMKNTQzOVU2aEpLZE45SUdta2lRSURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=\",\"txouts\":{\"ec366e441dac563ef862b6af475041f3713619d35988b8a8e965496adeab04b4:0\":{\"value\":9500000,\"addr\":\"treaty01:e4811d624ebbacbaadc59bf0192c4229a9a4e05e1fa269dde345bf2bfb3f9bdd\",\"attr\":\"user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a\",\"sign\":\"bFtk+NTHkh7KSgf6TF8FwbKdP8JUg4fnNdYFM5Gp8viGzo32gXRC/XjJ66Gl0q5wesFVYtORDE6GSMoD0TUTX4VNFDq2jQCpoBzkWQqwdr09J8CtMnQjAFBRzJcuPPd2bN7xqfbFR0cKPufaZIQY1qtbEgF4Ozz8Udxt8LICZ60=\"}}}"
+        "message": "{\"addr\":\"smartcontract01:1d54a8713923af1718e8eeabec3e4d8596dbbdf2da3f69ea23aeb8c7a5ab73d8\",\"balance\":9500000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FEMG80Q3dIdE9ISzEvUXZZQzlCL0o4NTZmKwoyQTFtRGE5elpiTE5yZXhHdVlPZ1Yvb1UwTDdTaVBnSUF3Tm9HSGRENmtQakxkK2N3aEVaMHdQRnluZjhicDh5CithK00wRUJjeStkK1VQQ1MrQmNlYjdrWDVOK3VYUm9za3VzWWx3MTVRc3UyeDBrZ3hXVUJIUXZiOGxEV0xuNVUKckptSVVUdG5XWkExMHB0em13SURBUUFCCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo=\",\"txouts\":{\"631ba3f3ff7e14ff441cb919da32b0a46d9cc7924ed5e0024660894ef2aa6074:0\":{\"value\":9500000,\"addr\":\"smartcontract01:1d54a8713923af1718e8eeabec3e4d8596dbbdf2da3f69ea23aeb8c7a5ab73d8\",\"attr\":\"donor01:275e74b0e340f54135496e46d829b25af699984e6787f9a7b13191ad991a1eb1\",\"sign\":\"zEQegMi7A/B5oClIDQTeu/WcKplQt5iNxTgAR5d1cMaL8XOxIKdTPt1g4qaOxcbklpgQ4UMRWQZ0+mMvimNjCjupB1JjjigadpTpBM99ljgVixw/0q9zEtba+/RxzyEIwPi8l3BtU0L7AsTp8tgYaWLUCPi2jQXLKEgLuilWYXg=\"}}}"
       },
       "id": 5
-    } 
+    }
 
-query contract01 
+query bargain01 
 
     {
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "{\"addr\":\"contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460\",\"balance\":90000000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDcDlxUTBINVY4WUkwOWFGMTJvVnhjWTlVUQpuUzNVRFZwT0c2OXo3a0lzK3o3WUJXR0hlVWtKSjk2U2JrVVU1WWtoU0JhbXZoTXBoUW9STS90MlI5YTJpem5FCkNyWmladVpHZmxJdEFtU0lxOXB5Ris5M1UwYVdQWTcxc1VqSCtnQ0orcFBPSFJwSWFoRWtHZ2t1QTN1NU5wZncKUTBJQnJGOHdNWi9NSnhNSFl3SURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=\",\"txouts\":{\"ec366e441dac563ef862b6af475041f3713619d35988b8a8e965496adeab04b4:1\":{\"value\":90000000,\"addr\":\"contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460\",\"attr\":\"user01:e9629822204b9e329a767f5c4bf399b77fa0dfa63c9df7b88b040c5003c2af3a\",\"sign\":\"p15Z3ZmQCPAhRTRtp4oXbBtdbCgzz09IzntvQebixPw4iBQuEIXQNt7DYLwquNBvjyQthkzA1oLRR234xzQrRLrGyiTITlb+MKlrMaD1luBtVsol4M2JQzBqeJPaea7KYDrb9ngB0fph6UyNbeVJM5sLmjbYfBtsxsXvv0w1Gnw=\"}}}"
+        "message": "{\"addr\":\"bargain01:8fcc58ea7ed212f7c1ba359d15bea144e67c390044d953797548cf67fd62534a\",\"balance\":90000000,\"rsaPublicKey\":\"LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDM3R4R3hnWUtKcjlZK21iMTROcENKS0NtUgo4QmNRek9MSjNEK3EvUFo1Zk9xUzUzdFhvVko2QUZtNEwyelZLYUFkMWNOS0s4L2t3RktsV1E5YmJLZ1ZOV25zCnc4MjM0N05yRzQxaWZocFZ3dThJVHJSOGlMOC9pR3lMdnh4SGg0OWpmQ3RIWkFHV3hrWkFsVDBwdkRZYTNJMW0KTjZMKytZWCt2WW42WTdOOFB3SURBUUFCCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo=\",\"txouts\":{\"631ba3f3ff7e14ff441cb919da32b0a46d9cc7924ed5e0024660894ef2aa6074:1\":{\"value\":90000000,\"addr\":\"bargain01:8fcc58ea7ed212f7c1ba359d15bea144e67c390044d953797548cf67fd62534a\",\"attr\":\"donor01:275e74b0e340f54135496e46d829b25af699984e6787f9a7b13191ad991a1eb1\",\"sign\":\"ByPxOP6f/DBzQsdVNa5QDQcksUnfRgEM1yjIX1hjDdu6rwgiPjdjnMte2R1Izbg+BDzjdIneiYlrmtwyU+S1Hs2dqGFjTVsyAU+1yK9xfivf0pQ37r2xU12M4NudBFJJeoUK7/7c0ItE0u2htQJkQiq5AHJKvKjCTpf64VWAgnI=\"}}}"
       },
       "id": 5
     }    
 
-### destroycoinbase contract01 -> 0
+### destroycoinbase bargain01 -> 0
 
     {
     "jsonrpc": "2.0",
@@ -888,11 +888,11 @@ query contract01
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"e86c28451a80586f9bc9654d638bc3a182d64f43300faa834986476041d0452a231af37fa90bb887907991f7b24044de49d962f11aec82cceaf79428931ac3e1"
+    "name":"56cca7777e5e066445740e515a8eb1dbfa563c3493b8d9209bd4f08393fdf1c38f90632eb99154dae4812fa3d00ccb8d395953772b3d08ffa480c5e225b3732c"
     },
     "ctorMsg": {
     "function":"destroycoinbase",
-    "args":["contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460","cebbank:71266a9913375add341f1f7a4a606a2ee4e24efaf59bb2a3eb4b71aaaf5fb3fe","vbpZ3pn2urZ34L1lppflFTP1rMPSWO0PuNkDLoX0qgHXQTdvrNw9O/tCgEbfePl/ppTv5kvTDSlovf+ppT48vTB2EtHYsEi+ZX6L+dKx7Bas/QsIT0/QGI/+bg8nkoi2/LyOUbSOs4P+hVdsofukH6b+wlVTsFsGAwSrLtJgKxo="]
+    "args":["bargain01:8fcc58ea7ed212f7c1ba359d15bea144e67c390044d953797548cf67fd62534a","cebbank:29731d0e6c6ca9cb985eabf9fe716d1644c624cae5265c36c9b7a46702003924","mnp0J0fQIgFsZd/+Bn/sb/V2H6s1ZzHyvf+kkfpH+VP5IsuPriucO06/JUov7RsJ7t/OcaOYCbv+3bZSveMTczisXz827GkYvudbcojjm3SXQo92HbNTNLQJZNskEVQZBp2eDUW4mZMRER7OUKY7qlzEEZUeKale/mT0xeLnjAo="]
     },
     "secureContext":    "jim"
     },
@@ -910,13 +910,13 @@ result:
       "id": 3
     }  
 
-query contract01
+query bargain01
 
     {
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "{\"addr\":\"contract01:8017d1bd15326b48b7020ff6fe434ae4999cf050025ec64871516677f1177460\",\"rsaPublicKey\":\"LS0tLS1CRUdJTiBwdWJsaWMga2V5LS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDcDlxUTBINVY4WUkwOWFGMTJvVnhjWTlVUQpuUzNVRFZwT0c2OXo3a0lzK3o3WUJXR0hlVWtKSjk2U2JrVVU1WWtoU0JhbXZoTXBoUW9STS90MlI5YTJpem5FCkNyWmladVpHZmxJdEFtU0lxOXB5Ris5M1UwYVdQWTcxc1VqSCtnQ0orcFBPSFJwSWFoRWtHZ2t1QTN1NU5wZncKUTBJQnJGOHdNWi9NSnhNSFl3SURBUUFCCi0tLS0tRU5EIHB1YmxpYyBrZXktLS0tLQo=\"}"
+        "message": "{\"addr\":\"bargain01:8fcc58ea7ed212f7c1ba359d15bea144e67c390044d953797548cf67fd62534a\",\"rsaPublicKey\":\"LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FDM3R4R3hnWUtKcjlZK21iMTROcENKS0NtUgo4QmNRek9MSjNEK3EvUFo1Zk9xUzUzdFhvVko2QUZtNEwyelZLYUFkMWNOS0s4L2t3RktsV1E5YmJLZ1ZOV25zCnc4MjM0N05yRzQxaWZocFZ3dThJVHJSOGlMOC9pR3lMdnh4SGg0OWpmQ3RIWkFHV3hrWkFsVDBwdkRZYTNJMW0KTjZMKytZWCt2WW42WTdOOFB3SURBUUFCCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo=\"}"
       },
       "id": 5
     }

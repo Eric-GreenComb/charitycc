@@ -29,28 +29,28 @@ func ParseTxByJsonBytes(txData []byte) (*protos.TX, error) {
 	return tx, nil
 }
 
-// ParseTreatyByJsonBytes unmarshal treatyData into Treaty object
-func ParseTreatyByJsonBytes(treatyData []byte) (*protos.Treaty, error) {
+// ParseSmartContractByJsonBytes unmarshal smartContractData into SmartContract object
+func ParseSmartContractByJsonBytes(smartContractData []byte) (*protos.SmartContract, error) {
 
-	treaty := new(protos.Treaty)
-	err := json.Unmarshal(treatyData, treaty)
+	smartContract := new(protos.SmartContract)
+	err := json.Unmarshal(smartContractData, smartContract)
 	if err != nil {
 		return nil, err
 	}
 
-	return treaty, nil
+	return smartContract, nil
 }
 
-// ParseContractByJsonBytes unmarshal contractData into contract object
-func ParseContractByJsonBytes(contractData []byte) (*protos.Contract, error) {
+// ParseBargainByJsonBytes unmarshal bargainData into bargain object
+func ParseBargainByJsonBytes(bargainData []byte) (*protos.Bargain, error) {
 
-	contract := new(protos.Contract)
-	err := json.Unmarshal(contractData, contract)
+	bargain := new(protos.Bargain)
+	err := json.Unmarshal(bargainData, bargain)
 	if err != nil {
 		return nil, err
 	}
 
-	return contract, nil
+	return bargain, nil
 }
 
 // ParseDonorByJsonBytes unmarshal donorData into Donor object

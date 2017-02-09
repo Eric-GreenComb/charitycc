@@ -2,34 +2,6 @@
 // source: cebcoin.proto
 // DO NOT EDIT!
 
-/*
-Package protos is a generated protocol buffer package.
-
-It is generated from these files:
-	cebcoin.proto
-	channel.proto
-	contract.proto
-	donor.proto
-	foundation.proto
-	treaty.proto
-
-It has these top-level messages:
-	Account
-	TX
-	Channel
-	ChannelFeeTrack
-	Contract
-	AttachFile
-	Donor
-	DonorContribution
-	DonorTrack
-	Foundation
-	FoundationFeeTrack
-	Treaty
-	TContract
-	TreatyTrack
-	TransHistory
-*/
 package protos
 
 import proto "github.com/golang/protobuf/proto"
@@ -40,12 +12,6 @@ import math "math"
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // account model digitalAssets
 type Account struct {
@@ -58,7 +24,7 @@ type Account struct {
 func (m *Account) Reset()                    { *m = Account{} }
 func (m *Account) String() string            { return proto.CompactTextString(m) }
 func (*Account) ProtoMessage()               {}
-func (*Account) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*Account) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
 
 func (m *Account) GetTxouts() map[string]*TX_TXOUT {
 	if m != nil {
@@ -80,7 +46,7 @@ type TX struct {
 func (m *TX) Reset()                    { *m = TX{} }
 func (m *TX) String() string            { return proto.CompactTextString(m) }
 func (*TX) ProtoMessage()               {}
-func (*TX) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*TX) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
 
 func (m *TX) GetTxin() []*TX_TXIN {
 	if m != nil {
@@ -107,7 +73,7 @@ type TX_TXIN struct {
 func (m *TX_TXIN) Reset()                    { *m = TX_TXIN{} }
 func (m *TX_TXIN) String() string            { return proto.CompactTextString(m) }
 func (*TX_TXIN) ProtoMessage()               {}
-func (*TX_TXIN) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1, 0} }
+func (*TX_TXIN) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1, 0} }
 
 type TX_TXOUT struct {
 	Value uint64 `protobuf:"varint,1,opt,name=value" json:"value,omitempty"`
@@ -119,7 +85,7 @@ type TX_TXOUT struct {
 func (m *TX_TXOUT) Reset()                    { *m = TX_TXOUT{} }
 func (m *TX_TXOUT) String() string            { return proto.CompactTextString(m) }
 func (*TX_TXOUT) ProtoMessage()               {}
-func (*TX_TXOUT) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1, 1} }
+func (*TX_TXOUT) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1, 1} }
 
 func init() {
 	proto.RegisterType((*Account)(nil), "protos.Account")
@@ -128,9 +94,9 @@ func init() {
 	proto.RegisterType((*TX_TXOUT)(nil), "protos.TX.TXOUT")
 }
 
-func init() { proto.RegisterFile("cebcoin.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("cebcoin.proto", fileDescriptor1) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor1 = []byte{
 	// 368 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x6c, 0x52, 0x4d, 0x6b, 0xea, 0x40,
 	0x14, 0x25, 0x1f, 0x2a, 0x8e, 0x4f, 0x9e, 0x0c, 0x6f, 0x31, 0xf8, 0xde, 0x42, 0x7c, 0x50, 0x5c,

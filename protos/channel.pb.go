@@ -25,7 +25,7 @@ type Channel struct {
 func (m *Channel) Reset()                    { *m = Channel{} }
 func (m *Channel) String() string            { return proto.CompactTextString(m) }
 func (*Channel) ProtoMessage()               {}
-func (*Channel) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
+func (*Channel) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 func (m *Channel) GetFees() []*ChannelFeeTrack {
 	if m != nil {
@@ -44,16 +44,16 @@ type ChannelFeeTrack struct {
 func (m *ChannelFeeTrack) Reset()                    { *m = ChannelFeeTrack{} }
 func (m *ChannelFeeTrack) String() string            { return proto.CompactTextString(m) }
 func (*ChannelFeeTrack) ProtoMessage()               {}
-func (*ChannelFeeTrack) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
+func (*ChannelFeeTrack) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
 
 func init() {
 	proto.RegisterType((*Channel)(nil), "protos.Channel")
 	proto.RegisterType((*ChannelFeeTrack)(nil), "protos.ChannelFeeTrack")
 }
 
-func init() { proto.RegisterFile("channel.proto", fileDescriptor1) }
+func init() { proto.RegisterFile("channel.proto", fileDescriptor2) }
 
-var fileDescriptor1 = []byte{
+var fileDescriptor2 = []byte{
 	// 194 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0xe2, 0x4d, 0xce, 0x48, 0xcc,
 	0xcb, 0x4b, 0xcd, 0xd1, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x03, 0x53, 0xc5, 0x4a, 0x2d,

@@ -32,15 +32,15 @@ func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 		// args: ID,publicKey(ID base64),sysadminSign(base64)
 		return handler.RegisterAccount(storeCC, args)
 
-	case "registerTreaty":
-		// args: foundationAddr, treatyData(treaty json base64),foundationSign(base64)
-		return handler.RegisterTreaty(storeCC, args)
-	case "changeTreatyStatus":
-		// args: foundationAddr, addr(treaty addr), status,foundationSign(base64)
-		return handler.ChangeTreatyStatus(storeCC, args)
-	case "registerContract":
-		// args: foundationAddr, contractData(contract json base64),foundationSign(base64)
-		return handler.RegisterContract(storeCC, args)
+	case "registerSmartContract":
+		// args: foundationAddr, smartContractData(treaty json base64),foundationSign(base64)
+		return handler.RegisterSmartContract(storeCC, args)
+	case "changeSmartContractStatus":
+		// args: foundationAddr, addr(smartContract addr), status,foundationSign(base64)
+		return handler.ChangeSmartContractStatus(storeCC, args)
+	case "registerBargain":
+		// args: foundationAddr, bargainData(contract json base64),foundationSign(base64)
+		return handler.RegisterBargain(storeCC, args)
 
 	case "registerDonor":
 		// args: channelAddr,donorData(donor json base64),channelSign(base64)
@@ -55,7 +55,7 @@ func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 		// args: channelAddr,donorAddr,txData(coinbase tx Base64),channelSign(base64)
 		return handler.Donated(storeCC, args)
 	case "doDonating":
-		// args: ...
+		// args: donorAddr,
 		return handler.DoDonating(storeCC, args)
 
 	case "drawed":

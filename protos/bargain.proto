@@ -3,8 +3,8 @@ syntax = "proto3";
 
 package protos;
 
-// Contract model 
-message Contract {
+// Bargain model 
+message Bargain {
     string addr = 1;
     string id = 2;
     string name = 3;

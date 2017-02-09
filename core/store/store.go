@@ -20,11 +20,11 @@ type Store interface {
 	GetAccount(string) (*protos.Account, error)
 	PutAccount(*protos.Account) error
 
-	GetTreaty(string) (*protos.Treaty, error)
-	PutTreaty(*protos.Treaty) error
+	GetSmartContract(string) (*protos.SmartContract, error)
+	PutSmartContract(*protos.SmartContract) error
 
-	GetContract(string) (*protos.Contract, error)
-	PutContract(*protos.Contract) error
+	GetBargain(string) (*protos.Bargain, error)
+	PutBargain(*protos.Bargain) error
 
 	GetDonor(string) (*protos.Donor, error)
 	PutDonor(*protos.Donor) error
@@ -105,34 +105,34 @@ func (s *CCStore) PutAccount(account *protos.Account) error {
 	return s.stub.PutState(key, aBytes)
 }
 
-// GetTreaty returns treaty from world states
-func (s *CCStore) GetTreaty(addr string) (*protos.Treaty, error) {
+// GetSmartContract returns SmartContract from world states
+func (s *CCStore) GetSmartContract(addr string) (*protos.SmartContract, error) {
 	if addr == "" {
 		return nil, errors.New("empty addr")
 	}
-	key := utils.GenerateTreatyKey(addr)
+	key := utils.GenerateSmartContractKey(addr)
 	data, err := s.stub.GetState(key)
 	if err != nil {
 		return nil, err
 	}
 
 	if data == nil || len(data) == 0 {
-		return nil, fmt.Errorf("no treaty found")
+		return nil, fmt.Errorf("no smartContract found")
 	}
 
-	treaty := new(protos.Treaty)
-	if err := proto.Unmarshal(data, treaty); err != nil {
+	smartContract := new(protos.SmartContract)
+	if err := proto.Unmarshal(data, smartContract); err != nil {
 		return nil, err
 	}
 
-	return treaty, nil
+	return smartContract, nil
 }
 
-// PutTreaty update or insert treaty into world states
-func (s *CCStore) PutTreaty(treaty *protos.Treaty) error {
-	key := utils.GenerateTreatyKey(treaty.Addr)
+// PutSmartContract update or insert SmartContract into world states
+func (s *CCStore) PutSmartContract(smartContract *protos.SmartContract) error {
+	key := utils.GenerateSmartContractKey(smartContract.Addr)
 
-	aBytes, err := proto.Marshal(treaty)
+	aBytes, err := proto.Marshal(smartContract)
 	if err != nil {
 		return err
 	}
@@ -140,12 +140,12 @@ func (s *CCStore) PutTreaty(treaty *protos.Treaty) error {
 	return s.stub.PutState(key, aBytes)
 }
 
-// GetContract returns contract from world states
-func (s *CCStore) GetContract(addr string) (*protos.Contract, error) {
+// GetBargain returns Bargain from world states
+func (s *CCStore) GetBargain(addr string) (*protos.Bargain, error) {
 	if addr == "" {
 		return nil, errors.New("empty addr")
 	}
-	key := utils.GenerateContractKey(addr)
+	key := utils.GenerateBargainKey(addr)
 	data, err := s.stub.GetState(key)
 	if err != nil {
 		return nil, err
@@ -155,19 +155,19 @@ func (s *CCStore) GetContract(addr string) (*protos.Contract, error) {
 		return nil, fmt.Errorf("no contract found")
 	}
 
-	contract := new(protos.Contract)
-	if err := proto.Unmarshal(data, contract); err != nil {
+	bargain := new(protos.Bargain)
+	if err := proto.Unmarshal(data, bargain); err != nil {
 		return nil, err
 	}
 
-	return contract, nil
+	return bargain, nil
 }
 
-// PutContract update or insert treaty into world states
-func (s *CCStore) PutContract(contract *protos.Contract) error {
-	key := utils.GenerateContractKey(contract.Addr)
+// PutBargain update or insert Bargain into world states
+func (s *CCStore) PutBargain(bargain *protos.Bargain) error {
+	key := utils.GenerateBargainKey(bargain.Addr)
 
-	aBytes, err := proto.Marshal(contract)
+	aBytes, err := proto.Marshal(bargain)
 	if err != nil {
 		return err
 	}

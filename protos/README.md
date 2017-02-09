@@ -25,7 +25,7 @@
   * Contribution[]: 用户捐款历史
   * DonorTrack[] :用户的捐款追踪 
 
-#### Treaty 合约
+#### SmartContract 合约
   * Addr: addr
   * ID：合约唯一 ID
   * Name：名称
@@ -45,13 +45,13 @@
   * Status: 合约状态 0为used 1为unused
   * Remark  : 合约备注
 
-#### TreatyTrack 合约追踪
+#### SmartContractTrack 合约追踪
   * Addr: addr
   * ID：Treaty唯一 ID  
   * Total：合约总费
   * TransHistory[]: 账户变动  
 
-#### Contract 合同
+#### Bargain 合同
   * Addr: addr
   * ID：合同唯一 ID  
   * Name：合同名称

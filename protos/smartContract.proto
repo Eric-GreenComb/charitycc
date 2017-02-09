@@ -3,8 +3,8 @@ syntax = "proto3";
 
 package protos;
 
-// Treaty model 
-message Treaty {
+// SmartContract model 
+message SmartContract {
     string addr = 1;
     string id = 2;
     string name = 3;
@@ -33,14 +33,14 @@ message TContract {
 	string hash = 5;
 }
 
-message TreatyTrack {
+message SmartContractTrack {
     string addr = 1;
     string id = 2;
     uint64 total = 3;
-    repeated TransHistory trans = 4;
+    repeated SmartContractHistory trans = 4;
 }
 
-message TransHistory {
+message SmartContractHistory {
     string name = 1;
     string type = 2;
     string amount = 3;

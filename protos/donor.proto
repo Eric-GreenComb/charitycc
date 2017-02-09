@@ -16,8 +16,8 @@ message Donor {
 // Donor Contribution model 
 message DonorContribution {
     string name = 1;
-    string treatyname = 2;
-    string treatyaddr = 3;
+    string smartContractName = 2;
+    string smartContractAddr = 3;
     uint64 amount = 4;
     int64 timestamp = 5;
 }
@@ -25,8 +25,8 @@ message DonorContribution {
 // DonorTrack model 
 message DonorTrack {
     string name = 1;
-    string contractname = 2;
-    string contractaddr = 3;    
+    string accountName = 2;
+    string accountAddr = 3;    
     uint64 amount = 4;
     int64 timestamp = 5;
 }
