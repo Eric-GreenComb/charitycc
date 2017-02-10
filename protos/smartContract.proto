@@ -20,29 +20,23 @@ message SmartContract {
     int64 terminationTimestamp = 13;
     string foundation = 14;
     string attachhash = 15;
-    repeated TContract tContract = 16;
-    uint64 status = 17;  // 合约状态 0为used 1为unused
-    string remark = 18;
-}
-
-message TContract {
-	string name = 1;
-    string partyA = 2;
-    string partyB = 3;
-    int64 signedTimestamp = 4;	
-	string hash = 5;
+    uint64 status = 16;  // 合约状态 0为used 1为unused
+    string remark = 17;
 }
 
 message SmartContractTrack {
     string addr = 1;
     string id = 2;
     uint64 total = 3;
-    repeated SmartContractHistory trans = 4;
+    uint64 validTotal = 4;
+    uint64 donateNumber = 5;
+    repeated SmartContractHistory trans = 6;
 }
 
 message SmartContractHistory {
-    string name = 1;
-    string type = 2;
-    string amount = 3;
-    int64 signedTimestamp = 4;  
+    string bargainName = 1;
+    string bargainAddr = 2;    
+    string type = 3;
+    string amount = 4;
+    int64 timestamp = 5;  
 }

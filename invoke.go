@@ -64,6 +64,8 @@ func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 	case "doDrawing":
 		// args: foundationAddr,txData(coinbase tx Base64),foundationSign(base64)
 		return handler.DoDrawing(storeCC, args)
+	case "smartContractTrack":
+		//
 
 	default:
 		return nil, errors.New("Unsupported operation")
