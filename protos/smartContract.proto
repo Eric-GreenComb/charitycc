@@ -37,6 +37,6 @@ message SmartContractHistory {
     string bargainName = 1;
     string bargainAddr = 2;    
     string type = 3;
-    string amount = 4;
+    uint64 amount = 4;
     int64 timestamp = 5;  
 }
