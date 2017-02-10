@@ -26,6 +26,7 @@ It has these top-level messages:
 	Foundation
 	FoundationFeeTrack
 	SmartContract
+	SmartContractExt
 	SmartContractTrack
 	SmartContractHistory
 */

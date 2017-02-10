@@ -24,6 +24,12 @@ message SmartContract {
     string remark = 17;
 }
 
+message SmartContractExt {
+    string addr = 1;
+    string balance = 2;
+    SmartContract smartContract = 3;
+}
+
 message SmartContractTrack {
     string addr = 1;
     string id = 2;

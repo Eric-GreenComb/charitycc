@@ -12,8 +12,9 @@ message Foundation {
     string name = 3;
     uint64 total = 4;
     uint64 validTotal = 5;
-    repeated string smartContracts = 6;
-    repeated FoundationFeeTrack fees = 7;
+    uint64 balance = 6;
+    repeated string smartContracts = 7;
+    repeated FoundationFeeTrack fees = 8;
 }
 
 // FoundationFeeTrack model 
