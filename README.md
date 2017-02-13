@@ -1,14 +1,40 @@
-## Prepare
+## 准备fabric docker images
+### pull 0.6-dp
+sudo docker pull yeasy/hyperledger-fabric:0.6-dp
 
-### go get 
+### tag latest
+sudo docker tag yeasy/hyperledger-fabric:0.6-dp hyperledger/fabric-peer:latest
+
+sudo docker tag yeasy/hyperledger-fabric:0.6-dp hyperledger/fabric-baseimage:latest
+
+sudo docker tag yeasy/hyperledger-fabric:0.6-dp hyperledger/fabric-membersrvc:latest
+
+### get compose-files
+sudo git clone https://github.com/yeasy/docker-compose-files
+
+## 准备CC代码
+
+### 下载CC及引用代码 
 go get github.com/golang/protobuf
 
-### edit yml
+go get github.com/CebEcloudTime/charitycc
 
-- add     
+### 编辑 4-peers-with-explorer.yml
+
+- 在vp0中加入挂载,左侧/home/eric/go/src/...改为自己的目录
+    
+    
     volumes:
       - /home/eric/go/src/github.com/CebEcloudTime:/go/src/github.com/CebEcloudTime
       - /home/eric/go/src/github.com/golang:/go/src/github.com/golang
+
+## 运行 CC
+
+### docker-compose fabric 
+sudo docker-compose -f 4-peers-with-explorer.yml up
+
+### run explorer
+浏览器访问: http://localhost:9090,确定是否4个节点都启动,如果没有都启动,重启docker-compose命令
 
 ### deploy chaincode
 
