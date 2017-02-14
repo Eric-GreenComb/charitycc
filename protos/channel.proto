@@ -9,7 +9,8 @@ message Channel {
     string id = 2;
     string name = 3;
     uint64 total = 4;
-    repeated ChannelFeeTrack fees = 5;
+    uint64 balance = 5;
+    repeated ChannelFeeTrack fees = 6;
 }
 
 // ChannelFeeTrack model 

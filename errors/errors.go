@@ -53,4 +53,7 @@ var (
 
 	// ErrVerifyRsaSign verify rsa signture error
 	VerifyRsaSign = errors.New("verify rsa signture error")
+
+	// Err Invalid SmartContract
+	InvalidSmartContract = errors.New("SmartContract invalid")
 )

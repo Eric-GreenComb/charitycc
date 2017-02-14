@@ -55,7 +55,7 @@ func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 		// args: channelAddr,donorAddr,txData(coinbase tx Base64),channelSign(base64)
 		return handler.Donated(storeCC, args)
 	case "doDonating":
-		// args: donorAddr,
+		// args: donorUUID, donorAddr,smartContractAddr,amount,bankAddr,channelAddr, fundAddr,donorSign(base64)
 		return handler.DoDonating(storeCC, args)
 
 	case "drawed":

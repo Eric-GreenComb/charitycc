@@ -23,6 +23,7 @@ func MakeUTXO(store store.Store) *UTXO {
 type ExecResult struct {
 	SumCurrentOutputs uint64
 	SumPriorOutputs   uint64
+	TxHash            string
 }
 
 // Coinbase processes the given coinbase transaction and outputs a result
@@ -31,6 +32,7 @@ func (u *UTXO) Coinbase(newTX *protos.TX) (*ExecResult, error) {
 	txhash := utils.GenTransactionHash(newTX)
 
 	execResult := &ExecResult{}
+	execResult.TxHash = txhash
 
 	// Loop through outputs first
 	for index, output := range newTX.Txout {
@@ -71,6 +73,7 @@ func (u *UTXO) Execute(newTX *protos.TX) (*ExecResult, error) {
 	txhash := utils.GenTransactionHash(newTX)
 
 	execResult := &ExecResult{}
+	execResult.TxHash = txhash
 
 	// Now loop over inputs,
 	for _, ti := range newTX.Txin {

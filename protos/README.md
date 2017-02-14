@@ -65,3 +65,6 @@
   * Status: 合同状态
   * Attach: 合同附件  
   * Remark:备注
+
+## protoc  
+protoc --go_out=. *.proto

@@ -137,7 +137,7 @@ func Donated(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.IncorrectNumberArguments
 	}
 
-	if args[0] == "" || args[1] == "" || args[2] == "" || args[2] == "" {
+	if args[0] == "" || args[1] == "" || args[2] == "" || args[3] == "" {
 		return nil, errors.InvalidArgs
 	}
 
@@ -169,17 +169,39 @@ func Donated(store store.Store, args []string) ([]byte, error) {
 // DoDonating donor donating all proccess
 func DoDonating(store store.Store, args []string) ([]byte, error) {
 
-	// addContribution
+	if len(args) != 8 {
+		return nil, errors.IncorrectNumberArguments
+	}
 
-	// changeCoin
+	if args[0] == "" || args[1] == "" || args[2] == "" || args[3] == "" || args[4] == "" || args[5] == "" || args[6] == "" || args[7] == "" {
+		return nil, errors.InvalidArgs
+	}
 
-	// queryTreaty
+	_donorUUID := args[0]
+	_donorAddr := args[1]
+	_smartContractAddr := args[2]
+	_amount := args[3]
+	_bankAddr := args[4]
+	_channelAddr := args[5]
+	_fundAddr := args[6]
+	_donorBase64Sign := args[7]
 
-	// genTxDonate
+	_donorPublicKey, err := service.QueryAccountRsaPublicKey(store, _donorAddr)
+	if err != nil {
+		return nil, err
+	}
 
-	// donated
+	_donorSign, err := base64.StdEncoding.DecodeString(_donorBase64Sign)
+	if err != nil {
+		return nil, errors.Base64Decoding
+	}
 
-	// addTrack
+	hash := sha256.Sum256([]byte(_donorUUID + _donorAddr + _smartContractAddr + _amount + _bankAddr + _channelAddr + _fundAddr))
 
-	return nil, nil
+	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], _donorPublicKey, _donorSign)
+	if !bVerify {
+		return nil, errors.VerifyRsaSign
+	}
+
+	return service.DoDonating(store, args)
 }

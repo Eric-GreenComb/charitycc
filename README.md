@@ -60,7 +60,7 @@ result:
       "jsonrpc": "2.0",
       "result": {
         "status": "OK",
-        "message": "68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+        "message": "41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
       },
       "id": 1
     }
@@ -76,7 +76,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"registerBank",
@@ -106,7 +106,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"queryBank",
@@ -136,7 +136,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"registerAccount",
@@ -166,7 +166,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"queryAccount",
@@ -196,7 +196,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"registerAccount",
@@ -226,7 +226,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"queryAccount",
@@ -256,7 +256,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"registerAccount",
@@ -286,7 +286,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"queryAccount",
@@ -316,7 +316,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"registerAccount",
@@ -346,7 +346,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"queryAccount",
@@ -376,7 +376,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"registerAccount",
@@ -406,7 +406,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"queryAccount",
@@ -437,7 +437,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"registerSmartContract",
@@ -467,7 +467,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"querySmartContract",
@@ -497,7 +497,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"querySmartContracts",
@@ -528,7 +528,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"registerBargain",
@@ -558,7 +558,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"queryBargain",
@@ -588,7 +588,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"queryBargains",
@@ -619,7 +619,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"registerDonor",
@@ -649,7 +649,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"queryDonor",
@@ -679,7 +679,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"addContribution",
@@ -709,7 +709,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"addTrack",
@@ -739,7 +739,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"coinbase",
@@ -769,7 +769,7 @@ result:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"changeCoin",
@@ -821,7 +821,7 @@ query donor01:
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"donated",
@@ -862,7 +862,7 @@ query smartcontract01
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"drawed",
@@ -914,7 +914,7 @@ query bargain01
     "params": {
     "type": 1,
     "chaincodeID":{
-    "name":"68828708654f1dce4dedf955b65991fc2ef153a9add22813f8ef0c0e2cbf8a3766e8d3f19101ad0f84f8360cd3a1f2910c1c29aae8a32b6daf0dc615dc04e8cc"
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
     },
     "ctorMsg": {
     "function":"destroycoinbase",
@@ -946,6 +946,37 @@ query bargain01
       },
       "id": 5
     }
+
+### doDonating donor01 -> smartContract01,channel01,fund01
+
+    {
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": {
+    "type": 1,
+    "chaincodeID":{
+    "name":"41c8114f619ff716fbaac8f60cc995fe14bbef72d429f12498ede08211f4ca87fed3a6dd581d033f4a94ae850605965d0671f04b4a6de568809f6efe2c35abb1"
+    },
+    "ctorMsg": {
+    "function":"doDonating",
+    "args":["donorUUID","donor01:275e74b0e340f54135496e46d829b25af699984e6787f9a7b13191ad991a1eb1","smartcontract01:1d54a8713923af1718e8eeabec3e4d8596dbbdf2da3f69ea23aeb8c7a5ab73d8","100000000","cebbank:29731d0e6c6ca9cb985eabf9fe716d1644c624cae5265c36c9b7a46702003924","channel01:9c8b43ce948010efc3b7d102aae502165ccd5e0714a3e765fe1a8f444936785a","fund01:25ab580a2093776ca2e1dd1775e96dfec5f1ffbcc9565129351cb330cf0712d7","YN2m+myZCqtszvZlu9jfko+ALui2JkvTxUozV/WRyV3gmZZ84qQ0Ol1QwnGk8On/OM5cpx456stNs5/HlLFZYPYmACSOj/xVnXZ9Q3GI5seCv3+QE93lDY4+kC/h+5grffEpWAp+GzKaXZWdHRjjrmuJ7ArH554IWSMYhVukIow="]
+    },
+    "secureContext":    "jim"
+    },
+    "id": 3
+    } 
+
+result:
+
+    {
+      "jsonrpc": "2.0",
+      "result": {
+        "status": "OK",
+        "message": "f31b25c4-791b-4723-b4f6-24d4d1777096"
+      },
+      "id": 3
+    }  
+
 
 ## Process
 
