@@ -11,6 +11,7 @@ It is generated from these files:
 	channel.proto
 	donor.proto
 	foundation.proto
+	process.proto
 	smartContract.proto
 
 It has these top-level messages:
@@ -25,6 +26,8 @@ It has these top-level messages:
 	DonorTrack
 	Foundation
 	FoundationFeeTrack
+	ProcessDonored
+	ProcessDrawed
 	SmartContract
 	SmartContractExt
 	SmartContractTrack

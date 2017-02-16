@@ -13,26 +13,36 @@ import (
 // RegisterDonor register donor
 func RegisterDonor(store store.Store, args []string) ([]byte, error) {
 
-	base64DonorData := args[1]
-	donorData, err := base64.StdEncoding.DecodeString(base64DonorData)
-	if err != nil {
-		return nil, errors.Base64Decoding
-	}
+	_donorAddr := args[1]
+	_donorPublicKey := args[2]
 
-	newDonor, err := utils.ParseDonorByJsonBytes(donorData)
+	_, err := InitAccount(store, _donorAddr, _donorPublicKey)
 	if err != nil {
 		return nil, err
 	}
+
+	_, err = InitDonor(store, _donorAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	return nil, nil
+}
+
+func InitDonor(store store.Store, addr string) ([]byte, error) {
+	var newDonor protos.Donor
+	newDonor.Addr = addr
 
 	if tmpDonor, err := store.GetDonor(newDonor.Addr); err == nil && tmpDonor != nil && tmpDonor.Addr == newDonor.Addr {
 		return nil, errors.AlreadyRegisterd
 	}
 
-	if err := store.PutDonor(newDonor); err != nil {
+	if err := store.PutDonor(&newDonor); err != nil {
 		return nil, err
 	}
 
 	return nil, nil
+
 }
 
 // AddContribution add donor contribution

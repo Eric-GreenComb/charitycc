@@ -2,7 +2,6 @@ package service
 
 import (
 	"encoding/base64"
-	"encoding/json"
 
 	"github.com/CebEcloudTime/charitycc/core/coin"
 	"github.com/CebEcloudTime/charitycc/core/store"
@@ -14,39 +13,10 @@ import (
 // RegisterBank register bank account
 func RegisterBank(store store.Store, args []string) ([]byte, error) {
 
-	bankID := args[0]
+	addr := args[0]
 	publicKey := args[1]
 
-	addr := utils.GenAddr(bankID, publicKey)
-
-	if tmpaccount, err := store.GetAccount(addr); err == nil && tmpaccount != nil && tmpaccount.Addr == addr {
-		return nil, errors.AlreadyRegisterd
-	}
-
-	account := &protos.Account{
-		Addr:         addr,
-		Balance:      0,
-		RsaPublicKey: publicKey,
-		Txouts:       make(map[string]*protos.TX_TXOUT),
-	}
-	if err := store.PutAccount(account); err != nil {
-		return nil, err
-	}
-
-	return nil, nil
-}
-
-// GetBank get bank account
-func QueryBank(store store.Store, args []string) ([]byte, error) {
-
-	addr := args[0]
-
-	account, err := store.GetAccount(addr)
-	if err != nil {
-		return nil, err
-	}
-
-	return json.Marshal(account)
+	return InitAccount(store, addr, publicKey)
 }
 
 // GetBank get bank account

@@ -22,7 +22,7 @@ func RegisterBank(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.InvalidArgs
 	}
 
-	bankID := args[0]
+	addr := args[0]
 	publicKey := args[1]
 
 	base64Sign := args[2]
@@ -31,7 +31,7 @@ func RegisterBank(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.Base64Decoding
 	}
 
-	hash := sha256.Sum256([]byte(bankID + publicKey))
+	hash := sha256.Sum256([]byte(addr + publicKey))
 
 	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], []byte(SyetemAdminPublickKey), sysadminSign)
 	if !bVerify {
@@ -154,5 +154,5 @@ func QueryBank(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.InvalidArgs
 	}
 
-	return service.QueryBank(store, args)
+	return service.QueryAccount(store, args)
 }

@@ -13,21 +13,28 @@ message SmartContract {
     string partyA = 6;
     string partyB = 7;
     uint64 type = 8;   //0为金额限制，1位时间限制
-    uint64 fundManangerFee = 9;
-    uint64 channelFee = 10;
-    int64 createTimestamp = 11;
-    int64 utilTimestamp = 12;
-    int64 terminationTimestamp = 13;
-    string foundation = 14;
-    string attachhash = 15;
-    uint64 status = 16;  // 合约状态 0为used 1为unused
-    string remark = 17;
+    string fundAddr = 9;
+    string fundName = 10;
+    uint64 fundManangerFee = 11;
+    string channelAddr = 12;
+    string channelName = 13;
+    uint64 channelFee = 14;
+    int64 createTimestamp = 15;
+    int64 utilTimestamp = 16;
+    int64 terminationTimestamp = 17;
+    string foundation = 18;
+    string attachhash = 19;
+    uint64 status = 20;  // 合约状态 0为used 1为unused
+    string remark = 21;
 }
 
 message SmartContractExt {
     string addr = 1;
-    string balance = 2;
-    SmartContract smartContract = 3;
+    uint64 balance = 2;
+    uint64 total = 3;
+    uint64 validTotal = 4;
+    uint64 donateNumber = 5;
+    SmartContract smartContract = 6;
 }
 
 message SmartContractTrack {

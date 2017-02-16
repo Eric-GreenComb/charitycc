@@ -2,6 +2,7 @@ package service
 
 import (
 	"encoding/base64"
+	"encoding/json"
 	"strconv"
 	"strings"
 	"time"
@@ -13,33 +14,165 @@ import (
 	"github.com/CebEcloudTime/charitycc/utils"
 )
 
+// RegisterChannel register Channel
+func RegisterChannel(store store.Store, args []string) ([]byte, error) {
+	_channelAddr := args[0]
+	_channelPublicKey := args[1]
+
+	_, err := InitAccount(store, _channelAddr, _channelPublicKey)
+	if err != nil {
+		return nil, err
+	}
+
+	_, err = InitChannel(store, _channelAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	return nil, nil
+}
+
+func InitChannel(store store.Store, addr string) ([]byte, error) {
+	var newChannel protos.Channel
+	newChannel.Addr = addr
+
+	if tmpChannel, err := store.GetChannel(newChannel.Addr); err == nil && tmpChannel != nil && tmpChannel.Addr == newChannel.Addr {
+		return nil, errors.AlreadyRegisterd
+	}
+
+	if err := store.PutChannel(&newChannel); err != nil {
+		return nil, err
+	}
+
+	return nil, nil
+
+}
+
+// QueryChannel get a Channel
+func QueryChannel(store store.Store, args []string) ([]byte, error) {
+
+	addr := args[0]
+
+	channel, err := store.GetChannel(addr)
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(channel)
+}
+
 // Donated donor donated
 func Donated(store store.Store, args []string) ([]byte, error) {
 
-	_base64TxData := args[2]
+	_donorAddr := args[1]
+	_donorUUID := args[2]
+	_smartContractAddr := args[3]
+	_base64TxData := args[4]
 
 	txData, err := base64.StdEncoding.DecodeString(_base64TxData)
 	if err != nil {
 		return nil, errors.Base64Decoding
 	}
 
-	newTX, err := utils.ParseTxByJsonBytes(txData)
+	// querySmartContract
+	smartContract, err := QuerySmartContractObj(store, _smartContractAddr)
+	if err != nil {
+		return nil, errors.InvalidSmartContract
+	}
+
+	sourceTX, err := utils.ParseTxByJsonBytes(txData)
 	if err != nil {
 		return nil, err
 	}
 
-	if newTX.Founder == "" {
+	if sourceTX.Founder == "" {
 		return nil, errors.TxNoFounder
 	}
 
+	amount := GetAmountByTxouts(sourceTX)
+
+	// genContribution
+	contribution := GenDonatingContribution(_donorUUID, *smartContract, amount)
+
+	// donated
+	donatedTx, donatedTrack, processDonored := GenDonatedTxData(_donorAddr, _donorUUID, *smartContract, *sourceTX, amount)
+
 	utxo := coin.MakeUTXO(store)
 
-	_, err = utxo.Execute(newTX)
+	_, err = utxo.Execute(donatedTx)
 	if err != nil {
 		return nil, err
 	}
 
+	// SaveDonorContributionTrack addContribution addTrack
+	err = SaveDonorContributionTrack(store, _donorAddr, contribution, donatedTrack)
+	if err != nil {
+		return nil, err
+	}
+
+	err = SaveSmartContractTrack(store, _smartContractAddr, amount, processDonored.SmartContractAmount)
+	if err != nil {
+		return nil, err
+	}
+
+	processDonored.Remark = sourceTX.InputData
+
+	store.PutProcessDonored(processDonored)
+
+	SaveFundFee(store, smartContract.FundAddr, amount, processDonored.SmartContractAmount)
+
+	SaveChannelFee(store, smartContract.ChannelAddr, processDonored.ChannelAmount)
+
 	return nil, nil
+}
+
+func GetAmountByTxouts(tx *protos.TX) uint64 {
+	var amount uint64
+	for _, output := range tx.Txout {
+		amount += output.Value
+	}
+	return amount
+}
+
+// GenDonatedTxData gen donate donated tx
+func GenDonatedTxData(donorAddr, donorUUID string, smartContract protos.SmartContract, sourceTX protos.TX, amount uint64) (*protos.TX, []*protos.DonorTrack, *protos.ProcessDonored) {
+	var tx protos.TX
+	var donatedTrack []*protos.DonorTrack
+
+	smartContractAddr := smartContract.Addr
+	channelAddr := smartContract.ChannelAddr
+	fundAddr := smartContract.FundAddr
+
+	tx.Version = TxVersion
+	tx.Timestamp = time.Now().UTC().Unix()
+
+	tx.Txin = sourceTX.Txin
+
+	var processDonored *protos.ProcessDonored
+	tx.Txout, donatedTrack, processDonored = GenDonatingTxout(donorAddr, donorUUID, smartContractAddr, channelAddr, fundAddr, amount, smartContract)
+
+	tx.InputData = donorUUID
+
+	tx.Founder = channelAddr
+
+	return &tx, donatedTrack, processDonored
+}
+
+func SaveSmartContractTrack(store store.Store, smartContractAddr string, amount, realAmount uint64) error {
+	tmpSmartContractTrack, err := store.GetSmartContractTrack(smartContractAddr)
+	if err != nil {
+		return err
+	}
+
+	tmpSmartContractTrack.Total += amount
+	tmpSmartContractTrack.ValidTotal += realAmount
+	tmpSmartContractTrack.DonateNumber += 1
+
+	if err := store.PutSmartContractTrack(tmpSmartContractTrack); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 // DoDonating donor donating all proccess
@@ -196,7 +329,7 @@ func GenDonatingDonatedTxData(donorAddr, donorUUID, sourceTxHash, smartContractA
 
 	tx.Txin = GenDonatingTxin(donorAddr, sourceTxHash)
 
-	tx.Txout, donatedTrack = GenDonatingTxout(donorAddr, donorUUID, smartContractAddr, channelAddr, fundAddr, amount, smartContract)
+	tx.Txout, donatedTrack, _ = GenDonatingTxout(donorAddr, donorUUID, smartContractAddr, channelAddr, fundAddr, amount, smartContract)
 
 	tx.InputData = donorUUID
 
@@ -217,7 +350,7 @@ func GenDonatingTxin(donorAddr, sourceTxHash string) []*protos.TX_TXIN {
 	return txins
 }
 
-func GenDonatingTxout(donorAddr, donorUUID, smartContractAddr, channelAddr, fundAddr string, amount uint64, smartContract protos.SmartContract) ([]*protos.TX_TXOUT, []*protos.DonorTrack) {
+func GenDonatingTxout(donorAddr, donorUUID, smartContractAddr, channelAddr, fundAddr string, amount uint64, smartContract protos.SmartContract) ([]*protos.TX_TXOUT, []*protos.DonorTrack, *protos.ProcessDonored) {
 	var txouts []*protos.TX_TXOUT
 	var tracks []*protos.DonorTrack
 
@@ -233,7 +366,21 @@ func GenDonatingTxout(donorAddr, donorUUID, smartContractAddr, channelAddr, fund
 	txouts = append(txouts, &fundTxout)
 	tracks = append(tracks, &fundTrack)
 
-	return txouts, tracks
+	var processDonored protos.ProcessDonored
+
+	processDonored.DonorUUID = donorUUID
+	processDonored.DonorAddr = donorAddr
+	processDonored.SmartContractAddr = smartContract.Addr
+	processDonored.SmartContractName = smartContract.Name
+	processDonored.FundName = smartContract.FundName
+	processDonored.ChannelName = smartContract.ChannelName
+	processDonored.Amount = amount
+	processDonored.SmartContractAmount = smartContractTrack.Amount
+	processDonored.ChannelAmount = channelTrack.Amount
+	processDonored.FundAmount = fundTrack.Amount
+	processDonored.Timestamp = time.Now().UTC().Unix()
+
+	return txouts, tracks, &processDonored
 }
 
 func GenDonatingSmartContractTxout(donorAddr, donorUUID, smartContractAddr string, amount uint64, smartContract protos.SmartContract) (protos.TX_TXOUT, protos.DonorTrack) {
@@ -312,6 +459,50 @@ func SaveDonorContributionTrack(store store.Store, donorAddr string, contributio
 	}
 
 	if err := store.PutDonor(tmpDonor); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// QueryProcessDonored get a ProcessDonored
+func QueryProcessDonored(store store.Store, args []string) ([]byte, error) {
+
+	donorUUID := args[0]
+
+	processDonored, err := store.GetProcessDonored(donorUUID)
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(processDonored)
+}
+
+func SaveFundFee(store store.Store, fundAddr string, amount, realAmount uint64) error {
+	tmpFund, err := store.GetFund(fundAddr)
+	if err != nil {
+		return err
+	}
+
+	tmpFund.Total += amount
+	tmpFund.ValidTotal += realAmount
+
+	if err := store.PutFund(tmpFund); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func SaveChannelFee(store store.Store, channelAddr string, amount uint64) error {
+	tmpChannel, err := store.GetChannel(channelAddr)
+	if err != nil {
+		return err
+	}
+
+	tmpChannel.Total += amount
+
+	if err := store.PutChannel(tmpChannel); err != nil {
 		return err
 	}
 

@@ -11,8 +11,8 @@ import (
 	"github.com/CebEcloudTime/charitycc/utils"
 )
 
-// RegisterSmartContract register foundation smartContract
-func RegisterSmartContract(store store.Store, args []string) ([]byte, error) {
+// RegisterFund register foundation
+func RegisterFund(store store.Store, args []string) ([]byte, error) {
 
 	if len(args) != 3 {
 		return nil, errors.IncorrectNumberArguments
@@ -22,9 +22,53 @@ func RegisterSmartContract(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.InvalidArgs
 	}
 
+	_fundAddr := args[0]
+	_fundPublicKey := args[1]
+	_base64SysadminSign := args[2]
+
+	_sourcSign, err := base64.StdEncoding.DecodeString(_base64SysadminSign)
+	if err != nil {
+		return nil, errors.Base64Decoding
+	}
+
+	hash := sha256.Sum256([]byte(_fundAddr + _fundPublicKey))
+
+	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], []byte(SyetemAdminPublickKey), _sourcSign)
+	if !bVerify {
+		return nil, errors.VerifyRsaSign
+	}
+
+	return service.RegisterFund(store, args)
+}
+
+func QueryFund(store store.Store, args []string) ([]byte, error) {
+	if len(args) != 1 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" {
+		return nil, errors.InvalidArgs
+	}
+
+	return service.QueryFund(store, args)
+}
+
+// RegisterSmartContract register foundation smartContract
+func RegisterSmartContract(store store.Store, args []string) ([]byte, error) {
+
+	if len(args) != 5 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" || args[1] == "" || args[2] == "" || args[3] == "" || args[4] == "" {
+		return nil, errors.InvalidArgs
+	}
+
 	_sourceAddr := args[0]
-	_base64SmartContractData := args[1]
-	_base64SourcSign := args[2]
+	_smartContractAddr := args[1]
+	_smartContractPublickKey := args[2]
+	_base64SmartContractData := args[3]
+	_base64SourcSign := args[4]
 
 	_sourcePublicKey, err := service.QueryAccountRsaPublicKey(store, _sourceAddr)
 	if err != nil {
@@ -36,7 +80,7 @@ func RegisterSmartContract(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.Base64Decoding
 	}
 
-	hash := sha256.Sum256([]byte(_base64SmartContractData))
+	hash := sha256.Sum256([]byte(_smartContractAddr + _smartContractPublickKey + _base64SmartContractData))
 
 	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], _sourcePublicKey, _sourcSign)
 	if !bVerify {
@@ -106,20 +150,34 @@ func QuerySmartContracts(store store.Store, args []string) ([]byte, error) {
 	return service.QuerySmartContracts(store, args)
 }
 
-// RegisterBargain register foundation bargain
-func RegisterBargain(store store.Store, args []string) ([]byte, error) {
-
-	if len(args) != 3 {
+func QuerySmartContractTrack(store store.Store, args []string) ([]byte, error) {
+	if len(args) != 1 {
 		return nil, errors.IncorrectNumberArguments
 	}
 
-	if args[0] == "" || args[1] == "" || args[2] == "" {
+	if args[0] == "" {
+		return nil, errors.InvalidArgs
+	}
+
+	return service.QuerySmartContractTrack(store, args)
+}
+
+// RegisterBargain register foundation bargain
+func RegisterBargain(store store.Store, args []string) ([]byte, error) {
+
+	if len(args) != 5 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" || args[1] == "" || args[2] == "" || args[3] == "" || args[4] == "" {
 		return nil, errors.InvalidArgs
 	}
 
 	_sourceAddr := args[0]
-	_base64BargainData := args[1]
-	_base64SourcSign := args[2]
+	_bargainAddr := args[1]
+	_bargainPublickKey := args[2]
+	_base64BargainData := args[3]
+	_base64SourcSign := args[4]
 
 	_sourcePublicKey, err := service.QueryAccountRsaPublicKey(store, _sourceAddr)
 	if err != nil {
@@ -131,7 +189,7 @@ func RegisterBargain(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.Base64Decoding
 	}
 
-	hash := sha256.Sum256([]byte(_base64BargainData))
+	hash := sha256.Sum256([]byte(_bargainAddr + _bargainPublickKey + _base64BargainData))
 
 	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], _sourcePublicKey, _sourcSign)
 	if !bVerify {

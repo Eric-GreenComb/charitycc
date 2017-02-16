@@ -7,16 +7,18 @@ import (
 	"github.com/CebEcloudTime/charitycc/core/store"
 	"github.com/CebEcloudTime/charitycc/errors"
 	"github.com/CebEcloudTime/charitycc/protos"
-	"github.com/CebEcloudTime/charitycc/utils"
 )
 
 // RegisterAccount register account
 func RegisterAccount(store store.Store, args []string) ([]byte, error) {
 
-	id := args[0]
+	addr := args[0]
 	publicKey := args[1]
 
-	addr := utils.GenAddr(id, publicKey)
+	return InitAccount(store, addr, publicKey)
+}
+
+func InitAccount(store store.Store, addr, publicKey string) ([]byte, error) {
 
 	if tmpaccount, err := store.GetAccount(addr); err == nil && tmpaccount != nil && tmpaccount.Addr == addr {
 		return nil, errors.AlreadyRegisterd
@@ -31,7 +33,6 @@ func RegisterAccount(store store.Store, args []string) ([]byte, error) {
 	if err := store.PutAccount(account); err != nil {
 		return nil, err
 	}
-
 	return nil, nil
 }
 

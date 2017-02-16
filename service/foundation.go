@@ -13,10 +13,80 @@ import (
 	"github.com/CebEcloudTime/charitycc/utils"
 )
 
+// RegisterFund register fund
+func RegisterFund(store store.Store, args []string) ([]byte, error) {
+	_fundAddr := args[0]
+	_fundPublicKey := args[1]
+
+	_, err := InitAccount(store, _fundAddr, _fundPublicKey)
+	if err != nil {
+		return nil, err
+	}
+
+	_, err = InitFund(store, _fundAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	return nil, nil
+}
+
+func InitFund(store store.Store, addr string) ([]byte, error) {
+	var newFoundation protos.Foundation
+	newFoundation.Addr = addr
+
+	if tmpFoundation, err := store.GetFund(newFoundation.Addr); err == nil && tmpFoundation != nil && tmpFoundation.Addr == newFoundation.Addr {
+		return nil, errors.AlreadyRegisterd
+	}
+
+	if err := store.PutFund(&newFoundation); err != nil {
+		return nil, err
+	}
+
+	return nil, nil
+
+}
+
+// QueryFund get a fund
+func QueryFund(store store.Store, args []string) ([]byte, error) {
+
+	addr := args[0]
+
+	fund, err := store.GetFund(addr)
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(fund)
+}
+
 // RegisterSmartContract register smartContract
 func RegisterSmartContract(store store.Store, args []string) ([]byte, error) {
 
-	base64SmartContractData := args[1]
+	_smartContractAddr := args[1]
+	_smartContractPublickKey := args[2]
+	_base64SmartContractData := args[3]
+
+	_, err := InitAccount(store, _smartContractAddr, _smartContractPublickKey)
+	if err != nil {
+		return nil, err
+	}
+
+	_, err = InitSmartContract(store, _base64SmartContractData)
+	if err != nil {
+		return nil, err
+	}
+
+	_, err = InitSmartContractTrack(store, _smartContractAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	return nil, nil
+}
+
+func InitSmartContract(store store.Store, base64SmartContractData string) ([]byte, error) {
+
 	smartContractData, err := base64.StdEncoding.DecodeString(base64SmartContractData)
 	if err != nil {
 		return nil, errors.Base64Decoding
@@ -32,6 +102,22 @@ func RegisterSmartContract(store store.Store, args []string) ([]byte, error) {
 	}
 
 	if err := store.PutSmartContract(newSmartContract); err != nil {
+		return nil, err
+	}
+
+	return nil, nil
+}
+
+// InitSmartContractTrack
+func InitSmartContractTrack(store store.Store, addr string) ([]byte, error) {
+	var newSmartContractTrack protos.SmartContractTrack
+	newSmartContractTrack.Addr = addr
+
+	if tmpSmartContractTrack, err := store.GetSmartContractTrack(newSmartContractTrack.Addr); err == nil && tmpSmartContractTrack != nil && tmpSmartContractTrack.Addr == newSmartContractTrack.Addr {
+		return nil, errors.AlreadyRegisterd
+	}
+
+	if err := store.PutSmartContractTrack(&newSmartContractTrack); err != nil {
 		return nil, err
 	}
 
@@ -106,10 +192,41 @@ func QuerySmartContracts(store store.Store, args []string) ([]byte, error) {
 	return json.Marshal(smartContracts)
 }
 
+// QuerySmartContractTrack
+func QuerySmartContractTrack(store store.Store, args []string) ([]byte, error) {
+
+	addr := args[0]
+
+	smartContract, err := store.GetSmartContractTrack(addr)
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(smartContract)
+}
+
 // RegisterBargain register bargain
 func RegisterBargain(store store.Store, args []string) ([]byte, error) {
 
-	base64BargainData := args[1]
+	_bargainAddr := args[1]
+	_bargainPublickKey := args[2]
+	_base64BargainData := args[3]
+
+	_, err := InitAccount(store, _bargainAddr, _bargainPublickKey)
+	if err != nil {
+		return nil, err
+	}
+
+	_, err = InitBargain(store, _base64BargainData)
+	if err != nil {
+		return nil, err
+	}
+
+	return nil, nil
+}
+
+func InitBargain(store store.Store, base64BargainData string) ([]byte, error) {
+
 	bargainData, err := base64.StdEncoding.DecodeString(base64BargainData)
 	if err != nil {
 		return nil, errors.Base64Decoding

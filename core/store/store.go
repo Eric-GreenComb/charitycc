@@ -23,11 +23,26 @@ type Store interface {
 	GetSmartContract(string) (*protos.SmartContract, error)
 	PutSmartContract(*protos.SmartContract) error
 
+	GetSmartContractTrack(string) (*protos.SmartContractTrack, error)
+	PutSmartContractTrack(*protos.SmartContractTrack) error
+
 	GetBargain(string) (*protos.Bargain, error)
 	PutBargain(*protos.Bargain) error
 
 	GetDonor(string) (*protos.Donor, error)
 	PutDonor(*protos.Donor) error
+
+	GetFund(string) (*protos.Foundation, error)
+	PutFund(*protos.Foundation) error
+
+	GetChannel(string) (*protos.Channel, error)
+	PutChannel(*protos.Channel) error
+
+	GetProcessDonored(string) (*protos.ProcessDonored, error)
+	PutProcessDonored(*protos.ProcessDonored) error
+
+	GetProcessDrawed(string) (*protos.ProcessDrawed, error)
+	PutProcessDrawed(*protos.ProcessDrawed) error
 }
 
 // Store struct uses a chaincode stub for state access
@@ -203,6 +218,181 @@ func (s *CCStore) PutDonor(donor *protos.Donor) error {
 	key := utils.GenerateDonorKey(donor.Addr)
 
 	aBytes, err := proto.Marshal(donor)
+	if err != nil {
+		return err
+	}
+
+	return s.stub.PutState(key, aBytes)
+}
+
+// GetSmartContractTrack returns smartContract Track from world states
+func (s *CCStore) GetSmartContractTrack(addr string) (*protos.SmartContractTrack, error) {
+	if addr == "" {
+		return nil, errors.New("empty addr")
+	}
+	key := utils.GenerateSmartContractTrackKey(addr)
+	data, err := s.stub.GetState(key)
+	if err != nil {
+		return nil, err
+	}
+
+	if data == nil || len(data) == 0 {
+		return nil, fmt.Errorf("no smartContract Track found")
+	}
+
+	smartContractTrack := new(protos.SmartContractTrack)
+	if err := proto.Unmarshal(data, smartContractTrack); err != nil {
+		return nil, err
+	}
+
+	return smartContractTrack, nil
+}
+
+// PutSmartContractTrack update or insert smartContract Track into world states
+func (s *CCStore) PutSmartContractTrack(smartContractTrack *protos.SmartContractTrack) error {
+	key := utils.GenerateSmartContractTrackKey(smartContractTrack.Addr)
+
+	aBytes, err := proto.Marshal(smartContractTrack)
+	if err != nil {
+		return err
+	}
+
+	return s.stub.PutState(key, aBytes)
+}
+
+// GetFund returns fund from world states
+func (s *CCStore) GetFund(addr string) (*protos.Foundation, error) {
+	if addr == "" {
+		return nil, errors.New("empty addr")
+	}
+	key := utils.GenerateFundKey(addr)
+	data, err := s.stub.GetState(key)
+	if err != nil {
+		return nil, err
+	}
+
+	if data == nil || len(data) == 0 {
+		return nil, fmt.Errorf("no fund found")
+	}
+
+	foundation := new(protos.Foundation)
+	if err := proto.Unmarshal(data, foundation); err != nil {
+		return nil, err
+	}
+
+	return foundation, nil
+}
+
+// PutFund update or insert fund into world states
+func (s *CCStore) PutFund(foundation *protos.Foundation) error {
+	key := utils.GenerateFundKey(foundation.Addr)
+
+	aBytes, err := proto.Marshal(foundation)
+	if err != nil {
+		return err
+	}
+
+	return s.stub.PutState(key, aBytes)
+}
+
+// GetChannel returns Channel from world states
+func (s *CCStore) GetChannel(addr string) (*protos.Channel, error) {
+	if addr == "" {
+		return nil, errors.New("empty addr")
+	}
+	key := utils.GenerateChannelKey(addr)
+	data, err := s.stub.GetState(key)
+	if err != nil {
+		return nil, err
+	}
+
+	if data == nil || len(data) == 0 {
+		return nil, fmt.Errorf("no Channel found")
+	}
+
+	channel := new(protos.Channel)
+	if err := proto.Unmarshal(data, channel); err != nil {
+		return nil, err
+	}
+
+	return channel, nil
+}
+
+// PutChannel update or insert Channel into world states
+func (s *CCStore) PutChannel(channel *protos.Channel) error {
+	key := utils.GenerateChannelKey(channel.Addr)
+
+	aBytes, err := proto.Marshal(channel)
+	if err != nil {
+		return err
+	}
+
+	return s.stub.PutState(key, aBytes)
+}
+
+// GetProcessDonored returns ProcessDonored from world states
+func (s *CCStore) GetProcessDonored(addr string) (*protos.ProcessDonored, error) {
+	if addr == "" {
+		return nil, errors.New("empty addr")
+	}
+	key := utils.GenerateProcessDonoredKey(addr)
+	data, err := s.stub.GetState(key)
+	if err != nil {
+		return nil, err
+	}
+
+	if data == nil || len(data) == 0 {
+		return nil, fmt.Errorf("no ProcessDonored found")
+	}
+
+	processDonored := new(protos.ProcessDonored)
+	if err := proto.Unmarshal(data, processDonored); err != nil {
+		return nil, err
+	}
+
+	return processDonored, nil
+}
+
+// PutProcessDonored update or insert ProcessDonored into world states
+func (s *CCStore) PutProcessDonored(processDonored *protos.ProcessDonored) error {
+	key := utils.GenerateProcessDonoredKey(processDonored.DonorUUID)
+
+	aBytes, err := proto.Marshal(processDonored)
+	if err != nil {
+		return err
+	}
+
+	return s.stub.PutState(key, aBytes)
+}
+
+// GetProcessDrawed returns ProcessDrawed from world states
+func (s *CCStore) GetProcessDrawed(addr string) (*protos.ProcessDrawed, error) {
+	if addr == "" {
+		return nil, errors.New("empty addr")
+	}
+	key := utils.GenerateProcessDrawedKey(addr)
+	data, err := s.stub.GetState(key)
+	if err != nil {
+		return nil, err
+	}
+
+	if data == nil || len(data) == 0 {
+		return nil, fmt.Errorf("no ProcessDrawed found")
+	}
+
+	processDrawed := new(protos.ProcessDrawed)
+	if err := proto.Unmarshal(data, processDrawed); err != nil {
+		return nil, err
+	}
+
+	return processDrawed, nil
+}
+
+// PutProcessDrawed update or insert ProcessDrawed into world states
+func (s *CCStore) PutProcessDrawed(processDrawed *protos.ProcessDrawed) error {
+	key := utils.GenerateProcessDrawedKey(processDrawed.DrawUUID)
+
+	aBytes, err := proto.Marshal(processDrawed)
 	if err != nil {
 		return err
 	}

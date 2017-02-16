@@ -5,6 +5,7 @@ import (
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 )
 
+// CharityCC chaincode struct
 type CharityCC struct {
 }
 

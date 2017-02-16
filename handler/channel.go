@@ -11,8 +11,8 @@ import (
 	"github.com/CebEcloudTime/charitycc/utils"
 )
 
-// RegisterDonor register donor
-func RegisterDonor(store store.Store, args []string) ([]byte, error) {
+// RegisterChannel register channel
+func RegisterChannel(store store.Store, args []string) ([]byte, error) {
 
 	if len(args) != 3 {
 		return nil, errors.IncorrectNumberArguments
@@ -22,9 +22,52 @@ func RegisterDonor(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.InvalidArgs
 	}
 
+	_channelAddr := args[0]
+	_channelPublicKey := args[1]
+	_base64SysadminSign := args[2]
+
+	_sourcSign, err := base64.StdEncoding.DecodeString(_base64SysadminSign)
+	if err != nil {
+		return nil, errors.Base64Decoding
+	}
+
+	hash := sha256.Sum256([]byte(_channelAddr + _channelPublicKey))
+
+	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], []byte(SyetemAdminPublickKey), _sourcSign)
+	if !bVerify {
+		return nil, errors.VerifyRsaSign
+	}
+
+	return service.RegisterChannel(store, args)
+}
+
+func QueryChannel(store store.Store, args []string) ([]byte, error) {
+	if len(args) != 1 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" {
+		return nil, errors.InvalidArgs
+	}
+
+	return service.QueryChannel(store, args)
+}
+
+// RegisterDonor register donor
+func RegisterDonor(store store.Store, args []string) ([]byte, error) {
+
+	if len(args) != 4 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" || args[1] == "" || args[2] == "" || args[3] == "" {
+		return nil, errors.InvalidArgs
+	}
+
 	_sourceAddr := args[0]
-	_base64DonorData := args[1]
-	_base64SourcSign := args[2]
+	_donorAddr := args[1]
+	_donorPublicKey := args[2]
+	_base64SourcSign := args[3]
 
 	_sourcePublicKey, err := service.QueryAccountRsaPublicKey(store, _sourceAddr)
 	if err != nil {
@@ -36,7 +79,7 @@ func RegisterDonor(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.Base64Decoding
 	}
 
-	hash := sha256.Sum256([]byte(_base64DonorData))
+	hash := sha256.Sum256([]byte(_donorAddr + _donorPublicKey))
 
 	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], _sourcePublicKey, _sourcSign)
 	if !bVerify {
@@ -133,18 +176,20 @@ func QueryDonor(store store.Store, args []string) ([]byte, error) {
 // Donated donor donated
 func Donated(store store.Store, args []string) ([]byte, error) {
 
-	if len(args) != 4 {
+	if len(args) != 6 {
 		return nil, errors.IncorrectNumberArguments
 	}
 
-	if args[0] == "" || args[1] == "" || args[2] == "" || args[3] == "" {
+	if args[0] == "" || args[1] == "" || args[2] == "" || args[3] == "" || args[4] == "" || args[5] == "" {
 		return nil, errors.InvalidArgs
 	}
 
 	_sourceAddr := args[0]
 	_donorAddr := args[1]
-	_base64TxData := args[2]
-	_base64SourcSign := args[3]
+	_donorUUID := args[2]
+	_smartContractAddr := args[3]
+	_base64TxData := args[4]
+	_base64SourcSign := args[5]
 
 	_sourcePublicKey, err := service.QueryAccountRsaPublicKey(store, _sourceAddr)
 	if err != nil {
@@ -156,7 +201,7 @@ func Donated(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.Base64Decoding
 	}
 
-	hash := sha256.Sum256([]byte(_donorAddr + _base64TxData))
+	hash := sha256.Sum256([]byte(_donorAddr + _donorUUID + _smartContractAddr + _base64TxData))
 
 	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], _sourcePublicKey, _sourcSign)
 	if !bVerify {
@@ -164,6 +209,18 @@ func Donated(store store.Store, args []string) ([]byte, error) {
 	}
 
 	return service.Donated(store, args)
+}
+
+func QueryProcessDonored(store store.Store, args []string) ([]byte, error) {
+	if len(args) != 1 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" {
+		return nil, errors.InvalidArgs
+	}
+
+	return service.QueryProcessDonored(store, args)
 }
 
 // DoDonating donor donating all proccess
