@@ -110,7 +110,7 @@ func Donated(store store.Store, args []string) ([]byte, error) {
 		return nil, err
 	}
 
-	err = SaveSmartContractTrack(store, _smartContractAddr, amount, processDonored.SmartContractAmount)
+	err = SaveSmartContractExt(store, _smartContractAddr, amount, processDonored.SmartContractAmount)
 	if err != nil {
 		return nil, err
 	}
@@ -158,17 +158,17 @@ func GenDonatedTxData(donorAddr, donorUUID string, smartContract protos.SmartCon
 	return &tx, donatedTrack, processDonored
 }
 
-func SaveSmartContractTrack(store store.Store, smartContractAddr string, amount, realAmount uint64) error {
-	tmpSmartContractTrack, err := store.GetSmartContractTrack(smartContractAddr)
+func SaveSmartContractExt(store store.Store, smartContractAddr string, amount, realAmount uint64) error {
+	tmpSmartContractExt, err := store.GetSmartContractExt(smartContractAddr)
 	if err != nil {
 		return err
 	}
 
-	tmpSmartContractTrack.Total += amount
-	tmpSmartContractTrack.ValidTotal += realAmount
-	tmpSmartContractTrack.DonateNumber += 1
+	tmpSmartContractExt.Total += amount
+	tmpSmartContractExt.ValidTotal += realAmount
+	tmpSmartContractExt.DonateNumber += 1
 
-	if err := store.PutSmartContractTrack(tmpSmartContractTrack); err != nil {
+	if err := store.PutSmartContractExt(tmpSmartContractExt); err != nil {
 		return err
 	}
 

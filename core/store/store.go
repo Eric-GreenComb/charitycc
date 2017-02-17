@@ -23,11 +23,17 @@ type Store interface {
 	GetSmartContract(string) (*protos.SmartContract, error)
 	PutSmartContract(*protos.SmartContract) error
 
+	GetSmartContractExt(string) (*protos.SmartContractExt, error)
+	PutSmartContractExt(*protos.SmartContractExt) error
+
 	GetSmartContractTrack(string) (*protos.SmartContractTrack, error)
 	PutSmartContractTrack(*protos.SmartContractTrack) error
 
 	GetBargain(string) (*protos.Bargain, error)
 	PutBargain(*protos.Bargain) error
+
+	GetBargainTrack(string) (*protos.BargainTrack, error)
+	PutBargainTrack(*protos.BargainTrack) error
 
 	GetDonor(string) (*protos.Donor, error)
 	PutDonor(*protos.Donor) error
@@ -167,7 +173,7 @@ func (s *CCStore) GetBargain(addr string) (*protos.Bargain, error) {
 	}
 
 	if data == nil || len(data) == 0 {
-		return nil, fmt.Errorf("no contract found")
+		return nil, fmt.Errorf("no Bargain found")
 	}
 
 	bargain := new(protos.Bargain)
@@ -183,6 +189,41 @@ func (s *CCStore) PutBargain(bargain *protos.Bargain) error {
 	key := utils.GenerateBargainKey(bargain.Addr)
 
 	aBytes, err := proto.Marshal(bargain)
+	if err != nil {
+		return err
+	}
+
+	return s.stub.PutState(key, aBytes)
+}
+
+// GetBargainTrack returns BargainTrack from world states
+func (s *CCStore) GetBargainTrack(addr string) (*protos.BargainTrack, error) {
+	if addr == "" {
+		return nil, errors.New("empty addr")
+	}
+	key := utils.GenerateBargainTrackKey(addr)
+	data, err := s.stub.GetState(key)
+	if err != nil {
+		return nil, err
+	}
+
+	if data == nil || len(data) == 0 {
+		return nil, fmt.Errorf("no BargainTrack found")
+	}
+
+	bargainTrack := new(protos.BargainTrack)
+	if err := proto.Unmarshal(data, bargainTrack); err != nil {
+		return nil, err
+	}
+
+	return bargainTrack, nil
+}
+
+// PutBargainTrack update or insert BargainTrack into world states
+func (s *CCStore) PutBargainTrack(bargainTrack *protos.BargainTrack) error {
+	key := utils.GenerateBargainTrackKey(bargainTrack.Addr)
+
+	aBytes, err := proto.Marshal(bargainTrack)
 	if err != nil {
 		return err
 	}
@@ -218,6 +259,41 @@ func (s *CCStore) PutDonor(donor *protos.Donor) error {
 	key := utils.GenerateDonorKey(donor.Addr)
 
 	aBytes, err := proto.Marshal(donor)
+	if err != nil {
+		return err
+	}
+
+	return s.stub.PutState(key, aBytes)
+}
+
+// GetSmartContractExt returns SmartContractExt from world states
+func (s *CCStore) GetSmartContractExt(addr string) (*protos.SmartContractExt, error) {
+	if addr == "" {
+		return nil, errors.New("empty addr")
+	}
+	key := utils.GenerateSmartContractExtKey(addr)
+	data, err := s.stub.GetState(key)
+	if err != nil {
+		return nil, err
+	}
+
+	if data == nil || len(data) == 0 {
+		return nil, fmt.Errorf("no smartContract Track found")
+	}
+
+	smartContractExt := new(protos.SmartContractExt)
+	if err := proto.Unmarshal(data, smartContractExt); err != nil {
+		return nil, err
+	}
+
+	return smartContractExt, nil
+}
+
+// PutSmartContractExt update or insert SmartContractExt into world states
+func (s *CCStore) PutSmartContractExt(smartContractExt *protos.SmartContractExt) error {
+	key := utils.GenerateSmartContractExtKey(smartContractExt.Addr)
+
+	aBytes, err := proto.Marshal(smartContractExt)
 	if err != nil {
 		return err
 	}

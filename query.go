@@ -34,10 +34,10 @@ func (t *CharityCC) Query(stub shim.ChaincodeStubInterface, function string, arg
 	case "querySmartContract":
 		// args: addr(client gen addr)
 		return handler.QuerySmartContract(storeCC, args)
-	case "QuerySmartContractExt":
+	case "querySmartContractExt":
 		// args: addrs(client gen addrs) return: SmartContractExt List
 		return handler.QuerySmartContractExt(storeCC, args)
-	case "QuerySmartContractExts":
+	case "querySmartContractExts":
 		// args: addrs(client gen addrs, split by ,) return: SmartContractExt List
 		return handler.QuerySmartContractExts(storeCC, args)
 	case "querySmartContractTrack":

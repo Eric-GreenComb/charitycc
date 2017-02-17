@@ -16,8 +16,16 @@ func GenerateBargainKey(addr string) string {
 	return fmt.Sprintf("bargain_addr_%s", addr)
 }
 
+func GenerateBargainTrackKey(addr string) string {
+	return fmt.Sprintf("bargain_track_addr_%s", addr)
+}
+
 func GenerateDonorKey(addr string) string {
 	return fmt.Sprintf("donor_addr_%s", addr)
+}
+
+func GenerateSmartContractExtKey(addr string) string {
+	return fmt.Sprintf("smartcontract_ext_addr_%s", addr)
 }
 
 func GenerateSmartContractTrackKey(addr string) string {

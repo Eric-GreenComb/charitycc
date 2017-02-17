@@ -72,7 +72,12 @@ func RegisterSmartContract(store store.Store, args []string) ([]byte, error) {
 		return nil, err
 	}
 
-	_, err = InitSmartContract(store, _base64SmartContractData)
+	_, newSmartContract, err := InitSmartContract(store, _base64SmartContractData)
+	if err != nil {
+		return nil, err
+	}
+
+	_, err = InitSmartContractExt(store, _smartContractAddr, newSmartContract)
 	if err != nil {
 		return nil, err
 	}
@@ -85,23 +90,36 @@ func RegisterSmartContract(store store.Store, args []string) ([]byte, error) {
 	return nil, nil
 }
 
-func InitSmartContract(store store.Store, base64SmartContractData string) ([]byte, error) {
+func InitSmartContract(store store.Store, base64SmartContractData string) ([]byte, *protos.SmartContract, error) {
 
 	smartContractData, err := base64.StdEncoding.DecodeString(base64SmartContractData)
 	if err != nil {
-		return nil, errors.Base64Decoding
+		return nil, nil, errors.Base64Decoding
 	}
 
 	newSmartContract, err := utils.ParseSmartContractByJsonBytes(smartContractData)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	if tmpSmartContract, err := store.GetSmartContract(newSmartContract.Addr); err == nil && tmpSmartContract != nil && tmpSmartContract.Addr == newSmartContract.Addr {
-		return nil, errors.AlreadyRegisterd
+		return nil, nil, errors.AlreadyRegisterd
 	}
 
 	if err := store.PutSmartContract(newSmartContract); err != nil {
+		return nil, nil, err
+	}
+
+	return nil, newSmartContract, nil
+}
+
+// InitSmartContractExt
+func InitSmartContractExt(store store.Store, addr string, smartContract *protos.SmartContract) ([]byte, error) {
+	var newSmartContractExt protos.SmartContractExt
+	newSmartContractExt.Addr = addr
+	newSmartContractExt.SmartContract = smartContract
+
+	if err := store.PutSmartContractExt(&newSmartContractExt); err != nil {
 		return nil, err
 	}
 
@@ -192,6 +210,38 @@ func QuerySmartContracts(store store.Store, args []string) ([]byte, error) {
 	return json.Marshal(smartContracts)
 }
 
+// QuerySmartContractExt
+func QuerySmartContractExt(store store.Store, args []string) ([]byte, error) {
+
+	addr := args[0]
+
+	smartContractExt, err := store.GetSmartContractExt(addr)
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(smartContractExt)
+}
+
+// QuerySmartContractExts
+func QuerySmartContractExts(store store.Store, args []string) ([]byte, error) {
+
+	addrs := args[0]
+
+	var smartContractExts []protos.SmartContractExt
+
+	_addrs := strings.Split(addrs, ",")
+	for _, _addr := range _addrs {
+		_smartContractExt, err := store.GetSmartContractExt(_addr)
+		if err != nil {
+			continue
+		}
+		smartContractExts = append(smartContractExts, *_smartContractExt)
+	}
+
+	return json.Marshal(smartContractExts)
+}
+
 // QuerySmartContractTrack
 func QuerySmartContractTrack(store store.Store, args []string) ([]byte, error) {
 
@@ -261,17 +311,6 @@ func QueryBargain(store store.Store, args []string) ([]byte, error) {
 	return json.Marshal(bargain)
 }
 
-// QueryBargainObj
-func QueryBargainObj(store store.Store, addr string) (*protos.Bargain, error) {
-
-	bargain, err := store.GetBargain(addr)
-	if err != nil {
-		return nil, err
-	}
-
-	return bargain, nil
-}
-
 // QueryBargains get bargains by addrs
 func QueryBargains(store store.Store, args []string) ([]byte, error) {
 
@@ -289,6 +328,19 @@ func QueryBargains(store store.Store, args []string) ([]byte, error) {
 	}
 
 	return json.Marshal(bargains)
+}
+
+// QueryBargainTrack get a BargainTrack
+func QueryBargainTrack(store store.Store, args []string) ([]byte, error) {
+
+	addr := args[0]
+
+	bargainTrack, err := store.GetBargainTrack(addr)
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(bargainTrack)
 }
 
 // Drawed foundation drawing

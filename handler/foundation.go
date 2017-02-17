@@ -150,6 +150,30 @@ func QuerySmartContracts(store store.Store, args []string) ([]byte, error) {
 	return service.QuerySmartContracts(store, args)
 }
 
+func QuerySmartContractExt(store store.Store, args []string) ([]byte, error) {
+	if len(args) != 1 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" {
+		return nil, errors.InvalidArgs
+	}
+
+	return service.QuerySmartContractExt(store, args)
+}
+
+func QuerySmartContractExts(store store.Store, args []string) ([]byte, error) {
+	if len(args) != 1 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" {
+		return nil, errors.InvalidArgs
+	}
+
+	return service.QuerySmartContractExts(store, args)
+}
+
 func QuerySmartContractTrack(store store.Store, args []string) ([]byte, error) {
 	if len(args) != 1 {
 		return nil, errors.IncorrectNumberArguments
@@ -221,6 +245,18 @@ func QueryBargains(store store.Store, args []string) ([]byte, error) {
 	}
 
 	return service.QueryBargains(store, args)
+}
+
+func QueryBargainTrack(store store.Store, args []string) ([]byte, error) {
+	if len(args) != 1 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" {
+		return nil, errors.InvalidArgs
+	}
+
+	return service.QueryBargainTrack(store, args)
 }
 
 // Drawed foundation drawing
