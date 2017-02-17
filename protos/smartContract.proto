@@ -39,11 +39,7 @@ message SmartContractExt {
 
 message SmartContractTrack {
     string addr = 1;
-    string id = 2;
-    uint64 total = 3;
-    uint64 validTotal = 4;
-    uint64 donateNumber = 5;
-    repeated SmartContractHistory trans = 6;
+    repeated SmartContractHistory trans = 2;
 }
 
 message SmartContractHistory {
