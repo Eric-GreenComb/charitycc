@@ -32,7 +32,7 @@ message TX {
     }
     repeated TXOUT txout = 4;
 
-    string InputData = 5;
+    string inputData = 5;
 
     string founder = 6; // who created this tx
 }
