@@ -56,4 +56,7 @@ var (
 
 	// Err Invalid SmartContract
 	InvalidSmartContract = errors.New("SmartContract invalid")
+
+	// Err Invalid Txout Attr
+	InvalidTxoutAttr = errors.New("txout attr invalid")
 )

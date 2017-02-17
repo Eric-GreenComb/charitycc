@@ -452,6 +452,7 @@ func SaveDonorContributionTrack(store store.Store, donorAddr string, contributio
 		return err
 	}
 
+	tmpDonor.Total += contribution.Amount
 	tmpDonor.Contributions = append(tmpDonor.Contributions, &contribution)
 
 	for _, track := range donatedTrack {
@@ -486,6 +487,7 @@ func SaveFundFee(store store.Store, fundAddr string, amount, realAmount uint64) 
 
 	tmpFund.Total += amount
 	tmpFund.ValidTotal += realAmount
+	tmpFund.Balance += realAmount
 
 	if err := store.PutFund(tmpFund); err != nil {
 		return err

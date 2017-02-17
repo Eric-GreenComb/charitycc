@@ -54,10 +54,13 @@ type Store interface {
 // Store struct uses a chaincode stub for state access
 type CCStore struct {
 	stub shim.ChaincodeStubInterface
+	// stub *shim.ChaincodeStub
 }
 
 // MakeCCStore returns a store for storing keys in the state
 func MakeCCStore(stub shim.ChaincodeStubInterface) Store {
+	// func MakeCCStore(stub *shim.ChaincodeStub) Store {
+
 	store := &CCStore{}
 	store.stub = stub
 	return store

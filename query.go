@@ -9,15 +9,12 @@ import (
 
 // Query chaincode query
 func (t *CharityCC) Query(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
+	// func (t *CharityCC) Query(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
 
 	// construct a new store
 	storeCC := store.MakeCCStore(stub)
 
 	switch function {
-
-	case "queryBank":
-		// args: addr(%s:%s id, publickey -> sha256 -> sha256 -> hex)
-		return handler.QueryBank(storeCC, args)
 
 	case "queryFund":
 		// args: addr(%s:%s id, publickey -> sha256 -> sha256 -> hex)
@@ -38,10 +35,10 @@ func (t *CharityCC) Query(stub shim.ChaincodeStubInterface, function string, arg
 		// args: addrs(client gen addrs) return: SmartContractExt List
 		return handler.QuerySmartContractExt(storeCC, args)
 	case "querySmartContractExts":
-		// args: addrs(client gen addrs, split by ,) return: SmartContractExt List
+		// args: addrs(client gen addrs, split by ",") return: SmartContractExt List
 		return handler.QuerySmartContractExts(storeCC, args)
 	case "querySmartContractTrack":
-		// args: addrs(client gen addrs, split by ,)
+		// args: addrs(client gen addrs)
 		return handler.QuerySmartContractTrack(storeCC, args)
 
 	case "queryBargain":
@@ -51,22 +48,20 @@ func (t *CharityCC) Query(stub shim.ChaincodeStubInterface, function string, arg
 		// args: addrs(client gen addrs, split by ,)
 		return handler.QueryBargains(storeCC, args)
 	case "queryBargainTrack":
-		// args: addrs(client gen addrs, split by ,)
+		// args: addrs(client gen addrs)
 		return handler.QueryBargainTrack(storeCC, args)
 
 	case "queryDonor":
 		// args: addr(client gen addr)
 		return handler.QueryDonor(storeCC, args)
 
-	case "queryDonorDetail":
-		//捐款详情
-
-	case "queryTransDetail":
-		//捐款或提款的交易详情
-
 	case "queryProcessDonored":
 		// args: donorUUID
 		return handler.QueryProcessDonored(storeCC, args)
+
+	case "queryProcessDrawed":
+		// args: drawUUID
+		return handler.QueryProcessDrawed(storeCC, args)
 
 	default:
 		return nil, errors.New("Unsupported operation")

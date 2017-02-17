@@ -9,6 +9,7 @@ import (
 
 // Invoke chaincode invoke
 func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
+	// func (t *CharityCC) Invoke(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
 
 	// construct a new store
 	storeCC := store.MakeCCStore(stub)
@@ -44,18 +45,18 @@ func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 	case "registerDonor":
 		// args: channelAddr,donorAddr,donorPublicKey(base64),channelSign(base64)
 		return handler.RegisterDonor(storeCC, args)
-	case "addContribution":
-		// args: channelAddr,donorAddr,contributionData(contribution json base64),channelSign(base64)
-		return handler.AddContribution(storeCC, args)
-	case "addTrack":
-		// args: channelAddr,donorAddr,trackData(track json base64),channelSign(base64)
-		return handler.AddTrack(storeCC, args)
+	// case "addContribution":
+	// 	// args: channelAddr,donorAddr,contributionData(contribution json base64),channelSign(base64)
+	// 	return handler.AddContribution(storeCC, args)
+	// case "addTrack":
+	// 	// args: channelAddr,donorAddr,trackData(track json base64),channelSign(base64)
+	// 	return handler.AddTrack(storeCC, args)
 	case "donated":
 		// args: donorAddr,donorAddr,donorUUID,smartContractAddr,txData(coinbase tx Base64),donorSign(base64)
 		return handler.Donated(storeCC, args)
-	case "doDonating":
-		// args: donorUUID, donorAddr,smartContractAddr,amount,bankAddr,channelAddr, fundAddr,donorSign(base64)
-		return handler.DoDonating(storeCC, args)
+	// case "doDonating":
+	// 	// args: donorUUID, donorAddr,smartContractAddr,amount,bankAddr,channelAddr, fundAddr,donorSign(base64)
+	// 	return handler.DoDonating(storeCC, args)
 
 	case "registerSmartContract":
 		// args: foundationAddr, smartContractAddr, smartContractPublickKey(base64), smartContractData(treaty json base64),foundationSign(base64)
@@ -69,11 +70,11 @@ func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 		return handler.RegisterBargain(storeCC, args)
 
 	case "drawed":
-		// args: foundationAddr,txData(coinbase tx Base64),foundationSign(base64)
+		// args: foundationAddr,drawUUID,smartContractAddr,bargainAddr,amount,txData(coinbase tx Base64),foundationSign(base64)
 		return handler.Drawed(storeCC, args)
-	case "doDrawing":
-		// args: foundationAddr,txData(coinbase tx Base64),foundationSign(base64)
-		return handler.DoDrawing(storeCC, args)
+	// case "doDrawing":
+	// 	// args: foundationAddr,txData(coinbase tx Base64),foundationSign(base64)
+	// 	return handler.DoDrawing(storeCC, args)
 
 	default:
 		return nil, errors.New("Unsupported operation")
