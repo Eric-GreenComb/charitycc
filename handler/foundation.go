@@ -262,7 +262,7 @@ func QueryBargainTrack(store store.Store, args []string) ([]byte, error) {
 // Drawed foundation drawing
 func Drawed(store store.Store, args []string) ([]byte, error) {
 
-	if len(args) != 7 {
+	if len(args) != 8 {
 		return nil, errors.IncorrectNumberArguments
 	}
 

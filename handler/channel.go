@@ -176,7 +176,7 @@ func QueryDonor(store store.Store, args []string) ([]byte, error) {
 // Donated donor donated
 func Donated(store store.Store, args []string) ([]byte, error) {
 
-	if len(args) != 6 {
+	if len(args) != 7 {
 		return nil, errors.IncorrectNumberArguments
 	}
 
