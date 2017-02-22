@@ -262,21 +262,18 @@ func QueryBargainTrack(store store.Store, args []string) ([]byte, error) {
 // Drawed foundation drawing
 func Drawed(store store.Store, args []string) ([]byte, error) {
 
-	if len(args) != 8 {
+	if len(args) != 5 {
 		return nil, errors.IncorrectNumberArguments
 	}
 
-	if args[0] == "" || args[1] == "" || args[2] == "" || args[3] == "" || args[4] == "" || args[5] == "" || args[6] == "" {
+	if args[0] == "" || args[1] == "" || args[2] == "" || args[3] == "" {
 		return nil, errors.InvalidArgs
 	}
 
 	_sourceAddr := args[0]
 	_drawUUID := args[1]
-	_smartContractAddr := args[2]
-	_bargainAddr := args[3]
-	_amount := args[4]
-	_base64TxData := args[5]
-	_base64SourcSign := args[6]
+	_base64TxData := args[2]
+	_base64SourcSign := args[3]
 
 	_sourcePublicKey, err := service.QueryAccountRsaPublicKey(store, _sourceAddr)
 	if err != nil {
@@ -288,7 +285,7 @@ func Drawed(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.Base64Decoding
 	}
 
-	hash := sha256.Sum256([]byte(_drawUUID + _smartContractAddr + _bargainAddr + _amount + _base64TxData))
+	hash := sha256.Sum256([]byte(_drawUUID + _base64TxData))
 
 	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], _sourcePublicKey, _sourcSign)
 	if !bVerify {

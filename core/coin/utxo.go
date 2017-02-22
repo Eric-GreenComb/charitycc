@@ -1,6 +1,7 @@
 package coin
 
 import (
+	baseerrors "errors"
 	"github.com/CebEcloudTime/charitycc/core/store"
 	"github.com/CebEcloudTime/charitycc/errors"
 	"github.com/CebEcloudTime/charitycc/protos"
@@ -88,7 +89,7 @@ func (u *UTXO) Execute(newTX *protos.TX) (*ExecResult, error) {
 		}
 		txout, ok := ownerAccount.Txouts[keyToPrevOutput.String()]
 		if !ok {
-			return nil, errors.AccountNoTxOut
+			return nil, baseerrors.New(keyToPrevOutput.String())
 		}
 
 		if ownerAccount.Balance < txout.Value {

@@ -70,7 +70,7 @@ func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 		return handler.RegisterBargain(storeCC, args)
 
 	case "drawed":
-		// args: foundationAddr,drawUUID,smartContractAddr,bargainAddr,amount,txData(coinbase tx Base64),foundationSign(base64),extInfo
+		// args: foundationAddr,drawUUID,txData(coinbase tx Base64),foundationSign(base64),extInfo
 		return handler.Drawed(storeCC, args)
 	// case "doDrawing":
 	// 	// args: foundationAddr,txData(coinbase tx Base64),foundationSign(base64)

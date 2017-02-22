@@ -3,6 +3,7 @@ package service
 import (
 	"encoding/base64"
 	"encoding/json"
+	"fmt"
 	"strconv"
 	"strings"
 	"time"
@@ -377,23 +378,27 @@ func QueryBargainTrack(store store.Store, args []string) ([]byte, error) {
 func Drawed(store store.Store, args []string) ([]byte, error) {
 
 	_drawUUID := args[1]
-	_smartContractAddr := args[2]
-	_bargainAddr := args[3]
-	_amount := args[4]
-	_base64TxData := args[5]
+	_base64TxData := args[2]
 
 	txData, err := base64.StdEncoding.DecodeString(_base64TxData)
 	if err != nil {
 		return nil, errors.Base64Decoding
 	}
 
-	drawedTX, err := utils.ParseTxByJsonBytes(txData)
+	sourceTX, err := utils.ParseTxByJsonBytes(txData)
 	if err != nil {
 		return nil, err
 	}
 
-	if drawedTX.Founder == "" {
+	if sourceTX.Founder == "" {
 		return nil, errors.TxNoFounder
+	}
+
+	smartContractAddr, bargainAddr, amount := GetDrawedInfo(*sourceTX)
+
+	drawedTX, err := GenDrawedTxData(store, *sourceTX)
+	if err != nil {
+		return nil, err
 	}
 
 	// drawed
@@ -404,24 +409,19 @@ func Drawed(store store.Store, args []string) ([]byte, error) {
 		return nil, err
 	}
 
-	bargain, err := store.GetBargain(_bargainAddr)
+	bargain, err := store.GetBargain(bargainAddr)
 	if err != nil {
 		return nil, err
 	}
 
 	SaveDonorTrack(store, _drawUUID, drawedTX, bargain)
 
-	amount, err := strconv.ParseUint(_amount, 10, 64)
+	err = SaveProcessDrawed(store, _drawUUID, smartContractAddr, drawedTX, bargain, amount)
 	if err != nil {
 		return nil, err
 	}
 
-	err = SaveProcessDrawed(store, _drawUUID, _smartContractAddr, drawedTX, bargain, amount)
-	if err != nil {
-		return nil, err
-	}
-
-	err = SaveSmartContractTrack(store, _smartContractAddr, bargain, amount)
+	err = SaveSmartContractTrack(store, smartContractAddr, bargain, amount)
 	if err != nil {
 		return nil, err
 	}
@@ -432,6 +432,103 @@ func Drawed(store store.Store, args []string) ([]byte, error) {
 	}
 
 	return nil, nil
+}
+
+func GetDrawedInfo(sourceTX protos.TX) (string, string, uint64) {
+	smartContractAddr := sourceTX.Txin[0].Addr
+	bargainAddr := sourceTX.Txout[0].Addr
+	amount := sourceTX.Txout[0].Value
+
+	return smartContractAddr, bargainAddr, amount
+}
+
+func GenDrawedTxData(store store.Store, sourceTX protos.TX) (*protos.TX, error) {
+	smartContractAddr := sourceTX.Txin[0].Addr
+	bargainAddr := sourceTX.Txout[0].Addr
+	amount := sourceTX.Txout[0].Value
+
+	smartContractAccount, err := store.GetAccount(smartContractAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	if smartContractAccount.Balance < amount {
+		return nil, errors.AccountNotEnoughBalance
+	}
+
+	var tx protos.TX
+
+	tx.Version = 170101
+	tx.Timestamp = time.Now().UTC().Unix()
+
+	txins, txouts, err := GenDrawedTxInOutData(smartContractAccount, smartContractAddr, bargainAddr, amount)
+	if err != nil {
+		return nil, err
+	}
+
+	tx.Txin = txins
+
+	tx.Txout = txouts
+
+	tx.InputData = sourceTX.InputData
+
+	tx.Founder = sourceTX.Founder
+
+	return &tx, nil
+}
+
+func GenDrawedTxInOutData(account *protos.Account, smartContractAddr, bargainAddr string, amount uint64) ([]*protos.TX_TXIN, []*protos.TX_TXOUT, error) {
+	var txins []*protos.TX_TXIN
+	var txouts []*protos.TX_TXOUT
+
+	amountTemp := amount
+
+	for k, v := range account.GetTxouts() {
+		if amountTemp <= 0 {
+			break
+		}
+
+		var txin protos.TX_TXIN
+		txin.Addr = smartContractAddr
+		_keySplit := strings.Split(k, ":")
+		txin.SourceTxHash = _keySplit[0]
+		_nIdx, _ := strconv.ParseUint(_keySplit[1], 10, 64)
+		txin.Idx = uint32(_nIdx)
+		fmt.Println(txin)
+		txins = append(txins, &txin)
+
+		if v.Value <= amountTemp {
+
+			var txout protos.TX_TXOUT
+
+			txout.Value = v.Value
+			txout.Addr = bargainAddr
+			txout.Attr = v.Attr
+
+			txouts = append(txouts, &txout)
+
+		} else {
+
+			var txout protos.TX_TXOUT
+
+			txout.Value = amountTemp
+			txout.Addr = bargainAddr
+			txout.Attr = v.Attr
+			txouts = append(txouts, &txout)
+
+			var txoutRe protos.TX_TXOUT
+
+			txoutRe.Value = v.Value - amountTemp
+			txoutRe.Addr = smartContractAddr
+			txoutRe.Attr = v.Attr
+			txouts = append(txouts, &txoutRe)
+
+		}
+
+		amountTemp -= v.Value
+	}
+
+	return txins, txouts, nil
 }
 
 func SaveBargainTrack(store store.Store, bargain *protos.Bargain, amount uint64) error {
@@ -483,6 +580,10 @@ func SaveSmartContractTrack(store store.Store, smartContractAddr string, bargain
 func SaveDonorTrack(store store.Store, drawUUID string, sourceTX *protos.TX, bargain *protos.Bargain) error {
 
 	for _, output := range sourceTX.Txout {
+		if output.Addr != bargain.Addr {
+			continue
+		}
+
 		donorTrack, donorAddr, err := GenDonorTrackByTxout(output, drawUUID, bargain)
 		if err != nil {
 			return err
