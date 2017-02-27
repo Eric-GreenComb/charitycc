@@ -525,7 +525,11 @@ func GenDrawedTxInOutData(account *protos.Account, smartContractAddr, bargainAdd
 
 		}
 
-		amountTemp -= v.Value
+		if amountTemp >= v.Value {
+			amountTemp -= v.Value
+		} else {
+			amountTemp = 0
+		}
 	}
 
 	return txins, txouts, nil
