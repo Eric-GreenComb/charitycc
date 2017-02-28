@@ -144,3 +144,38 @@ func ChangeCoin(store store.Store, args []string) ([]byte, error) {
 
 	return service.ChangeCoin(store, args)
 }
+
+// BuyCoin user change coin with CNY 1yuan = 1000000 coin
+func BuyCoin(store store.Store, args []string) ([]byte, error) {
+
+	if len(args) != 3 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" || args[1] == "" || args[2] == "" {
+		return nil, errors.InvalidArgs
+	}
+
+	_sourceAddr := args[0]
+	_base64TxData := args[1]
+	_base64SourcSign := args[2]
+
+	_sourcePublicKey, err := service.QueryAccountRsaPublicKey(store, _sourceAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	_sourcSign, err := base64.StdEncoding.DecodeString(_base64SourcSign)
+	if err != nil {
+		return nil, errors.Base64Decoding
+	}
+
+	hash := sha256.Sum256([]byte(_base64TxData))
+
+	bVerify := utils.RsaVerify(crypto.SHA256, hash[:], _sourcePublicKey, _sourcSign)
+	if !bVerify {
+		return nil, errors.VerifyRsaSign
+	}
+
+	return service.BuyCoin(store, args)
+}

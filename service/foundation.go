@@ -484,7 +484,7 @@ func GenDrawedTxInOutData(account *protos.Account, smartContractAddr, bargainAdd
 	amountTemp := amount
 
 	for k, v := range account.GetTxouts() {
-		if amountTemp <= 0 {
+		if amountTemp == 0 {
 			break
 		}
 
@@ -507,6 +507,8 @@ func GenDrawedTxInOutData(account *protos.Account, smartContractAddr, bargainAdd
 
 			txouts = append(txouts, &txout)
 
+			amountTemp -= v.Value
+
 		} else {
 
 			var txout protos.TX_TXOUT
@@ -523,11 +525,6 @@ func GenDrawedTxInOutData(account *protos.Account, smartContractAddr, bargainAdd
 			txoutRe.Attr = v.Attr
 			txouts = append(txouts, &txoutRe)
 
-		}
-
-		if amountTemp >= v.Value {
-			amountTemp -= v.Value
-		} else {
 			amountTemp = 0
 		}
 	}
