@@ -3,6 +3,7 @@ package service
 import (
 	"encoding/base64"
 	"encoding/json"
+	"fmt"
 	"strconv"
 	"strings"
 	"time"
@@ -430,7 +431,32 @@ func Drawed(store store.Store, args []string) ([]byte, error) {
 		return nil, err
 	}
 
+	smartContract, err := store.GetSmartContract(smartContractAddr)
+	if err != nil {
+		return nil, err
+	}
+
+	err = SaveDrawedFundFee(store, smartContract.FundAddr, amount)
+	if err != nil {
+		return nil, err
+	}
+
 	return nil, nil
+}
+
+func SaveDrawedFundFee(store store.Store, fundAddr string, amount uint64) error {
+	tmpFund, err := store.GetFund(fundAddr)
+	if err != nil {
+		return err
+	}
+
+	tmpFund.Balance -= amount
+
+	if err := store.PutFund(tmpFund); err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func GetDrawedInfo(sourceTX protos.TX) (string, string, uint64) {
@@ -452,7 +478,7 @@ func GenDrawedTxData(store store.Store, sourceTX protos.TX) (*protos.TX, error) 
 	}
 
 	if smartContractAccount.Balance < amount {
-		return nil, errors.AccountNotEnoughBalance
+		return nil, fmt.Errorf("CC account not enough:  %d;%d", smartContractAccount.Balance, amount)
 	}
 
 	var tx protos.TX
