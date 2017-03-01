@@ -28,7 +28,6 @@ func InitAccount(store store.Store, addr, publicKey string) ([]byte, error) {
 		Addr:         addr,
 		Balance:      0,
 		RsaPublicKey: publicKey,
-		Txouts:       make(map[string]*protos.TX_TXOUT),
 	}
 	if err := store.PutAccount(account); err != nil {
 		return nil, err
@@ -69,4 +68,17 @@ func QueryAccountRsaPublicKey(store store.Store, addr string) ([]byte, error) {
 	}
 
 	return base64.StdEncoding.DecodeString(account.RsaPublicKey)
+}
+
+// QueryCoin get
+func QueryCoin(store store.Store, args []string) ([]byte, error) {
+
+	addr := args[0]
+
+	txout, err := store.GetCoin(addr)
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(txout)
 }

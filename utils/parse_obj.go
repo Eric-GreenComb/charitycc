@@ -6,6 +6,28 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
+// ParseTestArrayByBytes unmarshal txData into TestArray object
+func ParseTestArrayByBytes(data []byte) (*protos.TestArray, error) {
+	array := new(protos.TestArray)
+	err := proto.Unmarshal(data, array)
+	if err != nil {
+		return nil, err
+	}
+
+	return array, nil
+}
+
+// ParseTestMapByBytes unmarshal txData into TestMap object
+func ParseTestMapByBytes(data []byte) (*protos.TestMap, error) {
+	_map := new(protos.TestMap)
+	err := proto.Unmarshal(data, _map)
+	if err != nil {
+		return nil, err
+	}
+
+	return _map, nil
+}
+
 // ParseTxByBytes unmarshal txData into TX object
 func ParseTxByBytes(txData []byte) (*protos.TX, error) {
 	tx := new(protos.TX)

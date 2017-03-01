@@ -8,7 +8,7 @@ message Account {
     string addr = 1;
     uint64 balance = 2;
     string rsaPublicKey = 3;
-    map<string, TX.TXOUT> txouts = 4;
+    repeated string coinKey = 4;
 }
 
 // utxo tx

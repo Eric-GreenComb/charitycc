@@ -2,8 +2,6 @@ package service
 
 import (
 	"encoding/base64"
-	"strconv"
-	"strings"
 	"time"
 
 	"github.com/CebEcloudTime/charitycc/core/coin"
@@ -60,11 +58,14 @@ func DestoryCoinbase(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.InvalidAccount
 	}
 
+	for _, v := range _tmpAccount.CoinKey {
+		store.DeleteCoin(v)
+	}
+
 	account := &protos.Account{
 		Addr:         _targetAddr,
 		Balance:      0,
 		RsaPublicKey: _tmpAccount.RsaPublicKey,
-		Txouts:       make(map[string]*protos.TX_TXOUT),
 	}
 	if err := store.PutAccount(account); err != nil {
 		return nil, err
@@ -126,7 +127,9 @@ func BuyCoin(store store.Store, args []string) ([]byte, error) {
 
 	utxo := coin.MakeUTXO(store)
 
-	_, err = utxo.Execute(buyCoinTX)
+	buyCoinTX.Timestamp = time.Now().UTC().Unix()
+
+	_, err = utxo.Coinbase(buyCoinTX)
 	if err != nil {
 		return nil, err
 	}
@@ -174,52 +177,19 @@ func GenBuyCoinTxInOutData(account *protos.Account, bankAddr, donorAddr, attr st
 	var txins []*protos.TX_TXIN
 	var txouts []*protos.TX_TXOUT
 
-	amountTemp := amount
+	var txin protos.TX_TXIN
+	txin.Addr = bankAddr
+	txin.SourceTxHash = "inithash"
+	txin.Idx = 0
+	txins = append(txins, &txin)
 
-	for k, v := range account.GetTxouts() {
-		if amountTemp == 0 {
-			break
-		}
+	var txout protos.TX_TXOUT
 
-		var txin protos.TX_TXIN
-		txin.Addr = bankAddr
-		_keySplit := strings.Split(k, ":")
-		txin.SourceTxHash = _keySplit[0]
-		_nIdx, _ := strconv.ParseUint(_keySplit[1], 10, 64)
-		txin.Idx = uint32(_nIdx)
-		txins = append(txins, &txin)
+	txout.Value = amount
+	txout.Addr = donorAddr
+	txout.Attr = attr
 
-		if v.Value <= amountTemp {
-
-			var txout protos.TX_TXOUT
-
-			txout.Value = v.Value
-			txout.Addr = donorAddr
-			txout.Attr = attr
-
-			txouts = append(txouts, &txout)
-
-			amountTemp -= v.Value
-
-		} else {
-
-			var txout protos.TX_TXOUT
-
-			txout.Value = amountTemp
-			txout.Addr = donorAddr
-			txout.Attr = attr
-			txouts = append(txouts, &txout)
-
-			var txoutRe protos.TX_TXOUT
-
-			txoutRe.Value = v.Value - amountTemp
-			txoutRe.Addr = bankAddr
-			txoutRe.Attr = "init,0"
-			txouts = append(txouts, &txoutRe)
-
-			amountTemp = 0
-		}
-	}
+	txouts = append(txouts, &txout)
 
 	return txins, txouts, nil
 }

@@ -1,0 +1,14 @@
+
+syntax = "proto3";
+
+package protos;
+
+message TestArray {
+    string key = 1;
+    repeated string values = 2;
+}
+
+message TestMap {
+    string key = 1;
+    map<string, string> txouts = 2;
+}

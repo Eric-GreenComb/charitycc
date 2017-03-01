@@ -3,7 +3,6 @@ package service
 import (
 	"encoding/base64"
 	"encoding/json"
-	"fmt"
 	"strconv"
 	"strings"
 	"time"
@@ -461,7 +460,7 @@ func GenDrawedTxData(store store.Store, sourceTX protos.TX) (*protos.TX, error) 
 	tx.Version = 170101
 	tx.Timestamp = time.Now().UTC().Unix()
 
-	txins, txouts, err := GenDrawedTxInOutData(smartContractAccount, smartContractAddr, bargainAddr, amount)
+	txins, txouts, err := GenDrawedTxInOutData(store, smartContractAccount, smartContractAddr, bargainAddr, amount)
 	if err != nil {
 		return nil, err
 	}
@@ -477,37 +476,41 @@ func GenDrawedTxData(store store.Store, sourceTX protos.TX) (*protos.TX, error) 
 	return &tx, nil
 }
 
-func GenDrawedTxInOutData(account *protos.Account, smartContractAddr, bargainAddr string, amount uint64) ([]*protos.TX_TXIN, []*protos.TX_TXOUT, error) {
+func GenDrawedTxInOutData(store store.Store, account *protos.Account, smartContractAddr, bargainAddr string, amount uint64) ([]*protos.TX_TXIN, []*protos.TX_TXOUT, error) {
 	var txins []*protos.TX_TXIN
 	var txouts []*protos.TX_TXOUT
 
 	amountTemp := amount
 
-	for k, v := range account.GetTxouts() {
+	for _, v := range account.CoinKey {
 		if amountTemp == 0 {
 			break
 		}
 
 		var txin protos.TX_TXIN
 		txin.Addr = smartContractAddr
-		_keySplit := strings.Split(k, ":")
+		_keySplit := strings.Split(v, ":")
 		txin.SourceTxHash = _keySplit[0]
 		_nIdx, _ := strconv.ParseUint(_keySplit[1], 10, 64)
 		txin.Idx = uint32(_nIdx)
-		fmt.Println(txin)
 		txins = append(txins, &txin)
 
-		if v.Value <= amountTemp {
+		sourceTxout, err := store.GetCoin(v)
+		if err != nil {
+			continue
+		}
+
+		if sourceTxout.Value <= amountTemp {
 
 			var txout protos.TX_TXOUT
 
-			txout.Value = v.Value
+			txout.Value = sourceTxout.Value
 			txout.Addr = bargainAddr
-			txout.Attr = v.Attr
+			txout.Attr = sourceTxout.Attr
 
 			txouts = append(txouts, &txout)
 
-			amountTemp -= v.Value
+			amountTemp -= sourceTxout.Value
 
 		} else {
 
@@ -515,14 +518,14 @@ func GenDrawedTxInOutData(account *protos.Account, smartContractAddr, bargainAdd
 
 			txout.Value = amountTemp
 			txout.Addr = bargainAddr
-			txout.Attr = v.Attr
+			txout.Attr = sourceTxout.Attr
 			txouts = append(txouts, &txout)
 
 			var txoutRe protos.TX_TXOUT
 
-			txoutRe.Value = v.Value - amountTemp
+			txoutRe.Value = sourceTxout.Value - amountTemp
 			txoutRe.Addr = smartContractAddr
-			txoutRe.Attr = v.Attr
+			txoutRe.Attr = sourceTxout.Attr
 			txouts = append(txouts, &txoutRe)
 
 			amountTemp = 0

@@ -52,3 +52,15 @@ func QueryAccount(store store.Store, args []string) ([]byte, error) {
 
 	return service.QueryAccount(store, args)
 }
+
+func QueryCoin(store store.Store, args []string) ([]byte, error) {
+	if len(args) != 1 {
+		return nil, errors.IncorrectNumberArguments
+	}
+
+	if args[0] == "" {
+		return nil, errors.InvalidArgs
+	}
+
+	return service.QueryCoin(store, args)
+}

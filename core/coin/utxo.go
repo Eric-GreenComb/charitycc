@@ -1,7 +1,6 @@
 package coin
 
 import (
-	baseerrors "errors"
 	"github.com/CebEcloudTime/charitycc/core/store"
 	"github.com/CebEcloudTime/charitycc/errors"
 	"github.com/CebEcloudTime/charitycc/protos"
@@ -43,27 +42,25 @@ func (u *UTXO) Coinbase(newTX *protos.TX) (*ExecResult, error) {
 			return nil, errors.InvalidAccount
 		}
 
-		if outerAccount.Txouts == nil || len(outerAccount.Txouts) == 0 {
-			outerAccount.Txouts = make(map[string]*protos.TX_TXOUT)
-		}
-
 		currKey := &Key{TxHashAsHex: txhash, TxIndex: uint32(index)}
-		if _, ok := outerAccount.Txouts[currKey.String()]; ok {
-			return nil, errors.CollisionTxOut
-		}
 
-		outerAccount.Txouts[currKey.String()] = output
+		outerAccount.CoinKey = append(outerAccount.CoinKey, currKey.String())
+
 		outerAccount.Balance += output.Value
 		if err := u.store.PutAccount(outerAccount); err != nil {
+			return nil, err
+		}
+
+		if err := u.store.PutCoin(currKey.String(), output); err != nil {
 			return nil, err
 		}
 
 		execResult.SumCurrentOutputs += output.Value
 	}
 
-	if err := u.store.PutTran(newTX); err != nil {
-		return nil, err
-	}
+	// if err := u.store.PutTran(newTX); err != nil {
+	// 	return nil, err
+	// }
 
 	return execResult, nil
 }
@@ -87,19 +84,21 @@ func (u *UTXO) Execute(newTX *protos.TX) (*ExecResult, error) {
 		if err != nil {
 			return nil, err
 		}
-		txout, ok := ownerAccount.Txouts[keyToPrevOutput.String()]
-		if !ok {
-			return nil, baseerrors.New(keyToPrevOutput.String())
-		}
 
-		if ownerAccount.Balance < txout.Value {
-			return nil, errors.AccountNotEnoughBalance
+		txout, err := u.store.GetCoin(keyToPrevOutput.String())
+		if err != nil {
+			return nil, err
 		}
 
 		ownerAccount.Balance -= txout.Value
-		delete(ownerAccount.Txouts, keyToPrevOutput.String())
+		ownerAccount.CoinKey = DeleteArray(ownerAccount.CoinKey, keyToPrevOutput.String())
+
 		// save owner account
 		if err := u.store.PutAccount(ownerAccount); err != nil {
+			return nil, err
+		}
+
+		if err := u.store.DeleteCoin(keyToPrevOutput.String()); err != nil {
 			return nil, err
 		}
 
@@ -114,18 +113,16 @@ func (u *UTXO) Execute(newTX *protos.TX) (*ExecResult, error) {
 			return nil, errors.InvalidAccount
 		}
 
-		if outerAccount.Txouts == nil || len(outerAccount.Txouts) == 0 {
-			outerAccount.Txouts = make(map[string]*protos.TX_TXOUT)
-		}
-
 		currKey := &Key{TxHashAsHex: txhash, TxIndex: uint32(index)}
-		if _, ok := outerAccount.Txouts[currKey.String()]; ok {
-			return nil, errors.CollisionTxOut
+
+		outerAccount.Balance += output.Value
+		outerAccount.CoinKey = append(outerAccount.CoinKey, currKey.String())
+
+		if err := u.store.PutAccount(outerAccount); err != nil {
+			return nil, err
 		}
 
-		outerAccount.Txouts[currKey.String()] = output
-		outerAccount.Balance += output.Value
-		if err := u.store.PutAccount(outerAccount); err != nil {
+		if err := u.store.PutCoin(currKey.String(), output); err != nil {
 			return nil, err
 		}
 
@@ -141,9 +138,26 @@ func (u *UTXO) Execute(newTX *protos.TX) (*ExecResult, error) {
 		return nil, errors.TxOutMoreThanTxIn
 	}
 
-	if err := u.store.PutTran(newTX); err != nil {
-		return nil, err
-	}
+	// if err := u.store.PutTran(newTX); err != nil {
+	// 	return nil, err
+	// }
 
 	return execResult, nil
+}
+
+func DeleteArray(array []string, key string) []string {
+	index := 0
+	endIndex := len(array) - 1
+
+	var result = make([]string, 0)
+	for k, v := range array {
+		if v == key {
+			result = append(result, array[index:k]...)
+			index = k + 1
+		} else if k == endIndex {
+			result = append(result, array[index:endIndex+1]...)
+		}
+	}
+
+	return result
 }

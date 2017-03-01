@@ -8,6 +8,10 @@ func GenerateAccountKey(addr string) string {
 	return fmt.Sprintf("account_addr_%s", addr)
 }
 
+func GenerateCoinKey(addr string) string {
+	return fmt.Sprintf("coin_addr_%s", addr)
+}
+
 func GenerateSmartContractKey(addr string) string {
 	return fmt.Sprintf("smartcontract_addr_%s", addr)
 }

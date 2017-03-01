@@ -273,11 +273,7 @@ func GenChangeCoinTxin(bankAddr string, bankAccount protos.Account) []*protos.TX
 	var txin protos.TX_TXIN
 
 	txin.Addr = bankAddr
-	var _key string
-	for k, _ := range bankAccount.GetTxouts() {
-		_key = k
-		break
-	}
+	_key := bankAccount.CoinKey[0]
 
 	_keySplit := strings.Split(_key, ":")
 	txin.SourceTxHash = _keySplit[0]

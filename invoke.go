@@ -16,6 +16,20 @@ func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 
 	switch function {
 
+	case "testStore":
+		// args: key,num
+		return handler.TestStore(storeCC, args)
+	case "testArray":
+		// args: key,num
+		return handler.TestArray(storeCC, args)
+	case "testMap":
+		// args: key,key,num
+		return handler.TestMap(storeCC, args)
+
+	// case "testMap":
+	// 	// args: num
+	// 	return handler.TestMap(storeCC, args)
+
 	case "registerAccount":
 		// args: addr,publicKey(ID base64),sysadminSign(base64)
 		return handler.RegisterAccount(storeCC, args)

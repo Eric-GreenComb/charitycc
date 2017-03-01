@@ -16,6 +16,16 @@ func (t *CharityCC) Query(stub shim.ChaincodeStubInterface, function string, arg
 
 	switch function {
 
+	case "queryStore":
+		// args: key
+		return handler.QueryStore(storeCC, args)
+	case "queryArray":
+		// args: key
+		return handler.QueryArray(storeCC, args)
+	case "queryMap":
+		// args: key
+		return handler.QueryMap(storeCC, args)
+
 	case "queryFund":
 		// args: addr(%s:%s id, publickey -> sha256 -> sha256 -> hex)
 		return handler.QueryFund(storeCC, args)
@@ -27,6 +37,9 @@ func (t *CharityCC) Query(stub shim.ChaincodeStubInterface, function string, arg
 	case "queryAccount":
 		// args: addr(%s:%s id, publickey -> sha256 -> sha256 -> hex)
 		return handler.QueryAccount(storeCC, args)
+	case "queryCoin":
+		// args: addr
+		return handler.QueryCoin(storeCC, args)
 
 	case "querySmartContract":
 		// args: addr(client gen addr)

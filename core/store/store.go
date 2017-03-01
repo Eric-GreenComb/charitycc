@@ -14,11 +14,24 @@ import (
 // was created so either the state database store can be used or a in memory
 // store can be used for unit testing.
 type Store interface {
+	GetTest(string) (string, error)
+	PutTest(string, string) error
+
+	GetTestArray(string) (*protos.TestArray, error)
+	PutTestArray(string, string) error
+
+	GetTestMap(string) (*protos.TestMap, error)
+	PutTestMap(string, string, string) error
+
 	GetTran(string) (*protos.TX, bool, error)
 	PutTran(*protos.TX) error
 
 	GetAccount(string) (*protos.Account, error)
 	PutAccount(*protos.Account) error
+
+	GetCoin(string) (*protos.TX_TXOUT, error)
+	PutCoin(string, *protos.TX_TXOUT) error
+	DeleteCoin(string) error
 
 	GetSmartContract(string) (*protos.SmartContract, error)
 	PutSmartContract(*protos.SmartContract) error
@@ -64,6 +77,124 @@ func MakeCCStore(stub shim.ChaincodeStubInterface) Store {
 	store := &CCStore{}
 	store.stub = stub
 	return store
+}
+
+// GetTest
+func (s *CCStore) GetTest(key string) (string, error) {
+	data, err := s.stub.GetState(key)
+	if err != nil {
+		return "", fmt.Errorf("Error getting state from stub:  %s", err)
+	}
+
+	if data == nil || len(data) == 0 {
+		return "", fmt.Errorf("Error getting state from stub:  %s", "len = 0")
+	}
+
+	return string(data), nil
+}
+
+// PutTest
+func (s *CCStore) PutTest(key, data string) error {
+
+	return s.stub.PutState(key, []byte(data))
+}
+
+// GetTestArray
+func (s *CCStore) GetTestArray(key string) (*protos.TestArray, error) {
+	data, err := s.stub.GetState(key)
+	if err != nil {
+		return nil, fmt.Errorf("Error getting state from stub:  %s", err)
+	}
+
+	if data == nil || len(data) == 0 {
+		return nil, fmt.Errorf("Error getting state from stub:  %s", "len = 0")
+	}
+
+	array, err := utils.ParseTestArrayByBytes(data)
+	if err != nil {
+		return nil, err
+	}
+
+	return array, nil
+}
+
+// PutTestArray
+func (s *CCStore) PutTestArray(key, value string) error {
+	if key == "" {
+		return errors.New("empty addr")
+	}
+
+	array := new(protos.TestArray)
+	array.Key = key
+
+	data, err := s.stub.GetState(key)
+
+	if err == nil {
+
+		if err1 := proto.Unmarshal(data, array); err1 != nil {
+			return err1
+		}
+	}
+
+	array.Values = append(array.Values, value)
+
+	txBytes, err := proto.Marshal(array)
+	if err != nil {
+		return err
+	}
+
+	return s.stub.PutState(key, txBytes)
+}
+
+// GetTestMap
+func (s *CCStore) GetTestMap(key string) (*protos.TestMap, error) {
+	data, err := s.stub.GetState(key)
+	if err != nil {
+		return nil, fmt.Errorf("Error getting state from stub:  %s", err)
+	}
+
+	if data == nil || len(data) == 0 {
+		return nil, fmt.Errorf("Error getting state from stub:  %s", "len = 0")
+	}
+
+	_map, err := utils.ParseTestMapByBytes(data)
+	if err != nil {
+		return nil, err
+	}
+
+	return _map, nil
+}
+
+// PutTestMap
+func (s *CCStore) PutTestMap(rootKey, key, value string) error {
+	if key == "" {
+		return errors.New("empty addr")
+	}
+
+	_map := new(protos.TestMap)
+	_map.Key = rootKey
+
+	data, err := s.stub.GetState(rootKey)
+
+	if err == nil {
+
+		if err1 := proto.Unmarshal(data, _map); err1 != nil {
+			return err1
+		}
+	}
+
+	if _map.Txouts == nil || len(_map.Txouts) == 0 {
+		_map.Txouts = make(map[string]string)
+	}
+
+	_map.Txouts[key] = value
+
+	txBytes, err := proto.Marshal(_map)
+	if err != nil {
+		return err
+	}
+
+	return s.stub.PutState(rootKey, txBytes)
 }
 
 // GetTran returns a transaction for the given hash
@@ -127,6 +258,48 @@ func (s *CCStore) PutAccount(account *protos.Account) error {
 	}
 
 	return s.stub.PutState(key, aBytes)
+}
+
+// GetCoin returns coin from world states
+func (s *CCStore) GetCoin(addr string) (*protos.TX_TXOUT, error) {
+	if addr == "" {
+		return nil, errors.New("empty addr")
+	}
+	key := utils.GenerateCoinKey(addr)
+
+	data, err := s.stub.GetState(key)
+	if err != nil {
+		return nil, err
+	}
+
+	if data == nil || len(data) == 0 {
+		return nil, fmt.Errorf("no coin found")
+	}
+
+	txout := new(protos.TX_TXOUT)
+	if err := proto.Unmarshal(data, txout); err != nil {
+		return nil, err
+	}
+
+	return txout, nil
+}
+
+// PutCoin update or insert account into world states
+func (s *CCStore) PutCoin(addr string, txout *protos.TX_TXOUT) error {
+	key := utils.GenerateCoinKey(addr)
+
+	aBytes, err := proto.Marshal(txout)
+	if err != nil {
+		return err
+	}
+
+	return s.stub.PutState(key, aBytes)
+}
+
+func (s *CCStore) DeleteCoin(addr string) error {
+	key := utils.GenerateCoinKey(addr)
+	s.stub.DelState(key)
+	return nil
 }
 
 // GetSmartContract returns SmartContract from world states
