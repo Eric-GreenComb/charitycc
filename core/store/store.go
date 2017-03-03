@@ -524,7 +524,7 @@ func (s *CCStore) GetFund(addr string) (*protos.Foundation, error) {
 	}
 
 	if data == nil || len(data) == 0 {
-		return nil, fmt.Errorf("no fund found")
+		return nil, fmt.Errorf("no fund found : %s", addr)
 	}
 
 	foundation := new(protos.Foundation)

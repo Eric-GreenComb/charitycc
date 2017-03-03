@@ -430,12 +430,7 @@ func Drawed(store store.Store, args []string) ([]byte, error) {
 		return nil, err
 	}
 
-	smartContract, err := store.GetSmartContract(smartContractAddr)
-	if err != nil {
-		return nil, err
-	}
-
-	err = SaveDrawedFundFee(store, smartContract.FundAddr, amount)
+	err = SaveDrawedFundFee(store, smartContractAddr, amount)
 	if err != nil {
 		return nil, err
 	}
@@ -443,8 +438,14 @@ func Drawed(store store.Store, args []string) ([]byte, error) {
 	return nil, nil
 }
 
-func SaveDrawedFundFee(store store.Store, fundAddr string, amount uint64) error {
-	tmpFund, err := store.GetFund(fundAddr)
+func SaveDrawedFundFee(store store.Store, smartContractAddr string, amount uint64) error {
+
+	_smartContract, err := store.GetSmartContract(smartContractAddr)
+	if err != nil {
+		return err
+	}
+
+	tmpFund, err := store.GetFund(_smartContract.FundAddr)
 	if err != nil {
 		return err
 	}
