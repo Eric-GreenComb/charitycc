@@ -90,6 +90,8 @@ result:
 
 #### addr
 
+cebbank:29731d0e6c6ca9cb985eabf9fe716d1644c624cae5265c36c9b7a46702003924
+
 fund01:25ab580a2093776ca2e1dd1775e96dfec5f1ffbcc9565129351cb330cf0712d7
 
 channel01:9c8b43ce948010efc3b7d102aae502165ccd5e0714a3e765fe1a8f444936785a
@@ -143,6 +145,10 @@ bargain08:ea218af5f53e8e6ff824caab6fc521b5fa01fbce3525a46aa456cb63c884a522
 bargain09:0fb2a0cdddddcfa33052c81b5e8ebbb05da19b69880487a49f44d2cfb37a7773
 
 bargain10:9d681edb9d219cbb9885cc49d9bf76060febfa5e404e8c3a3fc269753250b62d
+
+
+**===================================================================**
+             
 
 ### changeCoin cebbank -> cebbank,donor01
 
@@ -282,19 +288,7 @@ query bargain01
 
               
 
-                 
-
-   
-
-
-
-
-
-
-**===================================================================**
-             
-
- 
+         
 
         
 

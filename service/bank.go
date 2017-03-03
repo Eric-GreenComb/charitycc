@@ -2,7 +2,6 @@ package service
 
 import (
 	"encoding/base64"
-	"time"
 
 	"github.com/CebEcloudTime/charitycc/core/coin"
 	"github.com/CebEcloudTime/charitycc/core/store"
@@ -127,8 +126,6 @@ func BuyCoin(store store.Store, args []string) ([]byte, error) {
 
 	utxo := coin.MakeUTXO(store)
 
-	buyCoinTX.Timestamp = time.Now().UTC().Unix()
-
 	_, err = utxo.Coinbase(buyCoinTX)
 	if err != nil {
 		return nil, err
@@ -154,8 +151,8 @@ func GenBuyCoinTxData(store store.Store, sourceTX protos.TX) (*protos.TX, error)
 
 	var tx protos.TX
 
-	tx.Version = 170101
-	tx.Timestamp = time.Now().UTC().Unix()
+	tx.Version = sourceTX.Version
+	tx.Timestamp = sourceTX.Timestamp
 
 	txins, txouts, err := GenBuyCoinTxInOutData(bankAccount, bankAddr, donorAddr, attr, amount)
 	if err != nil {

@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"strconv"
 	"strings"
-	"time"
 
 	"github.com/CebEcloudTime/charitycc/core/coin"
 	"github.com/CebEcloudTime/charitycc/core/store"
@@ -92,7 +91,7 @@ func Donated(store store.Store, args []string) ([]byte, error) {
 	amount := GetAmountByTxouts(sourceTX)
 
 	// genContribution
-	contribution := GenDonatingContribution(_donorUUID, *smartContract, amount)
+	contribution := GenDonatingContribution(_donorUUID, *smartContract, amount, sourceTX.Timestamp)
 
 	// donated
 	donatedTx, donatedTrack, processDonored := GenDonatedTxData(_donorAddr, _donorUUID, *smartContract, *sourceTX, amount)
@@ -143,13 +142,13 @@ func GenDonatedTxData(donorAddr, donorUUID string, smartContract protos.SmartCon
 	channelAddr := smartContract.ChannelAddr
 	fundAddr := smartContract.FundAddr
 
-	tx.Version = TxVersion
-	tx.Timestamp = time.Now().UTC().Unix()
+	tx.Version = sourceTX.Version
+	tx.Timestamp = sourceTX.Timestamp
 
 	tx.Txin = sourceTX.Txin
 
 	var processDonored *protos.ProcessDonored
-	tx.Txout, donatedTrack, processDonored = GenDonatingTxout(donorAddr, donorUUID, smartContractAddr, channelAddr, fundAddr, amount, smartContract)
+	tx.Txout, donatedTrack, processDonored = GenDonatingTxout(donorAddr, donorUUID, smartContractAddr, channelAddr, fundAddr, amount, smartContract, sourceTX.Timestamp)
 
 	tx.InputData = donorUUID
 
@@ -175,97 +174,17 @@ func SaveSmartContractExt(store store.Store, smartContractAddr string, amount, r
 	return nil
 }
 
-// DoDonating donor donating all proccess
-func DoDonating(store store.Store, args []string) ([]byte, error) {
-
-	_donorUUID := args[0]
-	_donorAddr := args[1]
-	_smartContractAddr := args[2]
-	_amount := args[3]
-	_bankAddr := args[4]
-	_channelAddr := args[5]
-	_fundAddr := args[6]
-
-	amount, err := strconv.ParseUint(_amount, 10, 64)
-	if err != nil {
-		return nil, err
-	}
-
-	// querySmartContract
-	smartContract, err := QuerySmartContractObj(store, _smartContractAddr)
-	if err != nil {
-		return nil, errors.InvalidSmartContract
-	}
-
-	// genContribution
-	contribution := GenDonatingContribution(_donorUUID, *smartContract, amount)
-
-	bankAccount, err := QueryAccountObj(store, _bankAddr)
-	if err != nil {
-		return nil, errors.InvalidAccount
-	}
-	if bankAccount.Balance < amount {
-		return nil, errors.AccountNotEnoughBalance
-	}
-
-	utxo := coin.MakeUTXO(store)
-
-	// changeCoin
-	changeCoinTx, err := GenDonatingChangeCoinTxData(_donorUUID, _bankAddr, _donorAddr, amount, *bankAccount)
-	if err != nil {
-		return nil, err
-	}
-
-	execResult, err := utxo.Execute(changeCoinTx)
-	if err != nil {
-		return nil, err
-	}
-
-	// donated
-	donatedTx, donatedTrack := GenDonatingDonatedTxData(_donorAddr, _donorUUID, execResult.TxHash, _smartContractAddr, _channelAddr, _fundAddr, amount, *smartContract)
-
-	execResult, err = utxo.Execute(donatedTx)
-	if err != nil {
-		return nil, err
-	}
-
-	// SaveDonorContributionTrack addContribution addTrack
-	err = SaveDonorContributionTrack(store, _donorAddr, contribution, donatedTrack)
-	if err != nil {
-		return nil, err
-	}
-	return nil, nil
-}
-
 // GenDonatingContribution gen donate Contribution
-func GenDonatingContribution(donorUUID string, smartContract protos.SmartContract, amount uint64) protos.DonorContribution {
+func GenDonatingContribution(donorUUID string, smartContract protos.SmartContract, amount uint64, timestamp int64) protos.DonorContribution {
 	var contribution protos.DonorContribution
 
 	contribution.Donorid = donorUUID
 	contribution.SmartContractName = smartContract.Name
 	contribution.SmartContractAddr = smartContract.Addr
 	contribution.Amount = amount
-	contribution.Timestamp = time.Now().UTC().Unix()
+	contribution.Timestamp = timestamp
 
 	return contribution
-}
-
-// GenDonatingChangeCoinTxData gen donate changecoin tx
-func GenDonatingChangeCoinTxData(donorUUID, bankAddr, donorAddr string, amount uint64, bankAccount protos.Account) (*protos.TX, error) {
-	var tx protos.TX
-
-	tx.Version = TxVersion
-	tx.Timestamp = time.Now().UTC().Unix()
-
-	tx.Txin = GenChangeCoinTxin(bankAddr, bankAccount)
-
-	tx.Txout = GenChangeCoinTxout(bankAddr, donorAddr, bankAccount, amount)
-
-	tx.InputData = donorUUID
-
-	tx.Founder = donorAddr
-
-	return &tx, nil
 }
 
 func GenChangeCoinTxin(bankAddr string, bankAccount protos.Account) []*protos.TX_TXIN {
@@ -315,25 +234,6 @@ func GenChangeCoinChangeCoinTxout(donorAddr string, amount uint64) protos.TX_TXO
 	return txout
 }
 
-// GenDonatingDonatedTxData gen donate donated tx
-func GenDonatingDonatedTxData(donorAddr, donorUUID, sourceTxHash, smartContractAddr, channelAddr, fundAddr string, amount uint64, smartContract protos.SmartContract) (*protos.TX, []*protos.DonorTrack) {
-	var tx protos.TX
-	var donatedTrack []*protos.DonorTrack
-
-	tx.Version = TxVersion
-	tx.Timestamp = time.Now().UTC().Unix()
-
-	tx.Txin = GenDonatingTxin(donorAddr, sourceTxHash)
-
-	tx.Txout, donatedTrack, _ = GenDonatingTxout(donorAddr, donorUUID, smartContractAddr, channelAddr, fundAddr, amount, smartContract)
-
-	tx.InputData = donorUUID
-
-	tx.Founder = channelAddr
-
-	return &tx, donatedTrack
-}
-
 func GenDonatingTxin(donorAddr, sourceTxHash string) []*protos.TX_TXIN {
 	var txins []*protos.TX_TXIN
 	var txin protos.TX_TXIN
@@ -346,19 +246,19 @@ func GenDonatingTxin(donorAddr, sourceTxHash string) []*protos.TX_TXIN {
 	return txins
 }
 
-func GenDonatingTxout(donorAddr, donorUUID, smartContractAddr, channelAddr, fundAddr string, amount uint64, smartContract protos.SmartContract) ([]*protos.TX_TXOUT, []*protos.DonorTrack, *protos.ProcessDonored) {
+func GenDonatingTxout(donorAddr, donorUUID, smartContractAddr, channelAddr, fundAddr string, amount uint64, smartContract protos.SmartContract, timestamp int64) ([]*protos.TX_TXOUT, []*protos.DonorTrack, *protos.ProcessDonored) {
 	var txouts []*protos.TX_TXOUT
 	var tracks []*protos.DonorTrack
 
-	smartContractTxout, smartContractTrack := GenDonatingSmartContractTxout(donorAddr, donorUUID, smartContractAddr, amount, smartContract)
+	smartContractTxout, smartContractTrack := GenDonatingSmartContractTxout(donorAddr, donorUUID, smartContractAddr, amount, smartContract, timestamp)
 	txouts = append(txouts, &smartContractTxout)
 	tracks = append(tracks, &smartContractTrack)
 
-	channelTxout, channelTrack := GenDonatingChannelTxout(donorAddr, donorUUID, channelAddr, amount, smartContract)
+	channelTxout, channelTrack := GenDonatingChannelTxout(donorAddr, donorUUID, channelAddr, amount, smartContract, timestamp)
 	txouts = append(txouts, &channelTxout)
 	tracks = append(tracks, &channelTrack)
 
-	fundTxout, fundTrack := GenDonatingFundTxout(donorAddr, donorUUID, fundAddr, amount, smartContract)
+	fundTxout, fundTrack := GenDonatingFundTxout(donorAddr, donorUUID, fundAddr, amount, smartContract, timestamp)
 	txouts = append(txouts, &fundTxout)
 	tracks = append(tracks, &fundTrack)
 
@@ -374,12 +274,12 @@ func GenDonatingTxout(donorAddr, donorUUID, smartContractAddr, channelAddr, fund
 	processDonored.SmartContractAmount = smartContractTrack.Amount
 	processDonored.ChannelAmount = channelTrack.Amount
 	processDonored.FundAmount = fundTrack.Amount
-	processDonored.Timestamp = time.Now().UTC().Unix()
+	processDonored.Timestamp = timestamp
 
 	return txouts, tracks, &processDonored
 }
 
-func GenDonatingSmartContractTxout(donorAddr, donorUUID, smartContractAddr string, amount uint64, smartContract protos.SmartContract) (protos.TX_TXOUT, protos.DonorTrack) {
+func GenDonatingSmartContractTxout(donorAddr, donorUUID, smartContractAddr string, amount uint64, smartContract protos.SmartContract, timestamp int64) (protos.TX_TXOUT, protos.DonorTrack) {
 
 	var txout protos.TX_TXOUT
 
@@ -395,12 +295,12 @@ func GenDonatingSmartContractTxout(donorAddr, donorUUID, smartContractAddr strin
 	track.Amount = txout.Value
 	track.DonorAmount = amount
 	track.Type = 0
-	track.Timestamp = time.Now().UTC().Unix()
+	track.Timestamp = timestamp
 
 	return txout, track
 }
 
-func GenDonatingChannelTxout(donorAddr, donorUUID, channelAddr string, amount uint64, smartContract protos.SmartContract) (protos.TX_TXOUT, protos.DonorTrack) {
+func GenDonatingChannelTxout(donorAddr, donorUUID, channelAddr string, amount uint64, smartContract protos.SmartContract, timestamp int64) (protos.TX_TXOUT, protos.DonorTrack) {
 
 	var txout protos.TX_TXOUT
 
@@ -416,12 +316,12 @@ func GenDonatingChannelTxout(donorAddr, donorUUID, channelAddr string, amount ui
 	track.Amount = txout.Value
 	track.DonorAmount = amount
 	track.Type = 2
-	track.Timestamp = time.Now().UTC().Unix()
+	track.Timestamp = timestamp
 
 	return txout, track
 }
 
-func GenDonatingFundTxout(donorAddr, donorUUID, fundAddr string, amount uint64, smartContract protos.SmartContract) (protos.TX_TXOUT, protos.DonorTrack) {
+func GenDonatingFundTxout(donorAddr, donorUUID, fundAddr string, amount uint64, smartContract protos.SmartContract, timestamp int64) (protos.TX_TXOUT, protos.DonorTrack) {
 
 	var txout protos.TX_TXOUT
 
@@ -437,7 +337,7 @@ func GenDonatingFundTxout(donorAddr, donorUUID, fundAddr string, amount uint64, 
 	track.Amount = txout.Value
 	track.DonorAmount = amount
 	track.Type = 3
-	track.Timestamp = time.Now().UTC().Unix()
+	track.Timestamp = timestamp
 
 	return txout, track
 }

@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
-	"time"
 
 	"github.com/CebEcloudTime/charitycc/core/coin"
 	"github.com/CebEcloudTime/charitycc/core/store"
@@ -421,12 +420,12 @@ func Drawed(store store.Store, args []string) ([]byte, error) {
 		return nil, err
 	}
 
-	err = SaveSmartContractTrack(store, smartContractAddr, bargain, amount)
+	err = SaveSmartContractTrack(store, smartContractAddr, bargain, amount, sourceTX.Timestamp)
 	if err != nil {
 		return nil, err
 	}
 
-	err = SaveBargainTrack(store, bargain, amount)
+	err = SaveBargainTrack(store, bargain, amount, sourceTX.Timestamp)
 	if err != nil {
 		return nil, err
 	}
@@ -483,8 +482,8 @@ func GenDrawedTxData(store store.Store, sourceTX protos.TX) (*protos.TX, error) 
 
 	var tx protos.TX
 
-	tx.Version = 170101
-	tx.Timestamp = time.Now().UTC().Unix()
+	tx.Version = sourceTX.Version
+	tx.Timestamp = sourceTX.Timestamp
 
 	txins, txouts, err := GenDrawedTxInOutData(store, smartContractAccount, smartContractAddr, bargainAddr, amount)
 	if err != nil {
@@ -561,7 +560,7 @@ func GenDrawedTxInOutData(store store.Store, account *protos.Account, smartContr
 	return txins, txouts, nil
 }
 
-func SaveBargainTrack(store store.Store, bargain *protos.Bargain, amount uint64) error {
+func SaveBargainTrack(store store.Store, bargain *protos.Bargain, amount uint64, timestamp int64) error {
 	tmpBargainTrack, err := store.GetBargainTrack(bargain.Addr)
 	if err != nil {
 		return err
@@ -570,7 +569,7 @@ func SaveBargainTrack(store store.Store, bargain *protos.Bargain, amount uint64)
 	var bargainHistory protos.BargainHistory
 
 	bargainHistory.Amount = amount
-	bargainHistory.Timestamp = time.Now().UTC().Unix()
+	bargainHistory.Timestamp = timestamp
 
 	tmpBargainTrack.Addr = bargain.Addr
 	tmpBargainTrack.Trans = append(tmpBargainTrack.Trans, &bargainHistory)
@@ -582,7 +581,7 @@ func SaveBargainTrack(store store.Store, bargain *protos.Bargain, amount uint64)
 	return nil
 }
 
-func SaveSmartContractTrack(store store.Store, smartContractAddr string, bargain *protos.Bargain, amount uint64) error {
+func SaveSmartContractTrack(store store.Store, smartContractAddr string, bargain *protos.Bargain, amount uint64, timestamp int64) error {
 
 	tmpSmartContractTrack, err := store.GetSmartContractTrack(smartContractAddr)
 	if err != nil {
@@ -595,7 +594,7 @@ func SaveSmartContractTrack(store store.Store, smartContractAddr string, bargain
 	smartContractHistory.BargainName = bargain.Name
 	smartContractHistory.Type = "draw"
 	smartContractHistory.Amount = amount
-	smartContractHistory.Timestamp = time.Now().UTC().Unix()
+	smartContractHistory.Timestamp = timestamp
 
 	tmpSmartContractTrack.Addr = smartContractAddr
 	tmpSmartContractTrack.Trans = append(tmpSmartContractTrack.Trans, &smartContractHistory)
@@ -614,7 +613,7 @@ func SaveDonorTrack(store store.Store, drawUUID string, sourceTX *protos.TX, bar
 			continue
 		}
 
-		donorTrack, donorAddr, err := GenDonorTrackByTxout(output, drawUUID, bargain)
+		donorTrack, donorAddr, err := GenDonorTrackByTxout(output, drawUUID, bargain, sourceTX.Timestamp)
 		if err != nil {
 			return err
 		}
@@ -634,7 +633,7 @@ func SaveDonorTrack(store store.Store, drawUUID string, sourceTX *protos.TX, bar
 	return nil
 }
 
-func GenDonorTrackByTxout(txout *protos.TX_TXOUT, drawUUID string, bargain *protos.Bargain) (*protos.DonorTrack, string, error) {
+func GenDonorTrackByTxout(txout *protos.TX_TXOUT, drawUUID string, bargain *protos.Bargain, timestamp int64) (*protos.DonorTrack, string, error) {
 	var donorTrack protos.DonorTrack
 
 	_attrs := strings.Split(txout.Attr, ",")
@@ -652,7 +651,7 @@ func GenDonorTrackByTxout(txout *protos.TX_TXOUT, drawUUID string, bargain *prot
 	donorTrack.Amount = txout.Value
 	donorTrack.DonorAmount = txout.Value
 	donorTrack.Type = 1
-	donorTrack.Timestamp = time.Now().UTC().Unix()
+	donorTrack.Timestamp = timestamp
 
 	return &donorTrack, _donorAddr, nil
 }
@@ -671,7 +670,7 @@ func SaveProcessDrawed(store store.Store, drawUUID, smartContractAddr string, so
 	processDrawed.BargainName = bargain.Name
 	processDrawed.Amount = amount
 	processDrawed.AcceptName = bargain.PartyB
-	processDrawed.Timestamp = time.Now().UTC().Unix()
+	processDrawed.Timestamp = sourceTX.Timestamp
 
 	processDrawed.Remark = sourceTX.InputData
 
