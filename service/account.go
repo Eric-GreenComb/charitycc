@@ -4,9 +4,9 @@ import (
 	"encoding/base64"
 	"encoding/json"
 
-	"github.com/CebEcloudTime/charitycc/core/store"
-	"github.com/CebEcloudTime/charitycc/errors"
-	"github.com/CebEcloudTime/charitycc/protos"
+	"github.com/ecloudtime/charitycc/core/store"
+	"github.com/ecloudtime/charitycc/errors"
+	"github.com/ecloudtime/charitycc/protos"
 )
 
 // RegisterAccount register account
@@ -18,6 +18,7 @@ func RegisterAccount(store store.Store, args []string) ([]byte, error) {
 	return InitAccount(store, addr, publicKey)
 }
 
+// InitAccount init account
 func InitAccount(store store.Store, addr, publicKey string) ([]byte, error) {
 
 	if tmpaccount, err := store.GetAccount(addr); err == nil && tmpaccount != nil && tmpaccount.Addr == addr {
@@ -48,7 +49,7 @@ func QueryAccount(store store.Store, args []string) ([]byte, error) {
 	return json.Marshal(account)
 }
 
-// QueryAccountObj
+// QueryAccountObj query account obj
 func QueryAccountObj(store store.Store, addr string) (*protos.Account, error) {
 
 	account, err := store.GetAccount(addr)
@@ -59,7 +60,7 @@ func QueryAccountObj(store store.Store, addr string) (*protos.Account, error) {
 	return account, nil
 }
 
-// QueryAccountObj
+// QueryAccountRsaPublicKey query account pub key
 func QueryAccountRsaPublicKey(store store.Store, addr string) ([]byte, error) {
 
 	account, err := store.GetAccount(addr)

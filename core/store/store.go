@@ -3,26 +3,18 @@ package store
 import (
 	"errors"
 	"fmt"
+
 	"github.com/golang/protobuf/proto"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 
-	"github.com/CebEcloudTime/charitycc/protos"
-	"github.com/CebEcloudTime/charitycc/utils"
+	"github.com/ecloudtime/charitycc/protos"
+	"github.com/ecloudtime/charitycc/utils"
 )
 
 // Store interface describes the storage used by this chaincode. The interface
 // was created so either the state database store can be used or a in memory
 // store can be used for unit testing.
 type Store interface {
-	GetTest(string) (string, error)
-	PutTest(string, string) error
-
-	GetTestArray(string) (*protos.TestArray, error)
-	PutTestArray(string, string) error
-
-	GetTestMap(string) (*protos.TestMap, error)
-	PutTestMap(string, string, string) error
-
 	GetTran(string) (*protos.TX, bool, error)
 	PutTran(*protos.TX) error
 
@@ -64,7 +56,7 @@ type Store interface {
 	PutProcessDrawed(*protos.ProcessDrawed) error
 }
 
-// Store struct uses a chaincode stub for state access
+// CCStore Store struct uses a chaincode stub for state access
 type CCStore struct {
 	stub shim.ChaincodeStubInterface
 	// stub *shim.ChaincodeStub
@@ -76,125 +68,8 @@ func MakeCCStore(stub shim.ChaincodeStubInterface) Store {
 
 	store := &CCStore{}
 	store.stub = stub
+
 	return store
-}
-
-// GetTest
-func (s *CCStore) GetTest(key string) (string, error) {
-	data, err := s.stub.GetState(key)
-	if err != nil {
-		return "", fmt.Errorf("Error getting state from stub:  %s", err)
-	}
-
-	if data == nil || len(data) == 0 {
-		return "", fmt.Errorf("Error getting state from stub:  %s", "len = 0")
-	}
-
-	return string(data), nil
-}
-
-// PutTest
-func (s *CCStore) PutTest(key, data string) error {
-
-	return s.stub.PutState(key, []byte(data))
-}
-
-// GetTestArray
-func (s *CCStore) GetTestArray(key string) (*protos.TestArray, error) {
-	data, err := s.stub.GetState(key)
-	if err != nil {
-		return nil, fmt.Errorf("Error getting state from stub:  %s", err)
-	}
-
-	if data == nil || len(data) == 0 {
-		return nil, fmt.Errorf("Error getting state from stub:  %s", "len = 0")
-	}
-
-	array, err := utils.ParseTestArrayByBytes(data)
-	if err != nil {
-		return nil, err
-	}
-
-	return array, nil
-}
-
-// PutTestArray
-func (s *CCStore) PutTestArray(key, value string) error {
-	if key == "" {
-		return errors.New("empty addr")
-	}
-
-	array := new(protos.TestArray)
-	array.Key = key
-
-	data, err := s.stub.GetState(key)
-
-	if err == nil {
-
-		if err1 := proto.Unmarshal(data, array); err1 != nil {
-			return err1
-		}
-	}
-
-	array.Values = append(array.Values, value)
-
-	txBytes, err := proto.Marshal(array)
-	if err != nil {
-		return err
-	}
-
-	return s.stub.PutState(key, txBytes)
-}
-
-// GetTestMap
-func (s *CCStore) GetTestMap(key string) (*protos.TestMap, error) {
-	data, err := s.stub.GetState(key)
-	if err != nil {
-		return nil, fmt.Errorf("Error getting state from stub:  %s", err)
-	}
-
-	if data == nil || len(data) == 0 {
-		return nil, fmt.Errorf("Error getting state from stub:  %s", "len = 0")
-	}
-
-	_map, err := utils.ParseTestMapByBytes(data)
-	if err != nil {
-		return nil, err
-	}
-
-	return _map, nil
-}
-
-// PutTestMap
-func (s *CCStore) PutTestMap(rootKey, key, value string) error {
-	if key == "" {
-		return errors.New("empty addr")
-	}
-
-	_map := new(protos.TestMap)
-	_map.Key = rootKey
-
-	data, err := s.stub.GetState(rootKey)
-
-	if err == nil {
-
-		if err1 := proto.Unmarshal(data, _map); err1 != nil {
-			return err1
-		}
-	}
-
-	if _map.Txouts == nil || len(_map.Txouts) == 0 {
-		_map.Txouts = make(map[string]string)
-	}
-
-	_map.Txouts[key] = value
-
-	txBytes, err := proto.Marshal(_map)
-	if err != nil {
-		return err
-	}
-
-	return s.stub.PutState(rootKey, txBytes)
 }
 
 // GetTran returns a transaction for the given hash
@@ -296,6 +171,7 @@ func (s *CCStore) PutCoin(addr string, txout *protos.TX_TXOUT) error {
 	return s.stub.PutState(key, aBytes)
 }
 
+// DeleteCoin delete coin
 func (s *CCStore) DeleteCoin(addr string) error {
 	key := utils.GenerateCoinKey(addr)
 	s.stub.DelState(key)

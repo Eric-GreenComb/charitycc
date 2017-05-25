@@ -17,7 +17,7 @@ sudo git clone https://github.com/yeasy/docker-compose-files
 ### 下载CC及引用代码 
 go get github.com/golang/protobuf
 
-go get github.com/CebEcloudTime/charitycc
+go get github.com/ecloudtime/charitycc
 
 ### 编辑 4-peers-with-explorer.yml
 
@@ -25,7 +25,7 @@ go get github.com/CebEcloudTime/charitycc
     
     
     volumes:
-      - /home/eric/go/src/github.com/CebEcloudTime:/go/src/github.com/CebEcloudTime
+      - /home/eric/go/src/github.com/ecloudtime:/go/src/github.com/ecloudtime
       - /home/eric/go/src/github.com/golang:/go/src/github.com/golang
 
 ## 运行 CC
@@ -44,7 +44,7 @@ sudo docker-compose -f 4-peers-with-explorer.yml up
       "params": {
         "type": 1,
         "chaincodeID":{
-          "path": "github.com/CebEcloudTime/charitycc"
+          "path": "github.com/ecloudtime/charitycc"
         },
         "ctorMsg": {
           "function":"deploy",
@@ -67,7 +67,7 @@ result:
 
 ## REST Interface
 
-### execute /CebEcloudTime/tools/fabric/deploy/deploy.sh
+### execute /ecloudtime/tools/fabric/deploy/deploy.sh
 
 ### query
 

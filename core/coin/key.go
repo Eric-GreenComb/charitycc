@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/CebEcloudTime/charitycc/errors"
+	"github.com/ecloudtime/charitycc/errors"
 )
 
 // Key represents the key for a transaction in storage. It has both a

@@ -2,83 +2,84 @@ package main
 
 import (
 	"errors"
-	"github.com/CebEcloudTime/charitycc/core/store"
-	"github.com/CebEcloudTime/charitycc/handler"
+
+	"github.com/ecloudtime/charitycc/core/store"
+	"github.com/ecloudtime/charitycc/handler"
+
 	"github.com/hyperledger/fabric/core/chaincode/shim"
+	pb "github.com/hyperledger/fabric/protos/peer"
 )
 
 // Query chaincode query
-func (t *CharityCC) Query(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
-	// func (t *CharityCC) Query(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
+func (t *CharityCC) Query(stub shim.ChaincodeStubInterface) pb.Response {
+
+	function, args := stub.GetFunctionAndParameters()
 
 	// construct a new store
 	storeCC := store.MakeCCStore(stub)
 
-	switch function {
+	var Avalbytes []byte
+	var err error
 
-	case "queryStore":
-		// args: key
-		return handler.QueryStore(storeCC, args)
-	case "queryArray":
-		// args: key
-		return handler.QueryArray(storeCC, args)
-	case "queryMap":
-		// args: key
-		return handler.QueryMap(storeCC, args)
+	switch function {
 
 	case "queryFund":
 		// args: addr(%s:%s id, publickey -> sha256 -> sha256 -> hex)
-		return handler.QueryFund(storeCC, args)
+		Avalbytes, err = handler.QueryFund(storeCC, args)
 
 	case "queryChannel":
 		// args: addr(%s:%s id, publickey -> sha256 -> sha256 -> hex)
-		return handler.QueryChannel(storeCC, args)
+		Avalbytes, err = handler.QueryChannel(storeCC, args)
 
 	case "queryAccount":
 		// args: addr(%s:%s id, publickey -> sha256 -> sha256 -> hex)
-		return handler.QueryAccount(storeCC, args)
+		Avalbytes, err = handler.QueryAccount(storeCC, args)
 	case "queryCoin":
 		// args: addr
-		return handler.QueryCoin(storeCC, args)
+		Avalbytes, err = handler.QueryCoin(storeCC, args)
 
 	case "querySmartContract":
 		// args: addr(client gen addr)
-		return handler.QuerySmartContract(storeCC, args)
+		Avalbytes, err = handler.QuerySmartContract(storeCC, args)
 	case "querySmartContractExt":
 		// args: addrs(client gen addrs) return: SmartContractExt List
-		return handler.QuerySmartContractExt(storeCC, args)
+		Avalbytes, err = handler.QuerySmartContractExt(storeCC, args)
 	case "querySmartContractExts":
 		// args: addrs(client gen addrs, split by ",") return: SmartContractExt List
-		return handler.QuerySmartContractExts(storeCC, args)
+		Avalbytes, err = handler.QuerySmartContractExts(storeCC, args)
 	case "querySmartContractTrack":
 		// args: addrs(client gen addrs)
-		return handler.QuerySmartContractTrack(storeCC, args)
+		Avalbytes, err = handler.QuerySmartContractTrack(storeCC, args)
 
 	case "queryBargain":
 		// args: addr(client gen addr)
-		return handler.QueryBargain(storeCC, args)
+		Avalbytes, err = handler.QueryBargain(storeCC, args)
 	case "queryBargains":
 		// args: addrs(client gen addrs, split by ,)
-		return handler.QueryBargains(storeCC, args)
+		Avalbytes, err = handler.QueryBargains(storeCC, args)
 	case "queryBargainTrack":
 		// args: addrs(client gen addrs)
-		return handler.QueryBargainTrack(storeCC, args)
+		Avalbytes, err = handler.QueryBargainTrack(storeCC, args)
 
 	case "queryDonor":
 		// args: addr(client gen addr)
-		return handler.QueryDonor(storeCC, args)
+		Avalbytes, err = handler.QueryDonor(storeCC, args)
 
 	case "queryProcessDonored":
 		// args: donorUUID
-		return handler.QueryProcessDonored(storeCC, args)
+		Avalbytes, err = handler.QueryProcessDonored(storeCC, args)
 
 	case "queryProcessDrawed":
 		// args: drawUUID
-		return handler.QueryProcessDrawed(storeCC, args)
+		Avalbytes, err = handler.QueryProcessDrawed(storeCC, args)
 
 	default:
-		return nil, errors.New("Unsupported operation")
+		Avalbytes, err = nil, errors.New("Unsupported operation")
 	}
 
-	return nil, nil
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+
+	return shim.Success(Avalbytes)
 }

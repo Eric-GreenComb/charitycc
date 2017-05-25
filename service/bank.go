@@ -3,11 +3,11 @@ package service
 import (
 	"encoding/base64"
 
-	"github.com/CebEcloudTime/charitycc/core/coin"
-	"github.com/CebEcloudTime/charitycc/core/store"
-	"github.com/CebEcloudTime/charitycc/errors"
-	"github.com/CebEcloudTime/charitycc/protos"
-	"github.com/CebEcloudTime/charitycc/utils"
+	"github.com/ecloudtime/charitycc/core/coin"
+	"github.com/ecloudtime/charitycc/core/store"
+	"github.com/ecloudtime/charitycc/errors"
+	"github.com/ecloudtime/charitycc/protos"
+	"github.com/ecloudtime/charitycc/utils"
 )
 
 // RegisterBank register bank account
@@ -19,7 +19,7 @@ func RegisterBank(store store.Store, args []string) ([]byte, error) {
 	return InitAccount(store, addr, publicKey)
 }
 
-// GetBank get bank account
+// Coinbase coinbase
 func Coinbase(store store.Store, args []string) ([]byte, error) {
 
 	base64TxData := args[1]
@@ -28,7 +28,7 @@ func Coinbase(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.Base64Decoding
 	}
 
-	newTX, err := utils.ParseTxByJsonBytes(txData)
+	newTX, err := utils.ParseTxByJSONBytes(txData)
 	if err != nil {
 		return nil, errors.InvalidTX
 	}
@@ -82,7 +82,7 @@ func ChangeCoin(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.Base64Decoding
 	}
 
-	newTX, err := utils.ParseTxByJsonBytes(txData)
+	newTX, err := utils.ParseTxByJSONBytes(txData)
 	if err != nil {
 		return nil, err
 	}
@@ -110,7 +110,7 @@ func BuyCoin(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.Base64Decoding
 	}
 
-	sourceTX, err := utils.ParseTxByJsonBytes(txData)
+	sourceTX, err := utils.ParseTxByJSONBytes(txData)
 	if err != nil {
 		return nil, err
 	}
@@ -134,6 +134,7 @@ func BuyCoin(store store.Store, args []string) ([]byte, error) {
 	return nil, nil
 }
 
+// GenBuyCoinTxData gen buy coin tx data
 func GenBuyCoinTxData(store store.Store, sourceTX protos.TX) (*protos.TX, error) {
 	bankAddr := sourceTX.Txin[0].Addr
 	donorAddr := sourceTX.Txout[0].Addr
@@ -170,6 +171,7 @@ func GenBuyCoinTxData(store store.Store, sourceTX protos.TX) (*protos.TX, error)
 	return &tx, nil
 }
 
+// GenBuyCoinTxInOutData gen buy coin tx inout data
 func GenBuyCoinTxInOutData(account *protos.Account, bankAddr, donorAddr, attr string, amount uint64) ([]*protos.TX_TXIN, []*protos.TX_TXOUT, error) {
 	var txins []*protos.TX_TXIN
 	var txouts []*protos.TX_TXOUT

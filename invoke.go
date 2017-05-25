@@ -2,66 +2,59 @@ package main
 
 import (
 	"errors"
-	"github.com/CebEcloudTime/charitycc/core/store"
-	"github.com/CebEcloudTime/charitycc/handler"
+
+	"github.com/ecloudtime/charitycc/core/store"
+	"github.com/ecloudtime/charitycc/handler"
+
 	"github.com/hyperledger/fabric/core/chaincode/shim"
+	pb "github.com/hyperledger/fabric/protos/peer"
 )
 
 // Invoke chaincode invoke
-func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
-	// func (t *CharityCC) Invoke(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
+func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
+
+	function, args := stub.GetFunctionAndParameters()
 
 	// construct a new store
 	storeCC := store.MakeCCStore(stub)
 
+	var Avalbytes []byte
+	var err error
+
 	switch function {
-
-	case "testStore":
-		// args: key,num
-		return handler.TestStore(storeCC, args)
-	case "testArray":
-		// args: key,num
-		return handler.TestArray(storeCC, args)
-	case "testMap":
-		// args: key,key,num
-		return handler.TestMap(storeCC, args)
-
-	// case "testMap":
-	// 	// args: num
-	// 	return handler.TestMap(storeCC, args)
 
 	case "registerAccount":
 		// args: addr,publicKey(ID base64),sysadminSign(base64)
-		return handler.RegisterAccount(storeCC, args)
+		Avalbytes, err = handler.RegisterAccount(storeCC, args)
 
 	case "coinbase":
 		// args: addr, txData(coinbase tx Base64),bankSign(base64)
-		return handler.Coinbase(storeCC, args)
+		Avalbytes, err = handler.Coinbase(storeCC, args)
 	case "destroycoinbase":
 		// args: targetAddr, bankAddr, bankSign(base64)
-		return handler.DestoryCoinbase(storeCC, args)
+		Avalbytes, err = handler.DestoryCoinbase(storeCC, args)
 	case "changeCoin":
 		// args: sourceAddr, txData(coinbase tx Base64),sourcSign(base64)
-		return handler.ChangeCoin(storeCC, args)
+		Avalbytes, err = handler.ChangeCoin(storeCC, args)
 	case "buyCoin":
 		// args: sourceAddr, txData(coinbase tx Base64),sourcSign(base64)
-		return handler.BuyCoin(storeCC, args)
+		Avalbytes, err = handler.BuyCoin(storeCC, args)
 
 	case "registerBank":
 		// args: addr,bankPublicKey(base64),sysadminSign(base64)
-		return handler.RegisterBank(storeCC, args)
+		Avalbytes, err = handler.RegisterBank(storeCC, args)
 
 	case "registerFund":
 		// args: fundAddr,fundPublicKey(base64),sysadminSign(base64)
-		return handler.RegisterFund(storeCC, args)
+		Avalbytes, err = handler.RegisterFund(storeCC, args)
 
 	case "registerChannel":
 		// args: channelAddr,channelPublicKey(base64),sysadminSign(base64)
-		return handler.RegisterChannel(storeCC, args)
+		Avalbytes, err = handler.RegisterChannel(storeCC, args)
 
 	case "registerDonor":
 		// args: channelAddr,donorAddr,donorPublicKey(base64),channelSign(base64)
-		return handler.RegisterDonor(storeCC, args)
+		Avalbytes, err = handler.RegisterDonor(storeCC, args)
 	// case "addContribution":
 	// 	// args: channelAddr,donorAddr,contributionData(contribution json base64),channelSign(base64)
 	// 	return handler.AddContribution(storeCC, args)
@@ -70,32 +63,36 @@ func (t *CharityCC) Invoke(stub shim.ChaincodeStubInterface, function string, ar
 	// 	return handler.AddTrack(storeCC, args)
 	case "donated":
 		// args: donorAddr,donorAddr,donorUUID,smartContractAddr,txData(coinbase tx Base64),donorSign(base64),extInfo
-		return handler.Donated(storeCC, args)
+		Avalbytes, err = handler.Donated(storeCC, args)
 	// case "doDonating":
 	// 	// args: donorUUID, donorAddr,smartContractAddr,amount,bankAddr,channelAddr, fundAddr,donorSign(base64)
 	// 	return handler.DoDonating(storeCC, args)
 
 	case "registerSmartContract":
 		// args: foundationAddr, smartContractAddr, smartContractPublickKey(base64), smartContractData(treaty json base64),foundationSign(base64)
-		return handler.RegisterSmartContract(storeCC, args)
+		Avalbytes, err = handler.RegisterSmartContract(storeCC, args)
 	case "changeSmartContractStatus":
 		// args: foundationAddr, addr(smartContract addr), status,foundationSign(base64)
-		return handler.ChangeSmartContractStatus(storeCC, args)
+		Avalbytes, err = handler.ChangeSmartContractStatus(storeCC, args)
 
 	case "registerBargain":
 		// args: foundationAddr,bargainAddr, bargainPublickKey(base64), bargainData(contract json base64),foundationSign(base64)
-		return handler.RegisterBargain(storeCC, args)
+		Avalbytes, err = handler.RegisterBargain(storeCC, args)
 
 	case "drawed":
 		// args: foundationAddr,drawUUID,txData(coinbase tx Base64),foundationSign(base64),extInfo
-		return handler.Drawed(storeCC, args)
+		Avalbytes, err = handler.Drawed(storeCC, args)
 	// case "doDrawing":
 	// 	// args: foundationAddr,txData(coinbase tx Base64),foundationSign(base64)
 	// 	return handler.DoDrawing(storeCC, args)
 
 	default:
-		return nil, errors.New("Unsupported operation")
+		Avalbytes, err = nil, errors.New("Unsupported operation")
 	}
 
-	return nil, nil
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+
+	return shim.Success(Avalbytes)
 }

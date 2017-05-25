@@ -6,11 +6,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/CebEcloudTime/charitycc/core/coin"
-	"github.com/CebEcloudTime/charitycc/core/store"
-	"github.com/CebEcloudTime/charitycc/errors"
-	"github.com/CebEcloudTime/charitycc/protos"
-	"github.com/CebEcloudTime/charitycc/utils"
+	"github.com/ecloudtime/charitycc/core/coin"
+	"github.com/ecloudtime/charitycc/core/store"
+	"github.com/ecloudtime/charitycc/errors"
+	"github.com/ecloudtime/charitycc/protos"
+	"github.com/ecloudtime/charitycc/utils"
 )
 
 // RegisterChannel register Channel
@@ -79,7 +79,7 @@ func Donated(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.InvalidSmartContract
 	}
 
-	sourceTX, err := utils.ParseTxByJsonBytes(txData)
+	sourceTX, err := utils.ParseTxByJSONBytes(txData)
 	if err != nil {
 		return nil, err
 	}

@@ -4,10 +4,10 @@ import (
 	"encoding/base64"
 	"encoding/json"
 
-	"github.com/CebEcloudTime/charitycc/core/store"
-	"github.com/CebEcloudTime/charitycc/errors"
-	"github.com/CebEcloudTime/charitycc/protos"
-	"github.com/CebEcloudTime/charitycc/utils"
+	"github.com/ecloudtime/charitycc/core/store"
+	"github.com/ecloudtime/charitycc/errors"
+	"github.com/ecloudtime/charitycc/protos"
+	"github.com/ecloudtime/charitycc/utils"
 )
 
 // RegisterDonor register donor
@@ -56,7 +56,7 @@ func AddContribution(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.Base64Decoding
 	}
 
-	newContribution, err := utils.ParseDonorContributionByJsonBytes(contributionData)
+	newContribution, err := utils.ParseDonorContributionByJSONBytes(contributionData)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +86,7 @@ func AddTrack(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.Base64Decoding
 	}
 
-	newTracking, err := utils.ParseDonorTrackByJsonBytes(trackData)
+	newTracking, err := utils.ParseDonorTrackByJSONBytes(trackData)
 	if err != nil {
 		return nil, err
 	}

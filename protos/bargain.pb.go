@@ -13,7 +13,6 @@ It is generated from these files:
 	foundation.proto
 	process.proto
 	smartContract.proto
-	test.proto
 
 It has these top-level messages:
 	Bargain
@@ -35,8 +34,6 @@ It has these top-level messages:
 	SmartContractExt
 	SmartContractTrack
 	SmartContractHistory
-	TestArray
-	TestMap
 */
 package protos
 

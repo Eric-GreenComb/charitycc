@@ -3,7 +3,8 @@ package utils
 import (
 	"crypto/sha256"
 	"encoding/hex"
-	"github.com/CebEcloudTime/charitycc/protos"
+
+	"github.com/ecloudtime/charitycc/protos"
 	"github.com/golang/protobuf/proto"
 )
 

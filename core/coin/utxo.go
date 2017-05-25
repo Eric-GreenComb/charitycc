@@ -1,10 +1,10 @@
 package coin
 
 import (
-	"github.com/CebEcloudTime/charitycc/core/store"
-	"github.com/CebEcloudTime/charitycc/errors"
-	"github.com/CebEcloudTime/charitycc/protos"
-	"github.com/CebEcloudTime/charitycc/utils"
+	"github.com/ecloudtime/charitycc/core/store"
+	"github.com/ecloudtime/charitycc/errors"
+	"github.com/ecloudtime/charitycc/protos"
+	"github.com/ecloudtime/charitycc/utils"
 )
 
 // UTXO includes the storage for the chaincode API

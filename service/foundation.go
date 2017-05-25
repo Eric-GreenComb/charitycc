@@ -7,11 +7,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/CebEcloudTime/charitycc/core/coin"
-	"github.com/CebEcloudTime/charitycc/core/store"
-	"github.com/CebEcloudTime/charitycc/errors"
-	"github.com/CebEcloudTime/charitycc/protos"
-	"github.com/CebEcloudTime/charitycc/utils"
+	"github.com/ecloudtime/charitycc/core/coin"
+	"github.com/ecloudtime/charitycc/core/store"
+	"github.com/ecloudtime/charitycc/errors"
+	"github.com/ecloudtime/charitycc/protos"
+	"github.com/ecloudtime/charitycc/utils"
 )
 
 // RegisterFund register fund
@@ -98,7 +98,7 @@ func InitSmartContract(store store.Store, base64SmartContractData string) ([]byt
 		return nil, nil, errors.Base64Decoding
 	}
 
-	newSmartContract, err := utils.ParseSmartContractByJsonBytes(smartContractData)
+	newSmartContract, err := utils.ParseSmartContractByJSONBytes(smartContractData)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -312,7 +312,7 @@ func InitBargain(store store.Store, base64BargainData string) ([]byte, error) {
 		return nil, errors.Base64Decoding
 	}
 
-	newBargain, err := utils.ParseBargainByJsonBytes(bargainData)
+	newBargain, err := utils.ParseBargainByJSONBytes(bargainData)
 	if err != nil {
 		return nil, err
 	}
@@ -384,7 +384,7 @@ func Drawed(store store.Store, args []string) ([]byte, error) {
 		return nil, errors.Base64Decoding
 	}
 
-	sourceTX, err := utils.ParseTxByJsonBytes(txData)
+	sourceTX, err := utils.ParseTxByJSONBytes(txData)
 	if err != nil {
 		return nil, err
 	}
@@ -688,7 +688,7 @@ func DrawedTx(store store.Store, args []string) (*protos.TX, error) {
 		return nil, errors.Base64Decoding
 	}
 
-	newTX, err := utils.ParseTxByJsonBytes(txData)
+	newTX, err := utils.ParseTxByJSONBytes(txData)
 	if err != nil {
 		return nil, err
 	}

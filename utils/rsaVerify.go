@@ -9,10 +9,9 @@ import (
 	"errors"
 )
 
-// Sign rsa sign
+// RsaSign Sign rsa sign
 // hashed := md5.Sum(src)
 // hashed := sha256.Sum256(src)
-
 func RsaSign(hash basecrypto.Hash, hashed, privateKey []byte) ([]byte, error) {
 	// Only small messages can be signed directly; thus the hash of a
 	// message, rather than the message itself, is signed. This requires
@@ -22,8 +21,9 @@ func RsaSign(hash basecrypto.Hash, hashed, privateKey []byte) ([]byte, error) {
 
 	block, _ := pem.Decode(privateKey)
 	if block == nil {
-		return nil, errors.New("private key error!")
+		return nil, errors.New("private key error")
 	}
+
 	priv, err := x509.ParsePKCS1PrivateKey(block.Bytes)
 	if err != nil {
 		return nil, err
@@ -34,7 +34,7 @@ func RsaSign(hash basecrypto.Hash, hashed, privateKey []byte) ([]byte, error) {
 	// return rsa.SignPKCS1v15(rand.Reader, priv, crypto.SHA256, hashed[:])
 }
 
-// Verify rsa verify
+// RsaVerify Verify rsa verify
 // hashed := md5.Sum(src)
 // hashed := sha256.Sum256(src)
 // signature is a valid signature of message from the public key.

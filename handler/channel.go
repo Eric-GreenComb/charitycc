@@ -5,10 +5,10 @@ import (
 	"crypto/sha256"
 	"encoding/base64"
 
-	"github.com/CebEcloudTime/charitycc/core/store"
-	"github.com/CebEcloudTime/charitycc/errors"
-	"github.com/CebEcloudTime/charitycc/service"
-	"github.com/CebEcloudTime/charitycc/utils"
+	"github.com/ecloudtime/charitycc/core/store"
+	"github.com/ecloudtime/charitycc/errors"
+	"github.com/ecloudtime/charitycc/service"
+	"github.com/ecloudtime/charitycc/utils"
 )
 
 // RegisterChannel register channel
